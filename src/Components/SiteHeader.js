@@ -14,8 +14,9 @@ export default class SiteHeader extends Component {
             <ul>
               <li>Polls</li>
               <li>Create A Poll</li>
-              <li>Leaderboard</li>
+              <li>LeaderBoard</li>
               <li>Sign In/Outs</li>
+
               {/* Make sign in/out dynamic based on whether signed in */}
             </ul>
           </nav>
