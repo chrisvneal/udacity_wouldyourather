@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Container, Header } from "semantic-ui-react";
+import { Link } from "react-router-dom";
 
 export default class SiteHeader extends Component {
   render() {
@@ -12,9 +13,15 @@ export default class SiteHeader extends Component {
           </div>
           <nav>
             <ul>
-              <li>Polls</li>
-              <li>Create A Poll</li>
-              <li>LeaderBoard</li>
+              <Link to="/">
+                <li>Polls</li>
+              </Link>
+              <Link to="/add">
+                <li>Create A Poll</li>
+              </Link>
+              <Link to="/leaderboard">
+                <li>LeaderBoard</li>
+              </Link>
               <li>Sign In/Outs</li>
 
               {/* Make sign in/out dynamic based on whether signed in */}

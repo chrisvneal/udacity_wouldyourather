@@ -7,6 +7,8 @@ import LeaderBoard from "./Components/Pages/LeaderBoard";
 import CreatePoll from "./Components/Pages/CreatePoll";
 import UserProfile from "./Components/Pages/UserProfile";
 import Polls from "./Components/Pages/Polls";
+import Login from "./Components/Pages/Login";
+import PollDetails from "./Components/Pages/PollDetails";
 
 export default class App extends Component {
   render() {
@@ -19,7 +21,9 @@ export default class App extends Component {
             <Route path="/" exact component={Polls} />
             <Route path="/add" component={CreatePoll} />
             <Route path="/leaderboard" component={LeaderBoard} />
-            <Route path="/user" component={UserProfile} />
+            <Route path="/user_profile" component={UserProfile} />
+            <Route path="/poll_details" component={PollDetails} />
+            <Route path="/user_login" component={Login} />
           </Switch>
 
           {/* <Route path="/poll_id" component={CreatePoll} /> */}
