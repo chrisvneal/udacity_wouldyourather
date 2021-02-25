@@ -1,13 +1,13 @@
 import React, { Component } from "react";
-import { Container } from "semantic-ui-react";
+import { Container, Header } from "semantic-ui-react";
 
-export default class Header extends Component {
+export default class SiteHeader extends Component {
   render() {
     return (
       <header id="Header">
         <Container>
           <div>
-            <h1>Would You Rather?</h1>
+            <Header as="h1" content="Would You Rather?" />
             <img src="https://via.placeholder.com/100X100" alt="logo" />
           </div>
           <nav>
