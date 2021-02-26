@@ -2,6 +2,22 @@
 
 /* header styles */
 
+@mixin outline($color) {
+  outline: 1px dotted $color;
+}
+
 .site-nav ul {
   list-style: none;
+}
+
+.header-brand {
+  @include outline(red);
+}
+
+.site-header {
+  @include outline(blue);
+}
+
+.site-nav {
+  @include outline(gray);
 }

@@ -16,14 +16,17 @@ export default class App extends Component {
     return (
       <Router>
         <div className="App">
-          <Grid>
+          <Grid columns={16}>
+            {/* Site header */}
             <Grid.Row>
-              <Grid.Column>
+              <Grid.Column width={16}>
                 <SiteHeader />
               </Grid.Column>
             </Grid.Row>
+
+            {/* Main */}
             <Grid.Row>
-              <Grid.Column columns={16}>
+              <Grid.Column width={16}>
                 <main className="ui container">
                   <Switch>
                     <Route path="/" exact component={Polls} />
@@ -37,8 +40,10 @@ export default class App extends Component {
                 </main>
               </Grid.Column>
             </Grid.Row>
+
+            {/* Footer */}
             <Grid.Row>
-              <Grid.Column>
+              <Grid.Column width={16}>
                 <SiteFooter />
               </Grid.Column>
             </Grid.Row>
