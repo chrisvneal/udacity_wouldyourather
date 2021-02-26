@@ -5,7 +5,7 @@ export default class LeaderBoard extends Component {
   render() {
     return (
       <React.Fragment>
-        <Header as="h1" content="Leaderboard" />
+        <Header as="h1" content="Leader Board" />
       </React.Fragment>
     );
   }

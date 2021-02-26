@@ -11,13 +11,52 @@
 }
 
 .header-brand {
-  @include outline(red);
+  // @include outline(red);
+  margin-bottom: 20px;
 }
 
 .site-header {
-  @include outline(blue);
+  // @include outline(blue);
+  // height: 200px;
+  padding-top: 15px;
+
+  .row {
+    height: 200px;
+  }
 }
 
-.site-nav {
-  @include outline(gray);
+.header-brand {
+  display: flex;
+  justify-content: space-between;
+  h1.ui {
+    display: inline-block;
+    // @include outline(green);
+    margin: 0;
+    font-size: 1.3rem;
+    position: relative;
+    top: 6px;
+  }
+
+  .profile-header {
+    display: inline-block;
+    position: relative;
+    top: -8px;
+
+    .username {
+      font-weight: bold;
+      font-size: 0.8rem;
+      text-transform: lowercase;
+    }
+  }
+}
+
+.site-nav ul {
+  // @include outline(gray);
+  display: flex;
+  justify-content: space-between;
+}
+
+.profile-header {
+  // @include outline(red);
+  text-align: center;
 }
