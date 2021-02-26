@@ -1,10 +1,12 @@
 import React from "react";
-import { Header } from "semantic-ui-react";
+import { Header, Container } from "semantic-ui-react";
 
 export default function SiteFooter() {
   return (
-    <div>
-      <Header as="h1" content="Footer" />
-    </div>
+    <footer>
+      <Container>
+        <Header as="h1" content="Footer" />
+      </Container>
+    </footer>
   );
 }

@@ -4,9 +4,9 @@ import { Header } from "semantic-ui-react";
 export default class LeaderBoard extends Component {
   render() {
     return (
-      <div>
+      <React.Fragment>
         <Header as="h1" content="Leaderboard" />
-      </div>
+      </React.Fragment>
     );
   }
 }

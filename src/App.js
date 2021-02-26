@@ -17,16 +17,17 @@ export default class App extends Component {
         <div className="App">
           <SiteHeader />
 
-          <Switch>
-            <Route path="/" exact component={Polls} />
-            <Route path="/add" component={CreatePoll} />
-            <Route path="/leaderboard" component={LeaderBoard} />
-            <Route path="/user_profile" component={UserProfile} />
-            <Route path="/poll_details" component={PollDetails} />
-            <Route path="/user_login" component={Login} />
-          </Switch>
-
-          {/* <Route path="/poll_id" component={CreatePoll} /> */}
+          <main className="ui container">
+            <Switch>
+              <Route path="/" exact component={Polls} />
+              <Route path="/add" component={CreatePoll} />
+              <Route path="/leaderboard" component={LeaderBoard} />
+              <Route path="/user_profile" component={UserProfile} />
+              <Route path="/poll_details" component={PollDetails} />
+              <Route path="/user_login" component={Login} />
+            </Switch>
+            {/* <Route path="/poll_id" component={CreatePoll} /> */}
+          </main>
 
           <SiteFooter />
         </div>
