@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import SiteHeader from "./Components/SiteHeader";
 import SiteFooter from "./Components/SiteFooter";
-import LeaderBoard from "./Components/Pages/LeaderBoard";
+import LeaderBoard from "./Components/Pages/LeaderBoards";
 import CreatePoll from "./Components/Pages/CreatePoll";
 import UserProfile from "./Components/Pages/UserProfile";
 import Polls from "./Components/Pages/Polls";
