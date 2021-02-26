@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Container, Header } from "semantic-ui-react";
-// import { Link } from "react-router-dom";
 import SiteNav from "./SiteNav";
+import ProfileHeader from "./ProfileHeader";
 
 export default class SiteHeader extends Component {
   render() {
@@ -15,10 +15,7 @@ export default class SiteHeader extends Component {
 
           <SiteNav />
 
-          <div>
-            <img src="https://via.placeholder.com/50x50" alt="logo" />
-            <p>Username</p>
-          </div>
+          <ProfileHeader />
         </Container>
       </header>
     );

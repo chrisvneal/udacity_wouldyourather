@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export default function SiteNav() {
   return (
-    <nav>
+    <nav className="site-nav">
       <ul>
         <Link to="/">
           <li>Polls</li>
