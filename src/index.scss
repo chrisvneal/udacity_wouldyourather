@@ -1,36 +1,23 @@
 @import "./scss/partials/global_styles.scss";
 
-/* header styles */
-
-@mixin outline($color) {
-  outline: 1px dotted $color;
-}
-
-.site-nav ul {
-  list-style: none;
-}
-
-.header-brand {
-  // @include outline(red);
-  margin-bottom: 20px;
-}
-
+/* SiteHeader styles */
 .site-header {
-  // @include outline(blue);
-  // height: 200px;
   padding-top: 15px;
 
-  .row {
-    height: 200px;
+  .site-nav ul {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
   }
 }
 
 .header-brand {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 20px;
+
   h1.ui {
     display: inline-block;
-    // @include outline(green);
     margin: 0;
     font-size: 1.3rem;
     position: relative;
@@ -41,6 +28,7 @@
     display: inline-block;
     position: relative;
     top: -8px;
+    text-align: center;
 
     .username {
       font-weight: bold;
@@ -48,15 +36,4 @@
       text-transform: lowercase;
     }
   }
-}
-
-.site-nav ul {
-  // @include outline(gray);
-  display: flex;
-  justify-content: space-between;
-}
-
-.profile-header {
-  // @include outline(red);
-  text-align: center;
 }
