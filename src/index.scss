@@ -37,3 +37,14 @@
     }
   }
 }
+
+/* Poll styles */
+
+.polls .ui.segment {
+  border: none;
+  box-shadow: none;
+}
+
+main h2.ui.header:first-child {
+  margin-bottom: 2rem;
+}

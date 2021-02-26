@@ -5,7 +5,7 @@ export default class Login extends Component {
   render() {
     return (
       <div>
-        <Header as="h1" content="Login" />
+        <Header as="h2" content="Login" />
       </div>
     );
   }

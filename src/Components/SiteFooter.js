@@ -5,7 +5,7 @@ export default function SiteFooter() {
   return (
     <footer>
       <Container>
-        <Header as="h1" content="Footer" />
+        <Header as="h2" content="Footer" />
       </Container>
     </footer>
   );

@@ -5,7 +5,7 @@ export default class CreatePoll extends Component {
   render() {
     return (
       <div>
-        <Header as="h1" content="Create A Poll" />
+        <Header as="h2" content="Create A Poll" />
       </div>
     );
   }

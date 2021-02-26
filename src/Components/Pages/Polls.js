@@ -1,11 +1,23 @@
 import React, { Component } from "react";
-import { Header } from "semantic-ui-react";
+import { Header, Tab } from "semantic-ui-react";
 
 export default class Polls extends Component {
+  panes = [
+    {
+      menuItem: "Unanswered",
+      render: () => <Tab.Pane attached={false}>Unanswered Polls</Tab.Pane>,
+    },
+    {
+      menuItem: "Answered",
+      render: () => <Tab.Pane attached={false}>Answered Polls</Tab.Pane>,
+    },
+  ];
   render() {
     return (
-      <div>
-        <Header as="h1" content="Polls" />
+      <div className="polls">
+        <Header as="h2" content="Polls" />
+
+        <Tab menu={{ secondary: true, pointing: true }} panes={this.panes} />
       </div>
     );
   }

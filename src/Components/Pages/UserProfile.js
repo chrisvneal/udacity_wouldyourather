@@ -5,7 +5,7 @@ export default class UserProfile extends Component {
   render() {
     return (
       <div>
-        <Header as="h1" content="User Profile" />
+        <Header as="h2" content="User Profile" />
       </div>
     );
   }
