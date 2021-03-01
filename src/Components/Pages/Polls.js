@@ -12,7 +12,7 @@ export default class Polls extends Component {
       ),
       render: () => (
         <Tab.Pane attached={false}>
-          <PollsResults type="unanswered" />
+          <PollsResults />
         </Tab.Pane>
       ),
     },
@@ -24,7 +24,7 @@ export default class Polls extends Component {
       ),
       render: () => (
         <Tab.Pane attached={false}>
-          <PollsResults type="answered" />
+          <PollsResults />
         </Tab.Pane>
       ),
     },
