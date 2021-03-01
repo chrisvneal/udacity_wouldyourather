@@ -103,4 +103,17 @@ footer {
 
 .poll-results .ui.card {
   width: 200px;
+  margin: 0;
+  border-radius: 2px;
+}
+
+.poll-results {
+  display: flex;
+  flex-wrap: wrap;
+  flex-flow: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  // border: 1px solid blueviolet;
+  height: 300px;
+  width: 80%;
 }
