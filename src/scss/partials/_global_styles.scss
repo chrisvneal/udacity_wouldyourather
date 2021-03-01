@@ -34,3 +34,8 @@ img {
   max-width: 100%;
   height: auto;
 }
+
+// Semantic fixes
+.ui.header:first-child {
+  margin-top: 0;
+}
