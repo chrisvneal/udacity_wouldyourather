@@ -54,16 +54,12 @@ main h2.ui.header:first-child {
   margin-bottom: 2rem;
 }
 
-main.container {
-  // outline: 2px dotted #424242;
-}
-
-.polls div,
 main form {
   // border: 2px dotted lightblue;
+  width: 60%;
+  // margin: 0 auto;
 }
 
-.polls a.item {
-  // outline: 1px dotted red;
-  padding-top: 0 !important;
+.ui.form div.field {
+  margin-bottom: 40px;
 }

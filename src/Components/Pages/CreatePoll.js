@@ -9,17 +9,16 @@ export default class CreatePoll extends Component {
 
         <Form>
           <Form.Field>
-            <label>First Name</label>
-            <input placeholder="First Name" />
+            <p>Create two options for your poll, make it fun!</p>
+            <Header as="h2" content="Would You Rather...?" />
+            <label>...Option 1</label>
+            <input placeholder="Option 1" />
           </Form.Field>
           <Form.Field>
-            <label>Last Name</label>
-            <input placeholder="Last Name" />
+            <label>...Option 2</label>
+            <input placeholder="Option 2" />
           </Form.Field>
-          <Form.Field>
-            <Checkbox label="I agree to the Terms and Conditions" />
-          </Form.Field>
-          <Button type="submit">Submit</Button>
+          <Button type="submit">Create Poll</Button>
         </Form>
       </div>
     );
