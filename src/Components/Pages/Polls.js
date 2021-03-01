@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Header, Tab, MenuItem, Label } from "semantic-ui-react";
+import PollsResults from "../PollsResults";
 
 export default class Polls extends Component {
   panes = [
@@ -9,15 +10,23 @@ export default class Polls extends Component {
           Unanswered <Label>15</Label>
         </MenuItem>
       ),
-      render: () => <Tab.Pane attached={false}>Unanswered Polls</Tab.Pane>,
+      render: () => (
+        <Tab.Pane attached={false}>
+          <PollsResults type="unanswered" />
+        </Tab.Pane>
+      ),
     },
     {
       menuItem: (
-        <MenuItem key="messages">
+        <MenuItem key="answered">
           Answered <Label>15</Label>
         </MenuItem>
       ),
-      render: () => <Tab.Pane attached={false}>Answered Polls</Tab.Pane>,
+      render: () => (
+        <Tab.Pane attached={false}>
+          <PollsResults type="answered" />
+        </Tab.Pane>
+      ),
     },
   ];
   render() {
