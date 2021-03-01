@@ -1,14 +1,22 @@
 import React, { Component } from "react";
-import { Header, Tab } from "semantic-ui-react";
+import { Header, Tab, MenuItem, Label } from "semantic-ui-react";
 
 export default class Polls extends Component {
   panes = [
     {
-      menuItem: "Unanswered",
+      menuItem: (
+        <MenuItem key="unanswered">
+          Unanswered <Label>15</Label>
+        </MenuItem>
+      ),
       render: () => <Tab.Pane attached={false}>Unanswered Polls</Tab.Pane>,
     },
     {
-      menuItem: "Answered",
+      menuItem: (
+        <MenuItem key="messages">
+          Answered <Label>15</Label>
+        </MenuItem>
+      ),
       render: () => <Tab.Pane attached={false}>Answered Polls</Tab.Pane>,
     },
   ];
