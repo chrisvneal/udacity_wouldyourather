@@ -81,3 +81,15 @@ footer {
   bottom: 0;
   width: 100%;
 }
+
+/* Leaderboard styles */
+
+.leaderboard {
+  h3 {
+    font-size: 1.2rem;
+  }
+
+  .ui.table {
+    margin-bottom: 3rem;
+  }
+}
