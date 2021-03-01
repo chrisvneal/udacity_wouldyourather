@@ -15,7 +15,7 @@ export default class Polls extends Component {
   render() {
     return (
       <div className="polls">
-        <Header as="h2" content="Polls" />
+        <Header as="h2" content="Polls" dividing />
 
         <Tab menu={{ secondary: true, pointing: true }} panes={this.panes} />
       </div>

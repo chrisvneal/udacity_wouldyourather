@@ -17,23 +17,15 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
-  // outline: 1px solid blue;
 
   h1.ui {
     display: inline-block;
     margin: 0;
     font-size: 1.3rem;
-    // position: relative;
-    // top: 6px;
-    // outline: 1px dotted red;
   }
 
   .profile-header {
-    // display: inline-block;
-    // position: relative;
-    // top: -8px;
     text-align: center;
-    // outline: 1px dotted red;
 
     .username {
       font-weight: bold;
@@ -43,7 +35,7 @@
   }
 }
 
-/* Poll/Form styles styles */
+/* Create Poll styles */
 
 .polls .ui.segment {
   border: none;
@@ -66,6 +58,10 @@ main form {
 
 .ui.form div.field {
   margin-bottom: 40px;
+
+  label {
+    margin-bottom: 10px;
+  }
 }
 
 .or {
@@ -73,13 +69,6 @@ main form {
   top: -30px;
   right: -200px;
   font-size: 3rem;
-}
-
-// footer
-footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
 }
 
 /* Leaderboard styles */
@@ -90,6 +79,19 @@ footer {
   }
 
   .ui.table {
-    margin-bottom: 3rem;
+    margin-bottom: 50px;
+    width: 100%;
   }
+}
+
+.user-rank-table td,
+.user-rank-table th {
+  text-align: center !important;
+}
+
+/* Footer styles */
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }

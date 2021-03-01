@@ -1,36 +1,24 @@
 import React, { Component } from "react";
 import { Table } from "semantic-ui-react";
+import UserRankEntry from "./UserRankEntry";
 
 export default class UserRankTable extends Component {
   render() {
     return (
       <React.Fragment>
-        <h3>{this.props.label}</h3>
-        <Table celled>
+        <Table basic="very" className="user-rank-table" collapsing>
           <Table.Header>
             <Table.Row>
-              <Table.HeaderCell>Header</Table.HeaderCell>
-              <Table.HeaderCell>Header</Table.HeaderCell>
-              <Table.HeaderCell>Header</Table.HeaderCell>
+              <Table.HeaderCell></Table.HeaderCell>
+              <Table.HeaderCell></Table.HeaderCell>
+              <Table.HeaderCell>Questions Created</Table.HeaderCell>
+              <Table.HeaderCell>Questions Answered</Table.HeaderCell>
+              <Table.HeaderCell>Score</Table.HeaderCell>
             </Table.Row>
           </Table.Header>
 
           <Table.Body>
-            <Table.Row>
-              <Table.Cell>Cell</Table.Cell>
-              <Table.Cell>Cell</Table.Cell>
-              <Table.Cell>Cell</Table.Cell>
-            </Table.Row>
-            <Table.Row>
-              <Table.Cell>Cell</Table.Cell>
-              <Table.Cell>Cell</Table.Cell>
-              <Table.Cell>Cell</Table.Cell>
-            </Table.Row>
-            <Table.Row>
-              <Table.Cell>Cell</Table.Cell>
-              <Table.Cell>Cell</Table.Cell>
-              <Table.Cell>Cell</Table.Cell>
-            </Table.Row>
+            <UserRankEntry />
           </Table.Body>
         </Table>
       </React.Fragment>
