@@ -1,8 +1,8 @@
 import "./index.scss";
 import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import SiteHeader from "./Components/SiteHeader";
-import SiteFooter from "./Components/SiteFooter";
+import SiteHeader from "./Components/Site/SiteHeader";
+import SiteFooter from "./Components/Site/SiteFooter";
 import LeaderBoard from "./Components/Pages/LeaderBoard";
 import CreatePoll from "./Components/Pages/CreatePoll";
 import UserProfile from "./Components/Pages/UserProfile";
