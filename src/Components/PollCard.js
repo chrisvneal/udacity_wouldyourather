@@ -5,7 +5,7 @@ export default function PollCard() {
   return (
     <React.Fragment>
       <Card>
-        <Card.Content>Would You Rather</Card.Content>
+        <Card.Content>Would You Rather...?</Card.Content>
         <Card.Content>Option</Card.Content>
       </Card>
     </React.Fragment>

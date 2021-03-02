@@ -104,16 +104,18 @@ footer {
 .poll-results .ui.card {
   width: 200px;
   margin: 0;
+  margin-right: 15px;
+  margin-bottom: 50px;
   border-radius: 2px;
 }
 
 .poll-results {
   display: flex;
-  flex-wrap: wrap;
-  flex-flow: row;
+  flex-flow: row wrap;
   justify-content: space-between;
   align-items: flex-start;
-  // border: 1px solid blueviolet;
+  // border: 1px dotted #e75a5a;
   height: 300px;
-  width: 80%;
+  width: 75%;
+  // margin-right: 10px;
 }
