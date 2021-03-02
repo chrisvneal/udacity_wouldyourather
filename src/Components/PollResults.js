@@ -4,7 +4,7 @@ export default class PollResults extends Component {
   render() {
     return (
       <div className="poll-results">
-        <p>Poll Results</p>
+        <h2>Would you Rather...?</h2>
       </div>
     );
   }
