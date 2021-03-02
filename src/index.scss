@@ -159,6 +159,37 @@ main form {
   content: none;
 }
 
+/* Poll Details styles */
+
+//user info
+
+.user-info-author {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.user-info-header {
+  margin-bottom: 25px;
+}
+
+.user-info-body p {
+  margin-bottom: 15px;
+  font-size: 0.9rem;
+  display: flex;
+
+  span {
+    display: inline-block;
+  }
+
+  .user-info-number {
+    // display: block;
+    font-size: 1.3rem;
+    margin-right: 20px;
+    width: 40px;
+    font-weight: 700;
+  }
+}
+
 /* Footer styles */
 footer {
   position: fixed;

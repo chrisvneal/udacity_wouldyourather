@@ -7,17 +7,21 @@ export default function UserInfo() {
       <div className="user-info-header">
         <p>
           <Icon name="user circle" size="huge" />
-          <span className="user-info-author">author</span>
+          <span className="user-info-author">author_name</span>
         </p>
       </div>
       <div className="user-info-body">
         <p>
           <span className="user-info-number">5</span>
-          <span className="user-info-text">questions created</span>
+          <span className="user-info-text">
+            questions <strong>created</strong>
+          </span>
         </p>
         <p>
           <span className="user-info-number">10</span>
-          <span className="user-info-text">questions answered</span>
+          <span className="user-info-text">
+            questions <strong>answered</strong>
+          </span>
         </p>
       </div>
     </div>
