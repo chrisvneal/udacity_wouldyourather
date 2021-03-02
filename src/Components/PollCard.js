@@ -7,6 +7,10 @@ export default function PollCard() {
       <Card>
         <Card.Content className="header">Would You Rather...?</Card.Content>
         <Card.Content className="option">Option</Card.Content>
+        <Card.Content className="footer">
+          <p>author</p>
+          <p>5</p>
+        </Card.Content>
       </Card>
     </React.Fragment>
   );

@@ -119,6 +119,15 @@ main form {
     height: 65px;
     padding-top: 15px;
   }
+
+  .footer {
+    text-align: left;
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 0.8rem;
+    font-style: italic;
+  }
 }
 
 .poll-results {
@@ -145,6 +154,11 @@ main form {
 
 .polls .active.item > .ui.label {
   background-color: #54a6f3;
+}
+
+.ui.card > .content:after,
+.ui.cards > .card > .content:after {
+  content: none;
 }
 
 /* Footer styles */
