@@ -105,8 +105,29 @@ footer {
   width: 200px;
   margin: 0;
   margin-right: 15px;
-  margin-bottom: 50px;
+  margin-bottom: 90px;
   border-radius: 2px;
+  cursor: pointer;
+
+  & > :first-child {
+    border-radius: 0 !important;
+  }
+
+  .content {
+    padding: 5px;
+    text-align: center;
+  }
+
+  .header {
+    background: #cfcfcf;
+    padding: 10px 0;
+  }
+
+  .option {
+    // background: red;
+    height: 65px;
+    padding-top: 15px;
+  }
 }
 
 .poll-results {
