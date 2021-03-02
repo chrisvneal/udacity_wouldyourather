@@ -89,17 +89,7 @@ main form {
   text-align: center !important;
 }
 
-/* Footer styles */
-footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-}
-
-.polls .item > .ui.label {
-  background-color: #54a6f3;
-  font-size: 0.8rem;
-}
+/* Poll/Card styles */
 
 .poll-results .ui.card {
   width: 200px;
@@ -139,4 +129,26 @@ footer {
   height: 300px;
   width: 75%;
   // margin-right: 10px;
+}
+
+.ui.secondary.pointing.menu .active.item,
+.ui.secondary.pointing.menu .active.item:hover {
+  color: #54a6f3;
+  border-bottom-color: #54a6f3;
+}
+
+.polls .item > .ui.label {
+  background: #cfcfcf;
+  font-size: 0.8rem;
+}
+
+.polls .active.item > .ui.label {
+  background-color: #54a6f3;
+}
+
+/* Footer styles */
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
