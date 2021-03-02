@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Header, Grid } from "semantic-ui-react";
+import PollResults from "../PollResults";
 import UserInfo from "../UserInfo";
 
 export default class PollDetails extends Component {
@@ -13,7 +14,9 @@ export default class PollDetails extends Component {
               <Header as="h3" content="Created by" />
               <UserInfo />
             </Grid.Column>
-            <Grid.Column width={11}>column</Grid.Column>
+            <Grid.Column width={11}>
+              <PollResults />
+            </Grid.Column>
           </Grid.Row>
         </Grid>
       </div>
