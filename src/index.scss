@@ -186,10 +186,12 @@ main form {
   content: none;
 }
 
-.ui.progress.poll-progress .label {
-  // border: 1px solid red;
-  // margin-top: 30px;
-  // margin-bottom: 30px;
+.ui.progress.poll-progress {
+  margin-bottom: 5rem;
+
+  .label {
+    top: 170%;
+  }
 }
 
 /* Poll Details styles */
@@ -228,4 +230,10 @@ footer {
   position: fixed;
   bottom: 0;
   width: 100%;
+}
+
+.users-who-voted .heading {
+  // outline: 1px solid blue;
+  margin-right: 4px;
+  font-weight: bold;
 }
