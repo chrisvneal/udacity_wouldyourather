@@ -8,6 +8,9 @@ export default class PollsResults extends Component {
         <PollCard />
         <PollCard />
         <PollCard />
+        <PollCard />
+        <PollCard />
+        <PollCard />
       </div>
     );
   }
