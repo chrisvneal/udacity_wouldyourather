@@ -1,83 +1,76 @@
 @import "./scss/partials/variables.scss";
 @import "./scss/partials/global_styles.scss";
 
-// util classes
+/* Util classes */
 .center {
   text-align: center;
-}
-
-/* SiteHeader styles */
-.site-header {
-  padding-top: 8px;
-
-  // navigation
-  .site-nav ul {
-    display: flex;
-    justify-content: space-between;
-    list-style: none;
-  }
-}
-
-.header-brand {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-
-  h1.ui {
-    display: inline-block;
-    margin: 0;
-    font-size: 1.3rem;
-  }
-
-  .profile-header {
-    text-align: center;
-
-    .username {
-      font-weight: bold;
-      font-size: 0.8rem;
-      text-transform: lowercase;
-    }
-  }
-}
-
-/* Create Poll styles */
-
-.polls .ui.segment {
-  border: none;
-  box-shadow: none;
 }
 
 main h2.ui.header:first-child {
   margin-bottom: 2rem;
 }
 
-main form {
+/* SiteHeader styles */
+.site-header {
+  padding-top: 8px;
+
+  // brand & navigation
+  .site-nav ul {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+  }
+
+  .header-brand {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+
+    h1.ui {
+      display: inline-block;
+      margin: 0;
+      font-size: 1.3rem;
+    }
+
+    // profile icon
+    .profile-header {
+      text-align: center;
+
+      .username {
+        font-weight: bold;
+        font-size: 0.8rem;
+        text-transform: lowercase;
+        margin-top: 5px;
+      }
+    }
+  }
+}
+
+/* Poll Grid styles */
+.polls .ui.segment {
+  border: none;
+  box-shadow: none;
+}
+
+/* Create Poll styles */
+main .ui.form {
   width: 60%;
   margin-top: 30px;
 
   input[placeholder] {
     font-style: italic;
   }
-}
 
-.ui.form div.field {
-  margin-bottom: 40px;
-
-  label {
-    margin-bottom: 10px;
+  div.field {
+    margin-bottom: 40px;
+    label {
+      margin-bottom: 10px;
+    }
   }
 }
 
-.or {
-  position: relative;
-  top: -30px;
-  right: -200px;
-  font-size: 3rem;
-}
-
 /* Leaderboard styles */
-
 .leaderboard {
   h3 {
     font-size: 1.2rem;
@@ -87,11 +80,11 @@ main form {
     margin-bottom: 50px;
     width: 100%;
   }
-}
 
-.user-rank-table td,
-.user-rank-table th {
-  text-align: center !important;
+  .user-rank-table td,
+  .user-rank-table th {
+    text-align: center !important;
+  }
 }
 
 /* Poll/Card styles */
@@ -102,7 +95,6 @@ main form {
   margin: 0;
   cursor: pointer;
   border-radius: 2px;
-  // margin-right: 40px;
   margin-bottom: 90px;
 
   & > :first-child {
@@ -136,49 +128,32 @@ main form {
   }
 }
 
-.poll-grid {
-  display: flex;
-  flex-flow: row wrap;
-  // justify-content: space-evenly;
-  // align-items: flex-start;
-  width: 100%;
-  // outline: 1px dashed lightblue;
-  margin: 0 auto;
-
-  .ui.card {
-    margin-right: 40px;
-  }
-}
-.poll-results {
-  // outline: 1px dashed lightblue;
-
-  .poll-results-cards {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-    // align-items: flex-start;
-    // width: 100%;
-    // outline: 1px dashed lightblue;
-    // margin: 0 auto;
-    // margin-top: 50px;
-    width: 100%;
-    margin: 50px auto 0;
-  }
-}
-
 .ui.secondary.pointing.menu .active.item,
 .ui.secondary.pointing.menu .active.item:hover {
   color: $tab-color;
   border-bottom-color: $tab-color;
 }
 
-.polls .item > .ui.label {
-  background: #cfcfcf;
-  font-size: 0.8rem;
-}
+.polls {
+  .item > .ui.label {
+    background: #cfcfcf;
+    font-size: 0.8rem;
+  }
 
-.polls .active.item > .ui.label {
-  background-color: $tab-color;
+  .active.item > .ui.label {
+    background-color: $tab-color;
+  }
+
+  .poll-grid {
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+    margin: 0 auto;
+
+    .ui.card {
+      margin-right: 40px;
+    }
+  }
 }
 
 .ui.card > .content:after,
@@ -186,42 +161,55 @@ main form {
   content: none;
 }
 
-.ui.progress.poll-progress {
-  margin-bottom: 5rem;
+/* Poll Details & Results styles */
+.poll-details {
+  .user-info-author {
+    font-weight: bold;
+    font-size: 1rem;
+  }
 
-  .label {
-    top: 170%;
+  .user-info-header {
+    margin-bottom: 25px;
+  }
+
+  .user-info-body p {
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+    display: flex;
+
+    span {
+      display: inline-block;
+    }
+
+    .user-info-number {
+      font-size: 1.3rem;
+      margin-right: 20px;
+      width: 40px;
+      font-weight: 700;
+    }
   }
 }
 
-/* Poll Details styles */
-
-//user info
-
-.user-info-author {
-  font-weight: bold;
-  font-size: 1rem;
-}
-
-.user-info-header {
-  margin-bottom: 25px;
-}
-
-.user-info-body p {
-  margin-bottom: 15px;
-  font-size: 0.9rem;
-  display: flex;
-
-  span {
-    display: inline-block;
+.poll-results {
+  .poll-results-cards {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    width: 100%;
+    margin: 50px auto 0;
   }
 
-  .user-info-number {
-    // display: block;
-    font-size: 1.3rem;
-    margin-right: 20px;
-    width: 40px;
-    font-weight: 700;
+  .users-who-voted .heading {
+    margin-right: 4px;
+    font-weight: bold;
+  }
+
+  .ui.progress.poll-progress {
+    margin-bottom: 5rem;
+
+    .label {
+      top: 170%;
+    }
   }
 }
 
@@ -235,10 +223,4 @@ footer {
   p {
     color: #a6a6a6;
   }
-}
-
-.users-who-voted .heading {
-  // outline: 1px solid blue;
-  margin-right: 4px;
-  font-weight: bold;
 }
