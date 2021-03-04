@@ -95,6 +95,44 @@ main form {
 }
 
 /* Poll/Card styles */
+
+.poll-grid .ui.card,
+.poll-results .ui.card {
+  width: 200px;
+  margin: 0;
+  cursor: pointer;
+  border-radius: 2px;
+
+  & > :first-child {
+    border-radius: 0 !important;
+  }
+
+  .content {
+    padding: 5px;
+    text-align: center;
+  }
+
+  .header {
+    background: $pattern-unanswered;
+    padding: 10px 0;
+  }
+
+  .option {
+    height: 65px;
+    padding-top: 20px;
+    font-weight: 600;
+    font-size: 1.3rem;
+  }
+
+  .footer {
+    text-align: left;
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 0.8rem;
+    font-style: italic;
+  }
+}
 .poll-grid {
   display: flex;
   flex-flow: row wrap;
@@ -104,43 +142,16 @@ main form {
   // outline: 1px dashed lightblue;
   margin: 0 auto;
 
-  & .ui.card {
-    width: 200px;
-    margin: 0;
+  .ui.card {
     margin-right: 40px;
     margin-bottom: 90px;
-    border-radius: 2px;
-    cursor: pointer;
+  }
+}
+.poll-results {
+  outline: 1px dashed lightblue;
 
-    & > :first-child {
-      border-radius: 0 !important;
-    }
-
-    .content {
-      padding: 5px;
-      text-align: center;
-    }
-
-    .header {
-      background: $pattern-unanswered;
-      padding: 10px 0;
-    }
-
-    .option {
-      height: 65px;
-      padding-top: 20px;
-      font-weight: 600;
-      font-size: 1.3rem;
-    }
-
-    .footer {
-      text-align: left;
-      display: inline-flex;
-      justify-content: space-between;
-      align-items: baseline;
-      font-size: 0.8rem;
-      font-style: italic;
-    }
+  .ui.card {
+    outline: 1px dashed gray;
   }
 }
 
@@ -193,10 +204,6 @@ main form {
     width: 40px;
     font-weight: 700;
   }
-}
-
-.poll-results-cards {
-  outline: 1px dashed gray;
 }
 
 /* Footer styles */
