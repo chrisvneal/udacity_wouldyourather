@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PollCard from "./PollCard";
-import { Divider } from "semantic-ui-react";
+import { Divider, Progress } from "semantic-ui-react";
 // import { Header } from "semantic-ui-react";
 
 export default class PollResults extends Component {
@@ -13,7 +13,7 @@ export default class PollResults extends Component {
           <PollCard />
         </div>
         <div className="poll-progress">
-          <p>poll progression here</p>
+          <Progress percent={26}>2 out of 6 people voted</Progress>
         </div>
         <Divider />
       </div>
