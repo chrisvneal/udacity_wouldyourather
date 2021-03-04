@@ -102,6 +102,8 @@ main form {
   margin: 0;
   cursor: pointer;
   border-radius: 2px;
+  // margin-right: 40px;
+  margin-bottom: 90px;
 
   & > :first-child {
     border-radius: 0 !important;
@@ -145,7 +147,6 @@ main form {
 
   .ui.card {
     margin-right: 40px;
-    margin-bottom: 90px;
   }
 }
 .poll-results {
@@ -162,6 +163,11 @@ main form {
     // margin-top: 50px;
     width: 80%;
     margin: 50px auto 0;
+
+    .ui.card.big {
+      // margin-right: 20px;
+      width: 300px;
+    }
   }
 }
 
