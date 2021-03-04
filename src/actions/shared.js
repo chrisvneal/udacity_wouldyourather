@@ -1,4 +1,4 @@
-import { _getUsers, _getQuestions } from "../_DATA";
+import { _getUsers, _getQuestions } from "../apis/_DATA";
 import { getUsers } from "./users";
 import { getQuestions } from "./questions";
 import { setAuthedUser } from "./authedUser";
