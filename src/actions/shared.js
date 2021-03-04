@@ -5,7 +5,7 @@ import { setAuthedUser } from "./authedUser";
 
 export const AUTHED_ID = "tylermcginnis";
 
-export function handleInitalData() {
+export function handleInitialData() {
   return (dispatch) => {
     return new Promise.all([_getUsers, _getQuestions]).then(
       ({ users, questions }) => {

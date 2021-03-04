@@ -10,8 +10,13 @@ import Polls from "./Components/Pages/Polls";
 import Login from "./Components/Pages/Login";
 import PollDetails from "./Components/Pages/PollDetails";
 import { Grid } from "semantic-ui-react";
+import { connect } from "react-redux";
+import { handleInitialData } from "./actions/shared";
 
-export default class App extends Component {
+class App extends Component {
+  componentDidMount() {
+    this.props.dispatch(handleInitialData());
+  }
   render() {
     return (
       <Router>
@@ -53,3 +58,5 @@ export default class App extends Component {
     );
   }
 }
+
+export default connect()(App);
