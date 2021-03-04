@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { Header, Tab, MenuItem, Label } from "semantic-ui-react";
 import PollGrid from "../Polls/PollGrid";
+import { connect } from "react-redux";
 
-export default class Polls extends Component {
+class Polls extends Component {
   panes = [
     {
       menuItem: (
@@ -39,3 +40,13 @@ export default class Polls extends Component {
     );
   }
 }
+
+function mapStateToProps({ questions }) {
+  return {
+    questionIds: Object.keys(questions).sort(
+      (a, b) => questions[b].timestamp - questions[a].timestamp
+    ),
+  };
+}
+
+export default connect(mapStateToProps)(Polls);
