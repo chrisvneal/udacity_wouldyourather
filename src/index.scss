@@ -133,6 +133,7 @@ main form {
     font-style: italic;
   }
 }
+
 .poll-grid {
   display: flex;
   flex-flow: row wrap;
@@ -148,10 +149,19 @@ main form {
   }
 }
 .poll-results {
-  outline: 1px dashed lightblue;
+  // outline: 1px dashed lightblue;
 
-  .ui.card {
-    outline: 1px dashed gray;
+  .poll-results-cards {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    // align-items: flex-start;
+    // width: 100%;
+    // outline: 1px dashed lightblue;
+    // margin: 0 auto;
+    // margin-top: 50px;
+    width: 80%;
+    margin: 50px auto 0;
   }
 }
 
