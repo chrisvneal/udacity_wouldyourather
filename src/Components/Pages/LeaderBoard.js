@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Header } from "semantic-ui-react";
-import HighestSelectionRank from "../HighestSelectionRank";
-import UserRankTable from "../UserRankTable";
+import HighestSelectionRank from "../Users/HighestSelectionRank";
+import UserRankTable from "../Users/UserRankTable";
 
 export default class LeaderBoard extends Component {
   render() {
