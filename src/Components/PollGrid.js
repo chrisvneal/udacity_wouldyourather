@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import PollCard from "./PollCard";
 
-export default class PollsResults extends Component {
+export default class PollGrid extends Component {
   render() {
     return (
-      <div className="poll-results">
+      <div className="poll-grid">
         <PollCard />
         <PollCard />
         <PollCard />
