@@ -12,9 +12,14 @@ export default class PollResults extends Component {
           <PollCard />
           <PollCard />
         </div>
-        <div className="poll-progress">
-          <Progress percent={26}>2 out of 6 people voted</Progress>
-        </div>
+        <Progress
+          value="2"
+          total="4"
+          progress="percent"
+          className="poll-progress">
+          2 out of 4 people voted
+        </Progress>
+
         <Divider />
       </div>
     );
