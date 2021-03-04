@@ -9,11 +9,11 @@ export default class PollResults extends Component {
       <div className="poll-results">
         <h2 className="center">Would You Rather...?</h2>
         <div className="poll-results-cards">
-          <PollCard size={"big"} />
-          <PollCard size={"big"} />
+          <PollCard />
+          <PollCard />
         </div>
         <div className="poll-progress">
-          <p>poll progress here</p>
+          <p>poll progression here</p>
         </div>
         <Divider />
       </div>

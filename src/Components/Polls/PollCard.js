@@ -1,9 +1,9 @@
 import React from "react";
 import { Card } from "semantic-ui-react";
 
-export default function PollCard(props) {
+export default function PollCard() {
   return (
-    <Card className={props.size}>
+    <Card>
       <Card.Content className="header">Would You Rather...?</Card.Content>
       <Card.Content className="option">Option</Card.Content>
       <Card.Content className="footer">

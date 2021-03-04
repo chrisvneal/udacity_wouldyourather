@@ -98,7 +98,7 @@ main form {
 
 .poll-grid .ui.card,
 .poll-results .ui.card {
-  width: 200px;
+  width: 300px;
   margin: 0;
   cursor: pointer;
   border-radius: 2px;
@@ -163,11 +163,6 @@ main form {
     // margin-top: 50px;
     width: 100%;
     margin: 50px auto 0;
-
-    .ui.card.big {
-      // margin-right: 20px;
-      width: 300px;
-    }
   }
 }
 
