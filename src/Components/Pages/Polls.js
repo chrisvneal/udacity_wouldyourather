@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Header, Tab, MenuItem, Label } from "semantic-ui-react";
-import PollsResults from "../PollsResults";
+import PollGrid from "../Polls/PollGrid";
 
 export default class Polls extends Component {
   panes = [
@@ -12,7 +12,7 @@ export default class Polls extends Component {
       ),
       render: () => (
         <Tab.Pane attached={false}>
-          <PollsResults />
+          <PollGrid />
         </Tab.Pane>
       ),
     },
@@ -24,7 +24,7 @@ export default class Polls extends Component {
       ),
       render: () => (
         <Tab.Pane attached={false}>
-          <PollsResults />
+          <PollGrid />
         </Tab.Pane>
       ),
     },

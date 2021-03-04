@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Header, Grid } from "semantic-ui-react";
-import PollResults from "../PollResults";
-import UserInfo from "../UserInfo";
+import PollResults from "../Polls/PollResults";
+import UserInfo from "../Users/UserInfo";
 
 export default class PollDetails extends Component {
   render() {
