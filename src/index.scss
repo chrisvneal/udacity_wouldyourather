@@ -1,6 +1,11 @@
 @import "./scss/partials/variables.scss";
 @import "./scss/partials/global_styles.scss";
 
+// util classes
+.center {
+  text-align: center;
+}
+
 /* SiteHeader styles */
 .site-header {
   padding-top: 8px;
@@ -188,6 +193,10 @@ main form {
     width: 40px;
     font-weight: 700;
   }
+}
+
+.poll-results-cards {
+  outline: 1px dashed gray;
 }
 
 /* Footer styles */
