@@ -13,7 +13,7 @@ class Polls extends Component {
       ),
       render: () => (
         <Tab.Pane attached={false}>
-          <PollGrid questions={this.cats} />
+          <PollGrid questions={this.unansweredQuestions()} />
         </Tab.Pane>
       ),
     },
@@ -25,13 +25,19 @@ class Polls extends Component {
       ),
       render: () => (
         <Tab.Pane attached={false}>
-          <PollGrid questions={this.props.questionIds} />
+          <PollGrid questions={this.answeredQuestions()} />
         </Tab.Pane>
       ),
     },
   ];
 
-  cats = ["mom", "dad"];
+  unansweredQuestions = () => {
+    return ["poopy"];
+  };
+
+  answeredQuestions = () => {
+    return ["mommy", "daddy"];
+  };
   render() {
     return (
       <div className="polls">
@@ -43,11 +49,12 @@ class Polls extends Component {
   }
 }
 
-function mapStateToProps({ questions }) {
+function mapStateToProps({ questions, authedUser }) {
   return {
     questionIds: Object.keys(questions).sort(
       (a, b) => questions[b].timestamp - questions[a].timestamp
     ),
+    authedUser,
   };
 }
 
