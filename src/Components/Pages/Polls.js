@@ -13,7 +13,7 @@ class Polls extends Component {
       ),
       render: () => (
         <Tab.Pane attached={false}>
-          <PollGrid />
+          <PollGrid questions={this.cats} />
         </Tab.Pane>
       ),
     },
@@ -25,11 +25,13 @@ class Polls extends Component {
       ),
       render: () => (
         <Tab.Pane attached={false}>
-          <PollGrid />
+          <PollGrid questions={this.props.questionIds} />
         </Tab.Pane>
       ),
     },
   ];
+
+  cats = ["mom", "dad"];
   render() {
     return (
       <div className="polls">

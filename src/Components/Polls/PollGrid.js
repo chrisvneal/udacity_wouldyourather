@@ -5,12 +5,9 @@ export default class PollGrid extends Component {
   render() {
     return (
       <div className="poll-grid">
-        <PollCard />
-        <PollCard />
-        <PollCard />
-        <PollCard />
-        <PollCard />
-        <PollCard />
+        {this.props.questions.map((id) => (
+          <PollCard key={id} question={id} />
+        ))}
       </div>
     );
   }
