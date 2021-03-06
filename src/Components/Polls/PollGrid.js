@@ -6,7 +6,7 @@ class PollGrid extends Component {
   render() {
     return (
       <div className="poll-grid">
-        {this.props.questionIds.map((id) => (
+        {this.props.questionIds.unanswered.map((id) => (
           <PollCard key={id} question={id} />
         ))}
       </div>
@@ -20,7 +20,10 @@ function mapStateToProps({ questions, authedUser }) {
   );
 
   return {
-    questionIds,
+    questionIds: {
+      answered: ["answered"],
+      unanswered: ["unanswered"],
+    },
     authedUser,
   };
 }
