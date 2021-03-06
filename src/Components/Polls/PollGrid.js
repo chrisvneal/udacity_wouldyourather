@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 
 class PollGrid extends Component {
   render() {
+    console.log("questionIds object:", this.props.questionIds);
     return (
       <div className="poll-grid">
         {this.props.questionIds.all.map((id) => (
@@ -15,18 +16,22 @@ class PollGrid extends Component {
 }
 
 function mapStateToProps({ questions, authedUser, users }) {
-  // get ids for all questions
+  // retrieve and sort [ ids ] for all questions
   const questionIds = Object.keys(questions).sort(
     (a, b) => questions[b].timestamp - questions[a].timestamp
   );
 
-  const userAnsweredPolls = users[authedUser];
+  // retrieve & sort [ ids ] for all questions user answered
+  // const answers = users[authedUser]["answers"];
+  // const userAnsweredPolls = Object.keys(answers).sort(
+  //   (a, b) => answers[b].timestamp - answers[a].timestamp
+  // );
 
-  console.log("answers:", userAnsweredPolls);
+  // console.log("answers:", userAnsweredPolls);
 
   return {
     questionIds: {
-      answered: userAnsweredPolls,
+      answered: ["answered"],
       unanswered: ["unanswered"],
       all: questionIds,
     },
