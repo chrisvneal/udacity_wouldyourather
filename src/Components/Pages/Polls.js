@@ -28,15 +28,20 @@ export default class Polls extends Component {
         </Tab.Pane>
       ),
     },
+    {
+      menuItem: (
+        <MenuItem key="all">
+          All <Label>15</Label>
+        </MenuItem>
+      ),
+      render: () => (
+        <Tab.Pane attached={false}>
+          <PollGrid />
+        </Tab.Pane>
+      ),
+    },
   ];
 
-  unansweredQuestions = () => {
-    return ["poopy"];
-  };
-
-  answeredQuestions = () => {
-    return ["mommy", "daddy"];
-  };
   render() {
     console.log(this.props);
     return (
