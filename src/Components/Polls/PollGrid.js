@@ -20,7 +20,9 @@ function mapStateToProps({ questions, authedUser, users }) {
     (a, b) => questions[b].timestamp - questions[a].timestamp
   );
 
-  const userAnsweredPolls = Object.keys(users[authedUser]["answers"]);
+  const userAnsweredPolls = users[authedUser];
+
+  console.log("answers:", userAnsweredPolls);
 
   return {
     questionIds: {
