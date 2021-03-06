@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import { Header, Tab, MenuItem, Label } from "semantic-ui-react";
 import PollGrid from "../Polls/PollGrid";
-import { connect } from "react-redux";
 
-class Polls extends Component {
+export default class Polls extends Component {
   panes = [
     {
       menuItem: (
@@ -13,7 +12,7 @@ class Polls extends Component {
       ),
       render: () => (
         <Tab.Pane attached={false}>
-          <PollGrid questions={this.unansweredQuestions()} />
+          <PollGrid />
         </Tab.Pane>
       ),
     },
@@ -25,7 +24,7 @@ class Polls extends Component {
       ),
       render: () => (
         <Tab.Pane attached={false}>
-          <PollGrid questions={this.answeredQuestions()} />
+          <PollGrid />
         </Tab.Pane>
       ),
     },
@@ -39,6 +38,7 @@ class Polls extends Component {
     return ["mommy", "daddy"];
   };
   render() {
+    console.log(this.props);
     return (
       <div className="polls">
         <Header as="h2" content="Polls" dividing />
@@ -48,14 +48,3 @@ class Polls extends Component {
     );
   }
 }
-
-function mapStateToProps({ questions, authedUser }) {
-  return {
-    questionIds: Object.keys(questions).sort(
-      (a, b) => questions[b].timestamp - questions[a].timestamp
-    ),
-    authedUser,
-  };
-}
-
-export default connect(mapStateToProps)(Polls);
