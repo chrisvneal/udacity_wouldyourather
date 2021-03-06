@@ -6,7 +6,7 @@ class PollGrid extends Component {
   render() {
     return (
       <div className="poll-grid">
-        {this.props.questionIds.unanswered.map((id) => (
+        {this.props.questionIds.answered.map((id) => (
           <PollCard key={id} question={id} />
         ))}
       </div>
@@ -14,14 +14,18 @@ class PollGrid extends Component {
   }
 }
 
-function mapStateToProps({ questions, authedUser }) {
+function mapStateToProps({ questions, authedUser, users }) {
   const questionIds = Object.keys(questions).sort(
     (a, b) => questions[b].timestamp - questions[a].timestamp
   );
 
+  const userAnsweredPolls = Object.keys(users[authedUser].answers);
+
+  // console.log("users: ", typeof userAnsweredPolls);
+
   return {
     questionIds: {
-      answered: ["answered"],
+      answered: userAnsweredPolls,
       unanswered: ["unanswered"],
     },
     authedUser,
