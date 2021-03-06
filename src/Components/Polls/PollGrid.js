@@ -15,10 +15,12 @@ class PollGrid extends Component {
 }
 
 function mapStateToProps({ questions, authedUser }) {
+  const questionIds = Object.keys(questions).sort(
+    (a, b) => questions[b].timestamp - questions[a].timestamp
+  );
+
   return {
-    questionIds: Object.keys(questions).sort(
-      (a, b) => questions[b].timestamp - questions[a].timestamp
-    ),
+    questionIds,
     authedUser,
   };
 }
