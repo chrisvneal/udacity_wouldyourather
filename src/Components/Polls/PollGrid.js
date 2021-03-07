@@ -4,39 +4,31 @@ import { connect } from "react-redux";
 
 class PollGrid extends Component {
   render() {
-    const { questions, authedUser, users } = this.props;
+    const { questions, authedUser } = this.props;
 
     // retrieve and sort [ ids ] for all questions
+    // const questionIds = Object.keys(questions).sort(
+    //   (a, b) => questions[b].timestamp - questions[a].timestamp
+    // );
+
     const questionIds = Object.keys(questions).sort(
       (a, b) => questions[b].timestamp - questions[a].timestamp
     );
+    console.clear();
+    console.log("user: ", authedUser);
 
-    console.log("questionIds object:", questionIds);
+    let polls = questionIds;
+    // if (type === "answered") {
+    //   polls = [9698776];
+    // }
 
-    // retrieve and sort [ ids ] for all questions user answered
-    // const answers = users[authedUser]["answers"];
-    // const userAnsweredPollIds = Object.keys(answers).sort(
-    //   (a, b) => answers[b].timestamp - answers[a].timestamp
-    // );
+    // if (type === "all") {
+    //   polls = [7687767, 676696896, 69768];
+    // }
 
-    // retrieve and sort [ ids ] for all questions user didn't answer
-
-    // console.log("users answers: ", userAnsweredPollIds);
-
-    const type = this.props.type;
-
-    let polls;
-    if (type === "answered") {
-      polls = [9698776];
-    }
-
-    if (type === "all") {
-      polls = [7687767, 676696896, 69768];
-    }
-
-    if (type === "unanswered") {
-      polls = [3684343, 4234324, 324234234, 3434234, 242662];
-    }
+    // if (type === "unanswered") {
+    //   polls = [3684343, 4234324, 324234234, 3434234, 242662];
+    // }
 
     return (
       <div className="poll-grid">
