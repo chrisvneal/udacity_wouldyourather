@@ -22,16 +22,15 @@ function mapStateToProps({ questions, authedUser, users }) {
   );
 
   // retrieve & sort [ ids ] for all questions user answered
-  // const answers = users[authedUser]["answers"];
-  // const userAnsweredPolls = Object.keys(answers).sort(
-  //   (a, b) => answers[b].timestamp - answers[a].timestamp
-  // );
+  const answers = users[authedUser]["answers"];
 
-  // console.log("answers:", userAnsweredPolls);
+  const userAnsweredPolls = Object.keys(answers).sort(
+    (a, b) => answers[b].timestamp - answers[a].timestamp
+  );
 
   return {
     questionIds: {
-      answered: ["answered"],
+      answered: userAnsweredPolls,
       unanswered: ["unanswered"],
       all: questionIds,
     },
