@@ -18,13 +18,33 @@ class PollGrid extends Component {
     );
 
     console.clear();
-    console.log("output: ", userAnswers, userAnswers_sorted);
+    // console.log("output: ", userAnswers, userAnswers_sorted);
 
-    const sortedPolls = {
-      answered: [9698776],
-      unanswered: [3684343, 4234324, 324234234, 3434234, 242662],
-      all: [7687767, 676696896, 69768],
-    };
+    function splitQuestions(allQuestions, userAnswers) {
+      // copy all questions into an array
+      let originalQuestions = [...allQuestions];
+      // initialize index of question to be compared to...
+      let questionIndex;
+      // ... so when comparing user answered questions...
+      for (let answer of userAnswers) {
+        for (let question of allQuestions) {
+          if (answer === question) {
+            // ... we can remove questions user has answered
+            questionIndex = allQuestions.indexOf(question);
+            allQuestions.splice(questionIndex, 1);
+          }
+        }
+      }
+      // return object of all, answered, and unanswered questions
+      return {
+        answered: userAnswers,
+        unanswered: allQuestions,
+        all: originalQuestions,
+      };
+    }
+    // end of function
+
+    const sortedPolls = splitQuestions(questIds_sorted, userAnswers_sorted);
 
     const { all, answered, unanswered } = sortedPolls;
 
