@@ -12,6 +12,7 @@ import PollDetails from "./Components/Pages/PollDetails";
 import { Grid } from "semantic-ui-react";
 import { connect } from "react-redux";
 import { handleInitialData } from "./actions/shared";
+import LoadingBar from "react-redux-loading";
 
 class App extends Component {
   componentDidMount() {
@@ -21,6 +22,7 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
+          <LoadingBar />
           <Grid columns={16}>
             {/* Site header */}
             <Grid.Row>
