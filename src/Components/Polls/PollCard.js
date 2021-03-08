@@ -8,7 +8,7 @@ export default function PollCard(props) {
       <Card.Content className="option">{props.question}</Card.Content>
       <Card.Content className="footer">
         <p className="poll-card-author">author</p>
-        <p className="poll-card-likes">5</p>
+        <p className="poll-card-likes">{props.likes}</p>
       </Card.Content>
     </Card>
   );
