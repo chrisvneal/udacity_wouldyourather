@@ -20,19 +20,27 @@ class PollGrid extends Component {
     console.clear();
     console.log("output: ", userAnswers, userAnswers_sorted);
 
+    const sortedPolls = {
+      answered: [9698776],
+      unanswered: [3684343, 4234324, 324234234, 3434234, 242662],
+      all: [7687767, 676696896, 69768],
+    };
+
+    const { all, answered, unanswered } = sortedPolls;
+
     let polls;
 
     switch (type) {
       case "answered":
-        polls = [9698776];
+        polls = answered;
         break;
 
       case "all":
-        polls = [7687767, 676696896, 69768];
+        polls = all;
         break;
 
       case "unanswered":
-        polls = [3684343, 4234324, 324234234, 3434234, 242662];
+        polls = unanswered;
 
         break;
       default:
