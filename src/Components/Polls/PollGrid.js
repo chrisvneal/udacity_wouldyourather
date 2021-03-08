@@ -7,28 +7,36 @@ class PollGrid extends Component {
     const { questions, authedUser, users, type } = this.props;
 
     // retrieve and sort [ ids ] for all questions
-    // const questionIds = Object.keys(questions).sort(
-    //   (a, b) => questions[b].timestamp - questions[a].timestamp
-    // );
-
-    const questionIds = Object.keys(questions).sort(
+    const questIds_sorted = Object.keys(questions).sort(
       (a, b) => questions[b].timestamp - questions[a].timestamp
     );
+
+    // retrieve and sort [ ids ] for all questions users answered
+    const userAnswers = users[authedUser].answers;
+    const userAnswers_sorted = Object.keys(userAnswers).sort(
+      (a, b) => questions[b].timestamp - questions[a].timestamp
+    );
+
     console.clear();
-    console.log("user: ", users[authedUser].answers);
+    console.log("output: ", userAnswers, userAnswers_sorted);
 
     let polls;
-    // let polls = questionIds;
-    if (type === "answered") {
-      polls = [9698776];
-    }
 
-    if (type === "all") {
-      polls = [7687767, 676696896, 69768];
-    }
+    switch (type) {
+      case "answered":
+        polls = [9698776];
+        break;
 
-    if (type === "unanswered") {
-      polls = [3684343, 4234324, 324234234, 3434234, 242662];
+      case "all":
+        polls = [7687767, 676696896, 69768];
+        break;
+
+      case "unanswered":
+        polls = [3684343, 4234324, 324234234, 3434234, 242662];
+
+        break;
+      default:
+        polls = ["no questions"];
     }
 
     return (
