@@ -5,30 +5,29 @@ export default class Login extends Component {
   render() {
     let friendOptions = [
       {
-        key: "Jenny Hess",
-        text: "Jenny Hess",
-        value: "Jenny Hess",
+        key: "tylermcginnis",
+        text: "Tyler McGinnis",
+        value: "tylermcginnis",
         image: { avatar: true, src: "/images/avatar/small/jenny.jpg" },
       },
       {
-        key: "Elliot Fu",
-        text: "Elliot Fu",
-        value: "Elliot Fu",
+        key: "Elliot Fusarahedo",
+        text: "Sarah Edo",
+        value: "Elliot Fusarahedo",
         image: { avatar: true, src: "/images/avatar/small/elliot.jpg" },
       },
       {
-        key: "Stevie Feliciano",
-        text: "Stevie Feliciano",
-        value: "Stevie Feliciano",
+        key: "johndoe",
+        text: "John Doe",
+        value: "johndoe",
         image: { avatar: true, src: "/images/avatar/small/stevie.jpg" },
       },
     ];
     return (
-      <div>
+      <div className="login">
         <Header as="h2" content="Login" />
         <Form>
           <Form.Field>
-            <label>Select user</label>
             <Dropdown
               placeholder="Select user"
               fluid
@@ -36,9 +35,9 @@ export default class Login extends Component {
               options={friendOptions}
             />
           </Form.Field>
-          <Form.Field>
+          {/* <Form.Field>
             <Checkbox label="Remember me" />
-          </Form.Field>
+          </Form.Field> */}
           <Button type="submit">Login</Button>
         </Form>
       </div>
