@@ -23,12 +23,38 @@ export default class Login extends Component {
         image: { avatar: true, src: "/images/avatar/small/stevie.jpg" },
       },
     ];
+
+    const test = (e) => {
+      e.preventDefault();
+      const user_select = document.querySelector(".login .divider.text");
+      let value = user_select.innerText;
+
+      switch (value) {
+        case "Sarah Edo":
+          value = "sarahedo";
+          break;
+
+        case "Tyler McGinnis":
+          value = "tylermcginnis";
+          break;
+
+        case "John Doe":
+          value = "johndoe";
+          break;
+
+        default:
+          return null;
+      }
+
+      console.log("user: ", value);
+    };
     return (
       <div className="login">
         <Header as="h2" content="Login" />
-        <Form>
+        <Form onSubmit={test}>
           <Form.Field>
             <Dropdown
+              id="user_select"
               placeholder="Select user"
               fluid
               selection
