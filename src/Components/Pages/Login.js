@@ -1,8 +1,9 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import { Header, Form, Checkbox, Button, Dropdown } from "semantic-ui-react";
 import { setAuthedUser } from "../../actions/authedUser";
 
-export default class Login extends Component {
+class Login extends Component {
   render() {
     let friendOptions = [
       {
@@ -24,6 +25,12 @@ export default class Login extends Component {
         image: { avatar: true, src: "/images/avatar/small/stevie.jpg" },
       },
     ];
+
+    const handleSetAuthedUser = (value) => {
+      return (dispatch) => {
+        dispatch(setAuthedUser(value));
+      };
+    };
 
     const test = (e) => {
       e.preventDefault();
@@ -71,3 +78,5 @@ export default class Login extends Component {
     );
   }
 }
+
+export default connect()(Login);
