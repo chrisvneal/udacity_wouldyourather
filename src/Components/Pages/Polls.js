@@ -1,8 +1,9 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import { Header, Tab, MenuItem, Label } from "semantic-ui-react";
 import PollGrid from "../Polls/PollGrid";
 
-export default class Polls extends Component {
+class Polls extends Component {
   panes = [
     {
       menuItem: (
@@ -53,3 +54,13 @@ export default class Polls extends Component {
     );
   }
 }
+
+function mapStateToProps({ questions, authedUser, users }) {
+  return {
+    authedUser,
+    users,
+    questions,
+  };
+}
+
+export default connect(mapStateToProps)(Polls);

@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import PollCard from "./PollCard";
-import { connect } from "react-redux";
 import { splitQuestions } from "../../apis/helpers";
 
-class PollGrid extends Component {
+export default class PollGrid extends Component {
   render() {
     const { questions, authedUser, users, type } = this.props;
 
@@ -90,13 +89,3 @@ class PollGrid extends Component {
     );
   }
 }
-
-function mapStateToProps({ questions, authedUser, users }) {
-  return {
-    authedUser,
-    users,
-    questions,
-  };
-}
-
-export default connect(mapStateToProps)(PollGrid);
