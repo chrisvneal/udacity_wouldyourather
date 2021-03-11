@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Header, Form, Checkbox, Button, Dropdown } from "semantic-ui-react";
+import { setAuthedUser } from "../../actions/authedUser";
 
 export default class Login extends Component {
   render() {
