@@ -9,19 +9,31 @@ class Login extends Component {
       key: "tylermcginnis",
       text: "Tyler McGinnis",
       value: "tylermcginnis",
-      image: { avatar: true, src: "/images/avatar/small/jenny.jpg" },
+      image: {
+        avatar: true,
+        src:
+          "https://www.clipartmax.com/png/middle/90-901643_our-team-avatar-super-hero.png",
+      },
     },
     {
       key: "sarahedo",
       text: "Sarah Edo",
       value: "sarahedo",
-      image: { avatar: true, src: "/images/avatar/small/elliot.jpg" },
+      image: {
+        avatar: true,
+        src:
+          "https://www.clipartmax.com/png/middle/169-1690318_super-hero-avatar-png.png",
+      },
     },
     {
       key: "johndoe",
       text: "John Doe",
       value: "johndoe",
-      image: { avatar: true, src: "/images/avatar/small/stevie.jpg" },
+      image: {
+        avatar: true,
+        src:
+          "https://www.clipartmax.com/png/middle/56-563494_thank-you-flat-design-hero-avatars-marvel-characters.png",
+      },
     },
   ];
   setUser = (e) => {

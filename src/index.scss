@@ -54,7 +54,7 @@ main h2.ui.header:first-child {
 }
 
 /* Create Poll styles */
-main .ui.form {
+main .create-poll .ui.form {
   width: 60%;
   margin-top: 30px;
 
@@ -215,8 +215,12 @@ main .ui.form {
 
 .login {
   // outline: 1px solid black;
-  width: 50%;
+  width: 35%;
   margin: 0 auto;
+
+  .ui.form {
+    width: 100%;
+  }
 }
 
 /* Footer styles */
