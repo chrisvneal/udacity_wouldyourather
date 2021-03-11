@@ -2,37 +2,9 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Header, Form, Button, Dropdown } from "semantic-ui-react";
 import { setAuthedUser } from "../../actions/authedUser";
+import { users } from "../../apis/helpers";
 
 class Login extends Component {
-  users = [
-    {
-      key: "tylermcginnis",
-      text: "Tyler McGinnis",
-      value: "tylermcginnis",
-      image: {
-        avatar: true,
-        src: "/images/cap_america.png",
-      },
-    },
-    {
-      key: "sarahedo",
-      text: "Sarah Edo",
-      value: "sarahedo",
-      image: {
-        avatar: true,
-        src: "/images/wonder_woman",
-      },
-    },
-    {
-      key: "johndoe",
-      text: "John Doe",
-      value: "johndoe",
-      image: {
-        avatar: true,
-        src: "/images/robin_hood.png",
-      },
-    },
-  ];
   setUser = (e) => {
     e.preventDefault();
     const user_select = document.querySelector(".login .divider.text");
@@ -59,7 +31,7 @@ class Login extends Component {
   };
 
   render() {
-    console.log("users: ", this.props.users["sarahedo"]);
+    // console.log("users: ", this.props.users["sarahedo"]);
     return (
       <div className="login">
         <Header as="h2" content="Login" />
@@ -70,7 +42,7 @@ class Login extends Component {
               placeholder="Select user"
               fluid
               selection
-              options={this.users}
+              options={users}
             />
           </Form.Field>
           {/* <Form.Field>

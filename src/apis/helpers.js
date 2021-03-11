@@ -21,3 +21,34 @@ export function splitQuestions(allQuestions, userAnswers) {
   };
 }
 // end of function
+
+// set of users for application
+export const users = [
+  {
+    key: "tylermcginnis",
+    text: "Tyler McGinnis",
+    value: "tylermcginnis",
+    image: {
+      avatar: true,
+      src: "/images/cap_america.png",
+    },
+  },
+  {
+    key: "sarahedo",
+    text: "Sarah Edo",
+    value: "sarahedo",
+    image: {
+      avatar: true,
+      src: "/images/wonder_woman",
+    },
+  },
+  {
+    key: "johndoe",
+    text: "John Doe",
+    value: "johndoe",
+    image: {
+      avatar: true,
+      src: "/images/robin_hood.png",
+    },
+  },
+];
