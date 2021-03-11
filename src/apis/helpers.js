@@ -1,3 +1,6 @@
+import cap_america from "../images/cap_america.png";
+import wonder_woman from "../images/wonder_woman.png";
+import robin from "../images/robin.png";
 export function splitQuestions(allQuestions, userAnswers) {
   // copy all questions into an array
   let originalQuestions = [...allQuestions];
@@ -30,7 +33,7 @@ export const users = [
     value: "tylermcginnis",
     image: {
       avatar: true,
-      src: "/images/cap_america.png",
+      src: cap_america,
     },
   },
   {
@@ -39,7 +42,7 @@ export const users = [
     value: "sarahedo",
     image: {
       avatar: true,
-      src: "/images/wonder_woman",
+      src: wonder_woman,
     },
   },
   {
@@ -48,7 +51,7 @@ export const users = [
     value: "johndoe",
     image: {
       avatar: true,
-      src: "/images/robin_hood.png",
+      src: robin,
     },
   },
 ];
