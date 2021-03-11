@@ -25,27 +25,34 @@ class PollGrid extends Component {
 
     const sortedPolls = splitQuestions(questIds_sorted, userAnswers_sorted);
 
+    let { all, answered, unanswered } = sortedPolls;
+
+    // const length = questions[all[0]].optionOne.votes.length;
+    // console.log("question length: ", length);
+
     console.log("sorted polls:", sortedPolls);
-
-    const { all, answered, unanswered } = sortedPolls;
-
-    const length = questions[all[0]].optionOne.votes.length;
-    console.log("question length: ", length);
 
     function mapVotesToPoll(pollIds, questions, type) {
       let pollsWithLikes = pollIds.map((poll) => {
+        // console.log(poll);
         return {
           id: poll,
           votes: {
-            optionOne: questions[poll].votes.length,
-            optionTwo: questions[poll].votes.length,
-            total: questions[poll].votes.length + questions[poll].votes.length,
+            optionOne: questions[poll].optionOne.votes.length,
+            optionTwo: questions[poll].optionTwo.votes.length,
+            total:
+              questions[poll].optionOne.votes.length +
+              questions[poll].optionTwo.votes.length,
           },
           type,
         };
       });
       return pollsWithLikes;
     }
+
+    all = mapVotesToPoll(all, questions, "all");
+    answered = mapVotesToPoll(answered, questions, "answered");
+    unanswered = mapVotesToPoll(unanswered, questions, "unanswered");
 
     let polls;
 
@@ -66,7 +73,7 @@ class PollGrid extends Component {
         polls = ["no questions"];
     }
 
-    console.log("polls: ", polls);
+    // console.log("polls: ", polls);
 
     return (
       <div className="poll-grid">
