@@ -1,11 +1,36 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Header, Form, Checkbox, Button, Dropdown } from "semantic-ui-react";
+import { Header, Form, Button, Dropdown } from "semantic-ui-react";
 import { setAuthedUser } from "../../actions/authedUser";
 
 class Login extends Component {
+  setUser = (e) => {
+    e.preventDefault();
+    const user_select = document.querySelector(".login .divider.text");
+    let user = user_select.innerText;
+
+    switch (user) {
+      case "Sarah Edo":
+        user = "sarahedo";
+        break;
+
+      case "Tyler McGinnis":
+        user = "tylermcginnis";
+        break;
+
+      case "John Doe":
+        user = "johndoe";
+        break;
+
+      default:
+        return null;
+    }
+
+    this.props.dispatch(setAuthedUser(user));
+  };
+
   render() {
-    let friendOptions = [
+    let users = [
       {
         key: "tylermcginnis",
         text: "Tyler McGinnis",
@@ -13,9 +38,9 @@ class Login extends Component {
         image: { avatar: true, src: "/images/avatar/small/jenny.jpg" },
       },
       {
-        key: "Elliot Fusarahedo",
+        key: "sarahedo",
         text: "Sarah Edo",
-        value: "Elliot Fusarahedo",
+        value: "sarahedo",
         image: { avatar: true, src: "/images/avatar/small/elliot.jpg" },
       },
       {
@@ -26,47 +51,17 @@ class Login extends Component {
       },
     ];
 
-    const handleSetAuthedUser = (value) => {
-      return (dispatch) => {
-        dispatch(setAuthedUser(value));
-      };
-    };
-
-    const test = (e) => {
-      e.preventDefault();
-      const user_select = document.querySelector(".login .divider.text");
-      let value = user_select.innerText;
-
-      switch (value) {
-        case "Sarah Edo":
-          value = "sarahedo";
-          break;
-
-        case "Tyler McGinnis":
-          value = "tylermcginnis";
-          break;
-
-        case "John Doe":
-          value = "johndoe";
-          break;
-
-        default:
-          return null;
-      }
-
-      console.log("user: ", value);
-    };
     return (
       <div className="login">
         <Header as="h2" content="Login" />
-        <Form onSubmit={test}>
+        <Form onSubmit={this.setUser}>
           <Form.Field>
             <Dropdown
               id="user_select"
               placeholder="Select user"
               fluid
               selection
-              options={friendOptions}
+              options={users}
             />
           </Form.Field>
           {/* <Form.Field>
