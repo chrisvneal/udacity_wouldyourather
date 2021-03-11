@@ -29,6 +29,24 @@ class PollGrid extends Component {
 
     const { all, answered, unanswered } = sortedPolls;
 
+    const length = questions[all[0]].optionOne.votes.length;
+    console.log("question length: ", length);
+
+    function mapVotesToPoll(pollIds, questions, type) {
+      let pollsWithLikes = pollIds.map((poll) => {
+        return {
+          id: poll,
+          votes: {
+            optionOne: questions[poll].votes.length,
+            optionTwo: questions[poll].votes.length,
+            total: questions[poll].votes.length + questions[poll].votes.length,
+          },
+          type,
+        };
+      });
+      return pollsWithLikes;
+    }
+
     let polls;
 
     switch (type) {
