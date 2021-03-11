@@ -13,7 +13,7 @@ class PollGrid extends Component {
     );
 
     // retrieve and sort [ ids ] for all questions users answered
-    const userAnswers = users[authedUser].answers;
+    const userAnswers = users[authedUser.id].answers;
     const userAnswers_sorted = Object.keys(userAnswers).sort(
       (a, b) => questions[b].timestamp - questions[a].timestamp
     );
@@ -47,6 +47,8 @@ class PollGrid extends Component {
       default:
         polls = ["no questions"];
     }
+
+    console.log("polls: ", polls);
 
     return (
       <div className="poll-grid">
