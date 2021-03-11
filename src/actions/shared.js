@@ -3,8 +3,6 @@ import { getUsers } from "./users";
 import { getQuestions } from "./questions";
 import { showLoading, hideLoading } from "react-redux-loading";
 
-export const AUTHED_ID = "tylermcginnis";
-
 export function handleInitialData() {
   return (dispatch) => {
     dispatch(showLoading());
