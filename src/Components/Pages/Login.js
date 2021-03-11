@@ -4,6 +4,26 @@ import { Header, Form, Button, Dropdown } from "semantic-ui-react";
 import { setAuthedUser } from "../../actions/authedUser";
 
 class Login extends Component {
+  users = [
+    {
+      key: "tylermcginnis",
+      text: "Tyler McGinnis",
+      value: "tylermcginnis",
+      image: { avatar: true, src: "/images/avatar/small/jenny.jpg" },
+    },
+    {
+      key: "sarahedo",
+      text: "Sarah Edo",
+      value: "sarahedo",
+      image: { avatar: true, src: "/images/avatar/small/elliot.jpg" },
+    },
+    {
+      key: "johndoe",
+      text: "John Doe",
+      value: "johndoe",
+      image: { avatar: true, src: "/images/avatar/small/stevie.jpg" },
+    },
+  ];
   setUser = (e) => {
     e.preventDefault();
     const user_select = document.querySelector(".login .divider.text");
@@ -30,27 +50,6 @@ class Login extends Component {
   };
 
   render() {
-    let users = [
-      {
-        key: "tylermcginnis",
-        text: "Tyler McGinnis",
-        value: "tylermcginnis",
-        image: { avatar: true, src: "/images/avatar/small/jenny.jpg" },
-      },
-      {
-        key: "sarahedo",
-        text: "Sarah Edo",
-        value: "sarahedo",
-        image: { avatar: true, src: "/images/avatar/small/elliot.jpg" },
-      },
-      {
-        key: "johndoe",
-        text: "John Doe",
-        value: "johndoe",
-        image: { avatar: true, src: "/images/avatar/small/stevie.jpg" },
-      },
-    ];
-
     return (
       <div className="login">
         <Header as="h2" content="Login" />
@@ -61,7 +60,7 @@ class Login extends Component {
               placeholder="Select user"
               fluid
               selection
-              options={users}
+              options={this.users}
             />
           </Form.Field>
           {/* <Form.Field>
