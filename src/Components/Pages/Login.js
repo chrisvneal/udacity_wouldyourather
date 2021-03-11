@@ -11,8 +11,7 @@ class Login extends Component {
       value: "tylermcginnis",
       image: {
         avatar: true,
-        src:
-          "https://www.clipartmax.com/png/middle/90-901643_our-team-avatar-super-hero.png",
+        src: "/images/cap_america.png",
       },
     },
     {
@@ -21,8 +20,7 @@ class Login extends Component {
       value: "sarahedo",
       image: {
         avatar: true,
-        src:
-          "https://www.clipartmax.com/png/middle/169-1690318_super-hero-avatar-png.png",
+        src: "/images/wonder_woman",
       },
     },
     {
@@ -31,8 +29,7 @@ class Login extends Component {
       value: "johndoe",
       image: {
         avatar: true,
-        src:
-          "https://www.clipartmax.com/png/middle/56-563494_thank-you-flat-design-hero-avatars-marvel-characters.png",
+        src: "/images/robin_hood.png",
       },
     },
   ];
@@ -62,6 +59,7 @@ class Login extends Component {
   };
 
   render() {
+    console.log("users: ", this.props.users["sarahedo"]);
     return (
       <div className="login">
         <Header as="h2" content="Login" />
@@ -85,4 +83,10 @@ class Login extends Component {
   }
 }
 
-export default connect()(Login);
+function mapStateToProps({ users }) {
+  return {
+    users,
+  };
+}
+
+export default connect(mapStateToProps)(Login);
