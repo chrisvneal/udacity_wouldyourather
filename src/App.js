@@ -36,7 +36,17 @@ class App extends Component {
               <Grid.Column width={16}>
                 <main className="ui container">
                   <Switch>
-                    <Route path="/" exact component={Polls} />
+                    <Route
+                      path="/"
+                      exact
+                      component={() => {
+                        if (this.props.authedUser) {
+                          return <Polls />;
+                        } else {
+                          return <Login />;
+                        }
+                      }}
+                    />
                     <Route path="/add" component={CreatePoll} />
                     <Route path="/leaderboard" component={LeaderBoard} />
                     <Route path="/user_profile" component={UserProfile} />
