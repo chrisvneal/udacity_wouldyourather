@@ -20,8 +20,12 @@ class PollGrid extends Component {
 
     console.clear();
     // console.log("output: ", userAnswers, userAnswers_sorted);
+    console.log("questions:", questions);
+    console.log("authedUser:", authedUser);
 
     const sortedPolls = splitQuestions(questIds_sorted, userAnswers_sorted);
+
+    console.log("sorted polls:", sortedPolls);
 
     const { all, answered, unanswered } = sortedPolls;
 
