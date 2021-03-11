@@ -37,6 +37,7 @@ class PollGrid extends Component {
         // console.log(poll);
         return {
           id: poll,
+          author: questions[poll].author,
           votes: {
             optionOne: questions[poll].optionOne.votes.length,
             optionTwo: questions[poll].optionTwo.votes.length,
@@ -78,7 +79,12 @@ class PollGrid extends Component {
     return (
       <div className="poll-grid">
         {polls.map((poll) => (
-          <PollCard key={poll.id} question={poll.id} likes={poll.votes.total} />
+          <PollCard
+            author={poll.author}
+            key={poll.id}
+            question={poll.id}
+            likes={poll.votes.total}
+          />
         ))}
       </div>
     );
