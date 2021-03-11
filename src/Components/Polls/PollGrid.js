@@ -3,6 +3,7 @@ import PollCard from "./PollCard";
 
 export default class PollGrid extends Component {
   render() {
+    const { polls } = this.props;
     return (
       <div className="poll-grid">
         {polls.map((poll) => (
