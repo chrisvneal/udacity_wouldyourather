@@ -78,7 +78,7 @@ class PollGrid extends Component {
     return (
       <div className="poll-grid">
         {polls.map((poll) => (
-          <PollCard key={poll} question={poll} likes={2} />
+          <PollCard key={poll.id} question={poll.id} likes={poll.votes.total} />
         ))}
       </div>
     );
