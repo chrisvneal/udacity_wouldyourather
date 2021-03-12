@@ -214,13 +214,13 @@ main .create-poll .ui.form {
 }
 
 .login {
-  // outline: 1px solid black;
   width: 35%;
   min-width: 255px;
   margin: 0 auto;
 
   .ui.form {
     width: 100%;
+    min-width: 255px;
   }
 }
 
