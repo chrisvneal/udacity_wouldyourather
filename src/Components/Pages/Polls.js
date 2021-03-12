@@ -41,7 +41,7 @@ class Polls extends Component {
       {
         menuItem: (
           <MenuItem key="unanswered">
-            Unanswered <Label>15</Label>
+            Unanswered <Label>{polls.unanswered.length}</Label>
           </MenuItem>
         ),
         render: () => (
@@ -53,7 +53,7 @@ class Polls extends Component {
       {
         menuItem: (
           <MenuItem key="answered">
-            Answered <Label>15</Label>
+            Answered <Label>{polls.answered.length}</Label>
           </MenuItem>
         ),
         render: () => (
@@ -65,7 +65,7 @@ class Polls extends Component {
       {
         menuItem: (
           <MenuItem key="all">
-            All <Label>15</Label>
+            All <Label>{polls.all.length}</Label>
           </MenuItem>
         ),
         render: () => (
