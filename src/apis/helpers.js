@@ -55,3 +55,22 @@ export const users = [
     },
   },
 ];
+
+export function mapVotesToPoll(pollIds, questions, type) {
+  let pollsWithLikes = pollIds.map((poll) => {
+    // console.log(poll);
+    return {
+      id: poll,
+      author: questions[poll].author,
+      votes: {
+        optionOne: questions[poll].optionOne.votes.length,
+        optionTwo: questions[poll].optionTwo.votes.length,
+        total:
+          questions[poll].optionOne.votes.length +
+          questions[poll].optionTwo.votes.length,
+      },
+      type,
+    };
+  });
+  return pollsWithLikes;
+}
