@@ -2,13 +2,22 @@ import React from "react";
 import SiteHeader from "./SiteHeader";
 import SiteFooter from "./SiteFooter";
 import SiteNav from "./SiteNav";
+import { Grid } from "semantic-ui-react";
 
-export default function SiteWrapper() {
+export default function SiteWrapper(props) {
   return (
     <React.Fragment>
       <SiteHeader />
       <SiteNav />
-      {this.props.children}
+
+      <Grid columns={16}>
+        <Grid.Row>
+          <Grid.Column width={16}>
+            <main class="ui container">{props.children}</main>
+          </Grid.Column>
+        </Grid.Row>
+      </Grid>
+
       <SiteFooter />
     </React.Fragment>
   );

@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { splitQuestions, mapVotesToPoll } from "../../apis/helpers";
 import { Header, Tab, MenuItem, Label } from "semantic-ui-react";
 import PollGrid from "../Polls/PollGrid";
+import SiteWrapper from "../Site/SiteWrapper";
 
 class Polls extends Component {
   render() {
@@ -77,11 +78,12 @@ class Polls extends Component {
     ];
 
     return (
-      <div className="polls">
-        <Header as="h2" content="Polls" dividing />
-
-        <Tab menu={{ secondary: true, pointing: true }} panes={panes} />
-      </div>
+      <SiteWrapper>
+        <div className="polls">
+          <Header as="h2" content="Polls" dividing />
+          <Tab menu={{ secondary: true, pointing: true }} panes={panes} />
+        </div>
+      </SiteWrapper>
     );
   }
 }

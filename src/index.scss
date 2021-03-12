@@ -10,16 +10,21 @@ main h2.ui.header:first-child {
   margin-bottom: 2rem;
 }
 
+.site-nav {
+  margin-bottom: 30px;
+
+  ul {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+  }
+}
+
 /* SiteHeader styles */
 .site-header {
   padding-top: 8px;
 
   // brand & navigation
-  .site-nav ul {
-    display: flex;
-    justify-content: space-between;
-    list-style: none;
-  }
 
   .header-brand {
     display: flex;
