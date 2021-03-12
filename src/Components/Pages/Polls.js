@@ -80,7 +80,7 @@ class Polls extends Component {
     return (
       <SiteWrapper>
         <div className="polls">
-          <Header as="h2" content="Polls" dividing />
+          <Header as="h2" content="Polls" />
           <Tab menu={{ secondary: true, pointing: true }} panes={panes} />
         </div>
       </SiteWrapper>

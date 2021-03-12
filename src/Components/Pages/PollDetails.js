@@ -9,7 +9,7 @@ export default class PollDetails extends Component {
     return (
       <SiteWrapper>
         <div className="poll-details">
-          <Header as="h2" content="Poll Details" dividing />
+          <Header as="h2" content="Poll Details" />
           <Grid width={16}>
             <Grid.Row columns={3}>
               <Grid.Column width={5}>

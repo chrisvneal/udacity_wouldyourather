@@ -7,7 +7,7 @@ export default class CreatePoll extends Component {
     return (
       <SiteWrapper>
         <div className="create-poll">
-          <Header as="h2" content="Create A Poll" dividing />
+          <Header as="h2" content="Create A Poll" />
           <p>Create two options for your poll, make it fun!</p>
           <Header as="h3" content="Would You Rather...?" />
           <Form>
