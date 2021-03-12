@@ -1,53 +1,14 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import { splitQuestions } from "../../apis/helpers";
+import { splitQuestions, mapVotesToPoll } from "../../apis/helpers";
 import { Header, Tab, MenuItem, Label } from "semantic-ui-react";
 import PollGrid from "../Polls/PollGrid";
 
 class Polls extends Component {
-  panes = [
-    {
-      menuItem: (
-        <MenuItem key="unanswered">
-          Unanswered <Label>15</Label>
-        </MenuItem>
-      ),
-      render: () => (
-        <Tab.Pane attached={false}>
-          <PollGrid type="unanswered" />
-        </Tab.Pane>
-      ),
-    },
-    {
-      menuItem: (
-        <MenuItem key="answered">
-          Answered <Label>15</Label>
-        </MenuItem>
-      ),
-      render: () => (
-        <Tab.Pane attached={false}>
-          <PollGrid type="answered" />
-        </Tab.Pane>
-      ),
-    },
-    {
-      menuItem: (
-        <MenuItem key="all">
-          All <Label>15</Label>
-        </MenuItem>
-      ),
-      render: () => (
-        <Tab.Pane attached={false}>
-          <PollGrid type="all" />
-        </Tab.Pane>
-      ),
-    },
-  ];
-
   render() {
     // console.log(this.props);
-    const { questions, authedUser, users, type } = this.props;
+    const { questions, authedUser, users } = this.props;
 
     // retrieve and sort [ ids ] for all questions
     const questIds_sorted = Object.keys(questions).sort(
@@ -61,67 +22,65 @@ class Polls extends Component {
     );
 
     console.clear();
-    // console.log("output: ", userAnswers, userAnswers_sorted);
-    console.log("questions:", questions);
-    console.log("authedUser:", authedUser);
 
     const sortedPolls = splitQuestions(questIds_sorted, userAnswers_sorted);
 
     let { all, answered, unanswered } = sortedPolls;
 
-    // const length = questions[all[0]].optionOne.votes.length;
-    // console.log("question length: ", length);
-
-    console.log("sorted polls:", sortedPolls);
-
-    function mapVotesToPoll(pollIds, questions, type) {
-      let pollsWithLikes = pollIds.map((poll) => {
-        // console.log(poll);
-        return {
-          id: poll,
-          author: questions[poll].author,
-          votes: {
-            optionOne: questions[poll].optionOne.votes.length,
-            optionTwo: questions[poll].optionTwo.votes.length,
-            total:
-              questions[poll].optionOne.votes.length +
-              questions[poll].optionTwo.votes.length,
-          },
-          type,
-        };
-      });
-      return pollsWithLikes;
-    }
-
     all = mapVotesToPoll(all, questions, "all");
     answered = mapVotesToPoll(answered, questions, "answered");
     unanswered = mapVotesToPoll(unanswered, questions, "unanswered");
 
-    let polls;
+    let polls = {
+      all,
+      answered,
+      unanswered,
+    };
 
-    switch (type) {
-      case "answered":
-        polls = answered;
-        break;
+    let panes = [
+      {
+        menuItem: (
+          <MenuItem key="unanswered">
+            Unanswered <Label>15</Label>
+          </MenuItem>
+        ),
+        render: () => (
+          <Tab.Pane attached={false}>
+            <PollGrid polls={polls.unanswered} />
+          </Tab.Pane>
+        ),
+      },
+      {
+        menuItem: (
+          <MenuItem key="answered">
+            Answered <Label>15</Label>
+          </MenuItem>
+        ),
+        render: () => (
+          <Tab.Pane attached={false}>
+            <PollGrid polls={polls.answered} />
+          </Tab.Pane>
+        ),
+      },
+      {
+        menuItem: (
+          <MenuItem key="all">
+            All <Label>15</Label>
+          </MenuItem>
+        ),
+        render: () => (
+          <Tab.Pane attached={false}>
+            <PollGrid polls={polls.all} />
+          </Tab.Pane>
+        ),
+      },
+    ];
 
-      case "all":
-        polls = all;
-        break;
-
-      case "unanswered":
-        polls = unanswered;
-
-        break;
-      default:
-        polls = ["no questions"];
-    }
-
-    // console.log("polls: ", polls);
     return (
       <div className="polls">
         <Header as="h2" content="Polls" dividing />
 
-        <Tab menu={{ secondary: true, pointing: true }} panes={this.panes} />
+        <Tab menu={{ secondary: true, pointing: true }} panes={panes} />
       </div>
     );
   }
