@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { splitQuestions, mapVotesToPoll } from "../../apis/helpers";
 import { Header, Tab, MenuItem, Label } from "semantic-ui-react";
 import PollGrid from "../Polls/PollGrid";
+import SiteWrapper from "../Site/SiteWrapper";
 
 class Polls extends Component {
   render() {
@@ -41,7 +42,7 @@ class Polls extends Component {
       {
         menuItem: (
           <MenuItem key="unanswered">
-            Unanswered <Label>15</Label>
+            Unanswered <Label>{polls.unanswered.length}</Label>
           </MenuItem>
         ),
         render: () => (
@@ -53,7 +54,7 @@ class Polls extends Component {
       {
         menuItem: (
           <MenuItem key="answered">
-            Answered <Label>15</Label>
+            Answered <Label>{polls.answered.length}</Label>
           </MenuItem>
         ),
         render: () => (
@@ -65,7 +66,7 @@ class Polls extends Component {
       {
         menuItem: (
           <MenuItem key="all">
-            All <Label>15</Label>
+            All <Label>{polls.all.length}</Label>
           </MenuItem>
         ),
         render: () => (
@@ -77,11 +78,12 @@ class Polls extends Component {
     ];
 
     return (
-      <div className="polls">
-        <Header as="h2" content="Polls" dividing />
-
-        <Tab menu={{ secondary: true, pointing: true }} panes={panes} />
-      </div>
+      <SiteWrapper>
+        <div className="polls">
+          <Header as="h2" content="Polls" dividing />
+          <Tab menu={{ secondary: true, pointing: true }} panes={panes} />
+        </div>
+      </SiteWrapper>
     );
   }
 }

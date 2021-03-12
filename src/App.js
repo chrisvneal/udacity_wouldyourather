@@ -1,8 +1,6 @@
 import "./index.scss";
 import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import SiteHeader from "./Components/Site/SiteHeader";
-import SiteFooter from "./Components/Site/SiteFooter";
 import LeaderBoard from "./Components/Pages/LeaderBoard";
 import CreatePoll from "./Components/Pages/CreatePoll";
 import UserProfile from "./Components/Pages/UserProfile";
@@ -23,45 +21,30 @@ class App extends Component {
       <Router>
         <div className="App">
           <LoadingBar />
+
+          {/* Main */}
           <Grid columns={16}>
-            {/* Site header */}
             <Grid.Row>
               <Grid.Column width={16}>
-                <SiteHeader />
-              </Grid.Column>
-            </Grid.Row>
-
-            {/* Main */}
-            <Grid.Row>
-              <Grid.Column width={16}>
-                <main className="ui container">
-                  <Switch>
-                    <Route
-                      path="/"
-                      exact
-                      component={() => {
-                        if (this.props.authedUser) {
-                          return <Polls />;
-                        } else {
-                          return <Login />;
-                        }
-                      }}
-                    />
-                    <Route path="/add" component={CreatePoll} />
-                    <Route path="/leaderboard" component={LeaderBoard} />
-                    <Route path="/user_profile" component={UserProfile} />
-                    <Route path="/poll_details" component={PollDetails} />
-                    <Route path="/user_login" component={Login} />
-                  </Switch>
-                  {/* <Route path="/poll_id" component={CreatePoll} /> */}
-                </main>
-              </Grid.Column>
-            </Grid.Row>
-
-            {/* Footer */}
-            <Grid.Row>
-              <Grid.Column width={16}>
-                <SiteFooter />
+                <Switch>
+                  <Route
+                    path="/"
+                    exact
+                    component={() => {
+                      if (this.props.authedUser) {
+                        return <Polls />;
+                      } else {
+                        return <Login />;
+                      }
+                    }}
+                  />
+                  <Route path="/add" component={CreatePoll} />
+                  <Route path="/leaderboard" component={LeaderBoard} />
+                  <Route path="/user_profile" component={UserProfile} />
+                  <Route path="/poll_details" component={PollDetails} />
+                  <Route path="/user_login" component={Login} />
+                </Switch>
+                {/* <Route path="/poll_id" component={CreatePoll} /> */}
               </Grid.Column>
             </Grid.Row>
           </Grid>
