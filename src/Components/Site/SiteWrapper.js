@@ -13,7 +13,7 @@ export default function SiteWrapper(props) {
       <Grid columns={16}>
         <Grid.Row>
           <Grid.Column width={16}>
-            <main class="ui container">{props.children}</main>
+            <main className="ui container">{props.children}</main>
           </Grid.Column>
         </Grid.Row>
       </Grid>

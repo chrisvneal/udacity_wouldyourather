@@ -9,7 +9,7 @@ export default class LeaderBoard extends Component {
     return (
       <SiteWrapper>
         <div className="leaderboard">
-          <Header as="h2" content="Leader Board" dividing />
+          <Header as="h2" content="Leader Board" />
           <h3>Top Users With Most Questions Created</h3>
           <UserRankTable />
           <h3>Top Users With Most Answers</h3>
