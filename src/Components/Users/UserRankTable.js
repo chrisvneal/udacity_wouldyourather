@@ -18,18 +18,36 @@ class UserRankTable extends Component {
             </Table.Row>
           </Table.Header>
 
-          <Table.Body>
-            <UserRankEntry />
-          </Table.Body>
+          <Table.Body>{}</Table.Body>
         </Table>
       </React.Fragment>
     );
   }
 }
 
-function mapStateToProps({ users }) {
+function mapStateToProps({ users, authedUser }, type) {
+  // console.log("users questions: ", users[authedUser.id].questions);
+  // console.log("output:", Object.entries(users[authedUser.id].answers).length);
+
+  // build a conditional sorting entries based on the 'type of table'
+
+  // let bank = [];
+  let rankedUsers = {};
+  for (let user in users) {
+    rankedUsers[user] = {
+      id: user,
+      questionsCreated: users[user].questions.length,
+      questionsAnswered: Object.entries(users[user].answers).length,
+      totalScore:
+        users[user].questions.length +
+        Object.entries(users[user].answers).length,
+    };
+  }
+
+  // console.log("ranked Users", rankedUsers);
+
   return {
-    users,
+    users: rankedUsers,
   };
 }
 

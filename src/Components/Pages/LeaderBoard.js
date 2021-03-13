@@ -11,9 +11,9 @@ export default class LeaderBoard extends Component {
         <div className="leaderboard">
           <Header as="h2" content="Leader Board" />
           <h3>Top Users With Most Questions Created</h3>
-          <UserRankTable />
+          <UserRankTable type="most_questions" />
           <h3>Top Users With Most Answers</h3>
-          <UserRankTable />
+          <UserRankTable type="most_answers" />
           <h3>Highest Answered Selections</h3>
           <HighestSelectionRank />
         </div>

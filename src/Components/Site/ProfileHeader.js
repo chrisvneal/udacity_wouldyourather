@@ -7,7 +7,7 @@ function ProfileHeader(props) {
     <div className="profile-header">
       {/* <img src="https://via.placeholder.com/50x50" alt="logo" /> */}
       {/* <Icon name="user circle" size={"big"} /> */}
-      <div class="header-avatar">
+      <div className="header-avatar">
         <img src={props.avatar} alt="user avatar" />
       </div>
       <p className="username">{props.username}</p>
@@ -16,10 +16,8 @@ function ProfileHeader(props) {
 }
 
 function mapStateToProps({ users, authedUser }) {
-  console.log("users", users[authedUser.id], authedUser.id);
   return {
-    avatar: users[authedUser.id].avatarURL,
-    username: authedUser.id,
+    users,
   };
 }
 
