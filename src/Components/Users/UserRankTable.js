@@ -1,8 +1,9 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import { Table } from "semantic-ui-react";
 import UserRankEntry from "./UserRankEntry";
 
-export default class UserRankTable extends Component {
+class UserRankTable extends Component {
   render() {
     return (
       <React.Fragment>
@@ -25,3 +26,11 @@ export default class UserRankTable extends Component {
     );
   }
 }
+
+function mapStateToProps({ users }) {
+  return {
+    users,
+  };
+}
+
+export default connect(mapStateToProps)(UserRankTable);
