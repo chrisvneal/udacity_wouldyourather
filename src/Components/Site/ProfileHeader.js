@@ -7,7 +7,9 @@ function ProfileHeader(props) {
     <div className="profile-header">
       {/* <img src="https://via.placeholder.com/50x50" alt="logo" /> */}
       {/* <Icon name="user circle" size={"big"} /> */}
-      <img src={props.avatar} alt="user avatar" />
+      <div class="header-avatar">
+        <img src={props.avatar} alt="user avatar" />
+      </div>
       <p className="username">{props.username}</p>
     </div>
   );

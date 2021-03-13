@@ -42,6 +42,16 @@ main h2.ui.header:first-child {
     .profile-header {
       text-align: center;
 
+      .header-avatar {
+        width: 60px;
+
+        display: inline-block;
+
+        img {
+          height: 60px;
+        }
+      }
+
       .username {
         font-weight: bold;
         font-size: 0.8rem;
