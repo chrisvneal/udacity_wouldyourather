@@ -18,6 +18,7 @@ function ProfileHeader(props) {
 function mapStateToProps({ users, authedUser }) {
   return {
     users,
+    username: authedUser.id,
   };
 }
 
