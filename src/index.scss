@@ -1,6 +1,18 @@
 @import "./scss/partials/variables.scss";
 @import "./scss/partials/global_styles.scss";
 
+$high-rank-gold: rgba(241, 214, 0, 1);
+
+@mixin high-rank-bg {
+  background: rgb(241, 214, 0);
+  background: linear-gradient(
+    90deg,
+    rgba(241, 214, 0, 1) 0%,
+    rgba(245, 236, 168, 1) 68%,
+    rgba(255, 255, 255, 1) 99%
+  );
+}
+
 /* Util classes */
 .center {
   text-align: center;
@@ -89,6 +101,15 @@ main .create-poll .ui.form {
 .leaderboard {
   h3 {
     font-size: 1.2rem;
+  }
+
+  .user-rank-table tbody tr:first-child {
+    @include high-rank-bg;
+
+    td {
+      font-weight: bold;
+      font-size: 1rem;
+    }
   }
 
   .ui.table {
