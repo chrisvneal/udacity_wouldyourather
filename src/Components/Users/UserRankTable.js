@@ -10,11 +10,6 @@ class UserRankTable extends Component {
     // });
     console.clear();
     console.log("props, users ", this.props.users);
-    // console.log(
-    //   this.props.sort((a, b) => {
-    //     return b.questionsCreated - a.questionsCreated;
-    //   })
-    // );
 
     // console.log(type);
     return (
@@ -31,23 +26,13 @@ class UserRankTable extends Component {
           </Table.Header>
 
           <Table.Body>
-            <UserRankEntry />
-
-            {/* {this.props.users
-              .sort((a, b) => {
-                return b.questionsCreated - a.questionsCreated;
-              })
-              .map((user) => {
-                return (
-                  <UserRankEntry
-                    username={user.username}
-                    key={user.username}
-                    numQuestions={user.questionsCreated}
-                    numAnswers={user.questionsAnswered}
-                    totalScore={user.totalScore}
-                  />
-                );
-              })} */}
+            <UserRankEntry
+              key={20}
+              username={"bitch"}
+              numQuestions={"2"}
+              numAnswers={"3"}
+              totalScore={"5"}
+            />
           </Table.Body>
         </Table>
       </React.Fragment>
