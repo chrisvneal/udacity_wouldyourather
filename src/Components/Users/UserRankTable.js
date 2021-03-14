@@ -1,29 +1,14 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
 import { Table } from "semantic-ui-react";
 import UserRankEntry from "./UserRankEntry";
 
-class UserRankTable extends Component {
+export default class UserRankTable extends Component {
   render() {
     // const userRank = this.props.users.sort((a, b) => {
     //   return b.questionsCreated - a.questionsCreated;
     // });
     console.clear();
-    const { users, type } = this.props;
-    console.log("props, users ", users);
 
-    let users_highQuestions = users.sort((a, b) => {
-      return b.questionsCreated - a.questionsCreated;
-    });
-
-    let users_highAnswers = users.sort((a, b) => {
-      return b.questionsAnswered - a.questionsAnswered;
-    });
-
-    console.log("Highest Questions: ", users_highQuestions);
-    console.log("Highest Answers: ", users_highAnswers);
-
-    // console.log(type);
     return (
       <React.Fragment>
         <Table basic="very" className="user-rank-table" collapsing>
@@ -38,7 +23,7 @@ class UserRankTable extends Component {
           </Table.Header>
 
           <Table.Body>
-            {users.map((user) => {
+            {this.props.rankedUsers.map((user) => {
               return (
                 <UserRankEntry
                   key={user.id}
@@ -55,43 +40,3 @@ class UserRankTable extends Component {
     );
   }
 }
-
-function mapStateToProps({ users, authedUser }, type) {
-  // Initialize an array of new objects containing user rank info
-  let rankedUsers = [];
-
-  // loop through an array of original user objects ...
-  for (let user in users) {
-    // ... and create new objects from those objects.
-    let rankedUser = {
-      id: user,
-      questionsCreated: users[user].questions.length,
-      questionsAnswered: Object.entries(users[user].answers).length,
-      totalScore:
-        users[user].questions.length +
-        Object.entries(users[user].answers).length,
-    };
-
-    //  Stash them all into an array!
-    rankedUsers.push(rankedUser);
-  }
-
-  // console.log("Ranked Users: ", rankedUsers);
-  // let usersMostQuestions = rankedUsers.sort((a, b) => {
-  //   return b.questionsCreated - a.questionsCreated;
-  // });
-
-  // sort new array of rankedUser into two new separate arrays of objects
-
-  // return an array of objects
-
-  // let usersMostAnswers = rankedUsers.sort((a, b) => {
-  //   return b.questionsAnswered - a.questionsAnswered;
-  // });
-
-  return {
-    users: rankedUsers,
-  };
-}
-
-export default connect(mapStateToProps)(UserRankTable);
