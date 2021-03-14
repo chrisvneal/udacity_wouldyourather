@@ -113,7 +113,7 @@ main .create-poll .ui.form {
   }
 
   .ui.table {
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     width: 100%;
   }
 
@@ -265,9 +265,9 @@ footer {
   position: fixed;
   bottom: 0;
   width: 100%;
-  padding-bottom: 20px;
-  background: white;
-
+  height: 100px;
+  padding-top: 50px;
+  background: transparent;
   p {
     color: #a6a6a6;
   }
