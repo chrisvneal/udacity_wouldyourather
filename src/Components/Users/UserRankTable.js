@@ -4,11 +4,6 @@ import UserRankEntry from "./UserRankEntry";
 
 export default class UserRankTable extends Component {
   render() {
-    // const userRank = this.props.users.sort((a, b) => {
-    //   return b.questionsCreated - a.questionsCreated;
-    // });
-    console.clear();
-
     return (
       <React.Fragment>
         <Table basic="very" className="user-rank-table" collapsing>

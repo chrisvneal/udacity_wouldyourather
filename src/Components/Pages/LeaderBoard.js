@@ -8,32 +8,16 @@ import SiteWrapper from "../Site/SiteWrapper";
 
 class LeaderBoard extends Component {
   render() {
-    const { users } = this.props;
-    console.log("props, users ", users);
+    const { rankedUsers } = this.props;
 
-    let users_highQuestions = users.sort((a, b) => {
-      return b.questionsCreated - a.questionsCreated;
-    });
-
-    let users_highAnswers = users.sort((a, b) => {
-      return b.questionsAnswered - a.questionsAnswered;
-    });
-
-    // console.log("Highest Questions: ", users_highQuestions);
-    // console.log("Highest Answers: ", users_highAnswers);
-
-    // console.log(type);
     return (
       <SiteWrapper>
         <div className="leaderboard">
           <Header as="h2" content="Leader Board" />
           <h3>Top Users With Most Questions Created</h3>
-          <UserRankTable
-            type="most_questions"
-            rankedUsers={users_highQuestions}
-          />
+          <UserRankTable rankedUsers={rankedUsers.highQuestions} />
           <h3>Top Users With Most Answers</h3>
-          <UserRankTable type="most_answers" rankedUsers={users_highAnswers} />
+          <UserRankTable rankedUsers={rankedUsers.highAnswers} />
           <h3>Highest Answered Selections</h3>
           <HighestSelectionRank />
         </div>
@@ -62,21 +46,17 @@ function mapStateToProps({ users, authedUser }, type) {
     rankedUsers.push(rankedUser);
   }
 
-  // console.log("Ranked Users: ", rankedUsers);
-  // let usersMostQuestions = rankedUsers.sort((a, b) => {
-  //   return b.questionsCreated - a.questionsCreated;
-  // });
-
-  // sort new array of rankedUser into two new separate arrays of objects
-
-  // return an array of objects
-
-  // let usersMostAnswers = rankedUsers.sort((a, b) => {
-  //   return b.questionsAnswered - a.questionsAnswered;
-  // });
+  let rankedUsersCopy = [...rankedUsers];
 
   return {
-    users: rankedUsers,
+    rankedUsers: {
+      highQuestions: rankedUsers.sort((a, b) => {
+        return b.questionsCreated - a.questionsCreated;
+      }),
+      highAnswers: rankedUsersCopy.sort((a, b) => {
+        return b.questionsAnswered - a.questionsAnswered;
+      }),
+    },
   };
 }
 
