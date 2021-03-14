@@ -8,7 +8,8 @@ import SiteWrapper from "../Site/SiteWrapper";
 
 class LeaderBoard extends Component {
   render() {
-    const { rankedUsers } = this.props;
+    const { rankedUsers, rankedQuestions } = this.props;
+    console.log("Ranked quests: ", rankedQuestions);
 
     return (
       <SiteWrapper>
@@ -19,14 +20,27 @@ class LeaderBoard extends Component {
           <h3>Top Users With Most Answers</h3>
           <UserRankTable rankedUsers={rankedUsers.highAnswers} />
           <h3>Highest Answered Selections</h3>
-          <HighestSelectionRank />
+          <HighestSelectionRank questions={rankedQuestions} />
         </div>
       </SiteWrapper>
     );
   }
 }
 
-function mapStateToProps({ users, authedUser }, type) {
+function mapStateToProps({ users, questions }) {
+  console.log("mapped", questions);
+  let rankedQuestions = [];
+  for (let question in questions) {
+    // console.log("question:", questions[question]);
+    let rankedQuestion = {
+      id: questions[question].id,
+      author: questions[question].author,
+      options: [questions[question].optionOne, questions[question].optionTwo],
+    };
+
+    rankedQuestions.push(rankedQuestion);
+  }
+
   // Initialize an array of new objects containing user rank info
   let rankedUsers = [];
 
@@ -49,6 +63,7 @@ function mapStateToProps({ users, authedUser }, type) {
   let rankedUsersCopy = [...rankedUsers];
 
   return {
+    rankedQuestions: rankedQuestions,
     rankedUsers: {
       highQuestions: rankedUsers.sort((a, b) => {
         return b.questionsCreated - a.questionsCreated;
