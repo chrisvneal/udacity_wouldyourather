@@ -15,6 +15,10 @@ $small-text--color: darken(#eee, 25%);
   );
 }
 
+a:not(nav a) {
+  color: inherit;
+}
+
 /* Util classes */
 .center {
   text-align: center;
