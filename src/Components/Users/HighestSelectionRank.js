@@ -2,7 +2,7 @@ import React from "react";
 import { Table } from "semantic-ui-react";
 import HighSelectionEntry from "./HighSelectionEntry";
 
-export default function HighestSelectionRank() {
+export default function HighestSelectionRank(props) {
   return (
     <React.Fragment>
       <Table basic="very" collapsing className="highest-selection-rank">
@@ -15,7 +15,11 @@ export default function HighestSelectionRank() {
 
         <Table.Body>
           {/* loop through entries here */}
-          <HighSelectionEntry votes={2} text="Good job" />
+          <HighSelectionEntry
+            questions={props.questions}
+            votes={2}
+            text="Good job"
+          />
         </Table.Body>
       </Table>
     </React.Fragment>
