@@ -4,7 +4,10 @@ import { Link } from "react-router-dom";
 
 export default function PollCard(props) {
   return (
-    <Link to="poll_details">
+    <Link
+      to={{
+        pathname: "poll_details",
+      }}>
       <Card>
         <Card.Content className="header">Would You Rather...?</Card.Content>
         <Card.Content className="option">{props.question}</Card.Content>
