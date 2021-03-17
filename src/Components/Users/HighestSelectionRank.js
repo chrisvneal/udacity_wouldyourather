@@ -7,14 +7,17 @@ export default function HighestSelectionRank(props) {
   console.log("highest Selection Rank props: ", props.questions);
   // console.log('')
 
-  let votesOpts = [];
+  // let votesOpts = [];
 
-  props.questions.map((question) => {
+  let votesOpts = props.questions.map((question) => {
     let opt1 = [question.options[0].votes.length, question.options[0].text];
     let opt2 = [question.options[1].votes.length, question.options[1].text];
+    let gatheredOptions = [];
 
-    votesOpts.push(opt1);
-    votesOpts.push(opt2);
+    gatheredOptions.push(opt1);
+    gatheredOptions.push(opt2);
+
+    return gatheredOptions;
   });
 
   console.log("votesOpts", votesOpts);
