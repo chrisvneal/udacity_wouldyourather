@@ -18,8 +18,14 @@ $high-rank-gold: rgba(241, 214, 0, 1);
   text-align: center;
 }
 
-main h2.ui.header:first-child {
-  margin-bottom: 2rem;
+main {
+  &.ui.container {
+    margin-bottom: 100px;
+  }
+
+  h2.ui.header:first-child {
+    margin-bottom: 2rem;
+  }
 }
 
 .site-nav {
