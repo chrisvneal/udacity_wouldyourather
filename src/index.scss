@@ -2,6 +2,8 @@
 @import "./scss/partials/global_styles.scss";
 
 $high-rank-gold: rgba(241, 214, 0, 1);
+$leaderboard-header--color: #0078d7;
+$small-text--color: darken(#eee, 25%);
 
 @mixin high-rank-bg {
   background: rgb(241, 214, 0);
@@ -12,8 +14,6 @@ $high-rank-gold: rgba(241, 214, 0, 1);
     rgba(255, 255, 255, 1) 99%
   );
 }
-
-$leaderboard-header--color: #0078d7;
 
 /* Util classes */
 .center {
@@ -149,6 +149,14 @@ main .create-poll .ui.form {
   .content {
     padding: 5px;
     text-align: center;
+    p {
+      color: $small-text--color;
+
+      &.poll-card-likes {
+        color: #ffb900;
+        font-weight: bold;
+      }
+    }
   }
 
   .header {
@@ -157,10 +165,12 @@ main .create-poll .ui.form {
   }
 
   .option {
-    height: 65px;
+    height: 80px;
     padding-top: 20px;
     font-weight: 600;
     font-size: 1.3rem;
+    font-style: italic;
+    line-height: 1.3;
   }
 
   .footer {
