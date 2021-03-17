@@ -3,9 +3,10 @@ import { Header, Grid } from "semantic-ui-react";
 import PollResults from "../Polls/PollResults";
 import UserInfo from "../Users/UserInfo";
 import SiteWrapper from "../Site/SiteWrapper";
+import { connect } from "react-redux";
 // import { useParams } from "react-router-dom";
 
-export default class PollDetails extends Component {
+class PollDetails extends Component {
   render() {
     const id = this.props.match.params;
     console.clear();
@@ -21,7 +22,7 @@ export default class PollDetails extends Component {
                 <UserInfo />
               </Grid.Column>
               <Grid.Column width={11}>
-                <PollResults result={id} />
+                <PollResults result={id} questions={this.props.questions} />
               </Grid.Column>
             </Grid.Row>
           </Grid>
@@ -30,3 +31,11 @@ export default class PollDetails extends Component {
     );
   }
 }
+
+function mapStateToProps({ questions }) {
+  return {
+    questions,
+  };
+}
+
+export default connect(mapStateToProps)(PollDetails);

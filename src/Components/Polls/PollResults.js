@@ -5,6 +5,7 @@ import { Progress } from "semantic-ui-react";
 
 export default class PollResults extends Component {
   render() {
+    // console.log("questions: ", this.props.questions);
     return (
       <div className="poll-results">
         <h2 className="center">Would You Rather...?</h2>
