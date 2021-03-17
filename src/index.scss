@@ -13,6 +13,8 @@ $high-rank-gold: rgba(241, 214, 0, 1);
   );
 }
 
+$leaderboard-header--color: #0078d7;
+
 /* Util classes */
 .center {
   text-align: center;
@@ -107,6 +109,7 @@ main .create-poll .ui.form {
 .leaderboard {
   h3 {
     font-size: 1.2rem;
+    color: $leaderboard-header--color;
   }
 
   .user-rank-table tbody tr:first-child {
@@ -119,7 +122,7 @@ main .create-poll .ui.form {
   }
 
   .ui.table {
-    margin-bottom: 30px;
+    margin-bottom: 40px;
     width: 100%;
   }
 
