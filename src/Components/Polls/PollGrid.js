@@ -11,6 +11,7 @@ export default class PollGrid extends Component {
           <PollCard
             author={poll.author}
             key={poll.id}
+            id={poll.id}
             question={`${poll.text}...`}
             likes={poll.votes.total}
           />

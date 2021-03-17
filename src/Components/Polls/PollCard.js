@@ -6,7 +6,7 @@ export default function PollCard(props) {
   return (
     <Link
       to={{
-        pathname: "poll_details",
+        pathname: `${props.id}`,
       }}>
       <Card>
         <Card.Content className="header">Would You Rather...?</Card.Content>
