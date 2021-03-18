@@ -3,6 +3,7 @@
 
 $high-rank-gold: rgba(241, 214, 0, 1);
 $leaderboard-header--color: #0078d7;
+$link-hover--color: #3498db;
 $small-text--color: darken(#eee, 25%);
 
 @mixin high-rank-bg {
@@ -15,8 +16,13 @@ $small-text--color: darken(#eee, 25%);
   );
 }
 
-a:not(nav a) {
+a:not(nav a),
+a:hover {
   color: inherit;
+}
+
+a:hover .content.option {
+  color: $link-hover--color;
 }
 
 /* Util classes */
@@ -225,13 +231,15 @@ main .create-poll .ui.form {
   .user-info-author {
     font-weight: bold;
     font-size: 1rem;
+    display: inline-block;
+    margin-top: 10px;
   }
 
   .user-info {
     outline: 1px solid #d4d4d5;
     padding: 7px;
     // min-width: 220px;
-    width: 180px;
+    width: 200px;
   }
 
   .user-info-header {
