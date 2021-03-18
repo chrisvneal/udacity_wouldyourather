@@ -17,7 +17,7 @@ export default class PollResults extends Component {
         <h2 className="center">Would You Rather...?</h2>
         <div className="poll-results-cards">
           {options.map((option) => (
-            <PollCard key={option} question={option} />
+            <PollCard key={option} question={option} id={result} />
           ))}
 
           {/* <PollCard /> */}
