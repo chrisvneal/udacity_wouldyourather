@@ -6,12 +6,21 @@ import { Progress } from "semantic-ui-react";
 export default class PollResults extends Component {
   render() {
     // console.log("questions: ", this.props.questions);
+    // console.log("id: ", this.props.result);
+
+    const { questions, result } = this.props;
+    const optionOne = questions[result].optionOne.text;
+    const optionTwo = questions[result].optionTwo.text;
+    const options = [optionOne, optionTwo];
     return (
       <div className="poll-results">
         <h2 className="center">Would You Rather...?</h2>
         <div className="poll-results-cards">
-          <PollCard />
-          <PollCard />
+          {options.map((option) => (
+            <PollCard key={option} question={option} />
+          ))}
+
+          {/* <PollCard /> */}
         </div>
         <Progress
           value="2"
