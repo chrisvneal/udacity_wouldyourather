@@ -16,6 +16,17 @@ class App extends Component {
   componentDidMount() {
     this.props.dispatch(handleInitialData());
   }
+
+  doSomething = () => {
+    console.clear();
+    console.log("authedUser:", this.props.authedUser.loggedIn);
+    console.log(this);
+    // if (this.props.authedUser.loggedIn) {
+    //   return <Login />;
+    // } else {
+    //   return <PollDetails />;
+    // }
+  };
   render() {
     return (
       <Router>
@@ -41,7 +52,7 @@ class App extends Component {
                   <Route path="/add" component={CreatePoll} />
                   <Route path="/leaderboard" component={LeaderBoard} />
                   <Route path="/user_profile" component={UserProfile} />
-                  <Route path="/:id" component={PollDetails} />
+                  <Route path="/:id" render={this.doSomething} />
                   <Route path="/user_login" component={Login} />
                 </Switch>
                 {/* <Route path="/poll_id" component={CreatePoll} /> */}
