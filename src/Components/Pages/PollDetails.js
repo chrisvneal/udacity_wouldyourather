@@ -8,9 +8,10 @@ import { connect } from "react-redux";
 
 class PollDetails extends Component {
   render() {
-    const id = this.props.match.params;
-    console.clear();
-    console.log("ID: ", id);
+    const { id } = this.props.match.params;
+    const { questions } = this.props;
+    // console.clear();
+    // console.log("ID: ", id);
     return (
       <SiteWrapper>
         <div className="poll-details">
@@ -19,10 +20,10 @@ class PollDetails extends Component {
             <Grid.Row columns={3}>
               <Grid.Column width={5}>
                 <Header as="h3" content="Created by" />
-                <UserInfo />
+                <UserInfo author={questions[id].author} />
               </Grid.Column>
               <Grid.Column width={11}>
-                <PollResults result={id} questions={this.props.questions} />
+                <PollResults result={id} questions={questions} />
               </Grid.Column>
             </Grid.Row>
           </Grid>
@@ -32,9 +33,10 @@ class PollDetails extends Component {
   }
 }
 
-function mapStateToProps({ questions }) {
+function mapStateToProps({ questions, users }) {
   return {
     questions,
+    users,
   };
 }
 

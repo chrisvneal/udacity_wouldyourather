@@ -1,13 +1,13 @@
 import React from "react";
 import { Icon } from "semantic-ui-react";
 
-export default function UserInfo() {
+export default function UserInfo(props) {
   return (
     <div className="user-info">
       <div className="user-info-header">
         <p>
           <Icon name="user circle" size="huge" />
-          <span className="user-info-author">author_name</span>
+          <span className="user-info-author">{props.author}</span>
         </p>
       </div>
       <div className="user-info-body">
