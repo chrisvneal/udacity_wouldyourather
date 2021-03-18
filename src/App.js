@@ -53,7 +53,6 @@ class App extends Component {
                   <Route path="/leaderboard" component={LeaderBoard} />
                   <Route path="/user_profile" component={UserProfile} />
                   <Route path="/:id" render={this.checkLogin} />
-                  <Route path="/user_login" component={Login} />
                 </Switch>
                 {/* <Route path="/poll_id" component={CreatePoll} /> */}
               </Grid.Column>
