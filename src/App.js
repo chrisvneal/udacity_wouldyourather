@@ -17,7 +17,7 @@ class App extends Component {
     this.props.dispatch(handleInitialData());
   }
 
-  doSomething = () => {
+  checkLogin = () => {
     console.clear();
     console.log("authedUser:", this.props.authedUser.loggedIn);
     console.log(this);
@@ -52,7 +52,7 @@ class App extends Component {
                   <Route path="/add" component={CreatePoll} />
                   <Route path="/leaderboard" component={LeaderBoard} />
                   <Route path="/user_profile" component={UserProfile} />
-                  <Route path="/:id" render={this.doSomething} />
+                  <Route path="/:id" render={this.checkLogin} />
                   <Route path="/user_login" component={Login} />
                 </Switch>
                 {/* <Route path="/poll_id" component={CreatePoll} /> */}
