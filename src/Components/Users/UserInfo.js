@@ -12,13 +12,13 @@ export default function UserInfo(props) {
       </div>
       <div className="user-info-body">
         <p>
-          <span className="user-info-number">5</span>
+          <span className="user-info-number">{props.created}</span>
           <span className="user-info-text">
             questions <strong>created</strong>
           </span>
         </p>
         <p>
-          <span className="user-info-number">10</span>
+          <span className="user-info-number">{props.answered}</span>
           <span className="user-info-text">
             questions <strong>answered</strong>
           </span>

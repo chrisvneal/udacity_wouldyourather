@@ -9,9 +9,14 @@ import { connect } from "react-redux";
 class PollDetails extends Component {
   render() {
     const { id } = this.props.match.params;
-    const { questions } = this.props;
-    // console.clear();
-    // console.log("ID: ", id);
+    const { questions, users } = this.props;
+    const poll_author = questions[id].author;
+    const questionsCreated = users[poll_author].questions.length;
+    const questionsAnswered = Object.keys(users[poll_author].answers).length;
+
+    console.clear();
+    // console.log("ID: ", questions[id].answers);
+    console.log(questionsAnswered);
     return (
       <SiteWrapper>
         <div className="poll-details">
@@ -20,7 +25,11 @@ class PollDetails extends Component {
             <Grid.Row columns={3}>
               <Grid.Column width={5}>
                 <Header as="h3" content="Created by" />
-                <UserInfo author={questions[id].author} />
+                <UserInfo
+                  author={poll_author}
+                  created={questionsCreated}
+                  answered={questionsAnswered}
+                />
               </Grid.Column>
               <Grid.Column width={11}>
                 <PollResults result={id} questions={questions} />
