@@ -17,16 +17,6 @@ class App extends Component {
     this.props.dispatch(handleInitialData());
   }
 
-  checkLogin = () => {
-    console.clear();
-    console.log("authedUser:", this.props.authedUser.loggedIn);
-    console.log(this);
-    // if (this.props.authedUser.loggedIn) {
-    //   return <Login />;
-    // } else {
-    //   return <PollDetails />;
-    // }
-  };
   render() {
     return (
       <Router>
@@ -45,6 +35,8 @@ class App extends Component {
                       if (this.props.authedUser) {
                         return <Polls />;
                       } else {
+                        console.clear();
+                        console.log(this.props.authedUser);
                         return <Login />;
                       }
                     }}
@@ -52,7 +44,7 @@ class App extends Component {
                   <Route path="/add" component={CreatePoll} />
                   <Route path="/leaderboard" component={LeaderBoard} />
                   <Route path="/user_profile" component={UserProfile} />
-                  <Route path="/:id" render={this.checkLogin} />
+                  <Route path="/:id" component={PollDetails} />
                 </Switch>
                 {/* <Route path="/poll_id" component={CreatePoll} /> */}
               </Grid.Column>
