@@ -28,8 +28,14 @@ export default class PollResults extends Component {
     // console.log("id: ", this.props.result);
 
     const { questions, result } = this.props;
-    const optionOne = questions[result].optionOne.text;
-    const optionTwo = questions[result].optionTwo.text;
+    const optionOne = {
+      name: "optionOne",
+      text: questions[result].optionOne.text,
+    };
+    const optionTwo = {
+      name: "optionTwo",
+      text: questions[result].optionTwo.text,
+    };
     const options = [optionOne, optionTwo];
     return (
       <div className="poll-results">
@@ -37,9 +43,10 @@ export default class PollResults extends Component {
         <div className="poll-results-cards">
           {options.map((option) => (
             <PollCard
-              key={option}
-              question={option}
+              key={option.text}
+              question={option.text}
               id={result}
+              option={option.name}
               selectOption={this.selectOption}
             />
           ))}
