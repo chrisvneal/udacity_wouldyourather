@@ -155,8 +155,24 @@ main .create-poll .ui.form {
 
   &.selectedOption {
     background: $success-color;
+    padding-top: 20px;
     // width: 400px;
     transition: width 0.1s ease-in;
+    .header {
+      display: none;
+    }
+
+    .content.option {
+      font-size: 1.8rem;
+
+      &:after {
+        content: "!";
+      }
+    }
+
+    a:hover .content.option {
+      color: black;
+    }
   }
 
   & > :first-child {
