@@ -9,7 +9,7 @@ import { connect } from "react-redux";
 class PollDetails extends Component {
   render() {
     const { id } = this.props.match.params;
-    const { questions, users } = this.props;
+    const { questions, users, authedUser } = this.props;
     const poll_author = questions[id].author;
     const questionsCreated = users[poll_author].questions.length;
     const questionsAnswered = Object.keys(users[poll_author].answers).length;
@@ -30,7 +30,11 @@ class PollDetails extends Component {
                 />
               </Grid.Column>
               <Grid.Column width={11}>
-                <PollResults result={id} questions={questions} />
+                <PollResults
+                  result={id}
+                  questions={questions}
+                  authedUser={authedUser}
+                />
               </Grid.Column>
             </Grid.Row>
           </Grid>
