@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PollCard from "./PollCard";
+import { _saveQuestionAnswer } from "../../apis/_DATA";
 // import { Progress } from "semantic-ui-react";
 // import { Header } from "semantic-ui-react";
 
@@ -25,6 +26,8 @@ export default class PollResults extends Component {
     let option = poll_option;
     // console.clear();
     console.log("Option: ", option);
+
+    _saveQuestionAnswer(this.props.authedUser, this.props.result, option);
   };
 
   render() {
