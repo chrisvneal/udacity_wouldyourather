@@ -16,6 +16,7 @@ export default class PollResults extends Component {
       target.previousElementSibling.style.display = "none";
     }
 
+    // add selectedOption class to chosen component
     target.classList.add("selectedOption");
   };
   render() {

@@ -5,6 +5,7 @@ $high-rank-gold: rgba(241, 214, 0, 1);
 $leaderboard-header--color: #0078d7;
 $link-hover--color: #3498db;
 $small-text--color: darken(#eee, 25%);
+$success-color: #84ff84;
 
 @mixin high-rank-bg {
   background: rgb(241, 214, 0);
@@ -152,6 +153,12 @@ main .create-poll .ui.form {
   border-radius: 2px;
   margin-bottom: 90px;
 
+  &.selectedOption {
+    background: $success-color;
+    // width: 400px;
+    transition: width 0.1s ease-in;
+  }
+
   & > :first-child {
     border-radius: 0 !important;
   }
@@ -269,7 +276,7 @@ main .create-poll .ui.form {
   .poll-results-cards {
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-between;
+    justify-content: space-around;
     width: 100%;
     margin: 50px auto 0;
   }
