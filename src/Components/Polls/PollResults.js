@@ -18,6 +18,10 @@ export default class PollResults extends Component {
 
     // add selectedOption class to chosen component
     target.classList.add("selectedOption");
+
+    // console.log(document.querySelector(".poll-results h2").innerText);
+    document.querySelector(".poll-results h2").innerText =
+      "You Would Rather...";
   };
   render() {
     // console.log("questions: ", this.props.questions);
