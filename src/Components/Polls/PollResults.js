@@ -4,6 +4,20 @@ import PollCard from "./PollCard";
 // import { Header } from "semantic-ui-react";
 
 export default class PollResults extends Component {
+  selectOption = (e) => {
+    // get the current target
+    let target = e.currentTarget;
+
+    // if it has a next sibling, remove it
+    if (target.nextElementSibling) {
+      target.nextElementSibling.style.display = "none";
+    } else {
+      // if no next sibling, remove the previous sibling
+      target.previousElementSibling.style.display = "none";
+    }
+
+    target.classList.add("selectedOption");
+  };
   render() {
     // console.log("questions: ", this.props.questions);
     // console.log("id: ", this.props.result);
@@ -17,7 +31,12 @@ export default class PollResults extends Component {
         <h2 className="center">Would You Rather...?</h2>
         <div className="poll-results-cards">
           {options.map((option) => (
-            <PollCard key={option} question={option} id={result} />
+            <PollCard
+              key={option}
+              question={option}
+              id={result}
+              selectOption={this.selectOption}
+            />
           ))}
 
           {/* <PollCard /> */}

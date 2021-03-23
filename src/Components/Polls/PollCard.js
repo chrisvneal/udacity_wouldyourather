@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export default function PollCard(props) {
   return (
-    <Card>
+    <Card onClick={props.selectOption}>
       <Link
         to={{
           pathname: `${props.id}`,
