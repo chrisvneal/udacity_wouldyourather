@@ -4,7 +4,7 @@ import PollCard from "./PollCard";
 // import { Header } from "semantic-ui-react";
 
 export default class PollResults extends Component {
-  selectOption = (e) => {
+  selectOption = (e, poll_option) => {
     // get the current target
     let target = e.currentTarget;
 
@@ -22,7 +22,11 @@ export default class PollResults extends Component {
     // console.log(document.querySelector(".poll-results h2").innerText);
     document.querySelector(".poll-results h2").innerText =
       "You Would Rather...";
+    let option = poll_option;
+    // console.clear();
+    console.log("Option: ", option);
   };
+
   render() {
     // console.log("questions: ", this.props.questions);
     // console.log("id: ", this.props.result);
@@ -47,7 +51,9 @@ export default class PollResults extends Component {
               question={option.text}
               id={result}
               option={option.name}
-              selectOption={this.selectOption}
+              selectOption={(e) => {
+                this.selectOption(e, option.name);
+              }}
             />
           ))}
 
