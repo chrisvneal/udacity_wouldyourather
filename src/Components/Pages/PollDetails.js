@@ -40,10 +40,11 @@ class PollDetails extends Component {
   }
 }
 
-function mapStateToProps({ questions, users }) {
+function mapStateToProps({ questions, users, authedUser }) {
   return {
     questions,
     users,
+    authedUser: authedUser.id,
   };
 }
 
