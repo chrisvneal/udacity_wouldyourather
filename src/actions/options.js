@@ -1,3 +1,5 @@
+import { _saveQuestionAnswer } from "../apis/_DATA";
+
 export const SAVE_OPTION = "SAVE_OPTION";
 
 export function saveOption({ authedUser, qid, answer }) {
@@ -6,5 +8,12 @@ export function saveOption({ authedUser, qid, answer }) {
     authedUser,
     qid,
     answer,
+  };
+}
+
+export function handleSaveOption(option) {
+  return (dispatch) => {
+    dispatch(saveOption(option));
+    _saveQuestionAnswer(option);
   };
 }
