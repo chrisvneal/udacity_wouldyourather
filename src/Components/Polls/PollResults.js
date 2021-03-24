@@ -33,9 +33,9 @@ export default class PollResults extends Component {
       answer: option,
     };
 
-    console.log("Vote: ", vote);
+    // console.log("Vote: ", vote);
 
-    _saveQuestionAnswer(vote);
+    // _saveQuestionAnswer(vote);
   };
 
   render() {
