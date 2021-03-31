@@ -25,7 +25,7 @@ export default class PollResults extends Component {
       "You Would Rather...";
     let option = poll_option;
     console.clear();
-    console.log("Option: ", this);
+    console.log("option: ", option);
 
     let vote = {
       authedUser: this.props.authedUser,
@@ -33,11 +33,9 @@ export default class PollResults extends Component {
       answer: option,
     };
 
+    console.log("vote: ", vote);
+
     handleSaveOption(vote);
-
-    // console.log("Vote: ", vote);
-
-    // _saveQuestionAnswer(vote);
   };
 
   render() {
