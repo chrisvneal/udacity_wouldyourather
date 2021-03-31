@@ -13,7 +13,9 @@ function saveOption({ authedUser, qid, answer }) {
 
 export function handleSaveOption(option) {
   return (dispatch) => {
-    dispatch(saveOption(option));
-    _saveQuestionAnswer(option);
+    // dispatch(saveOption(option));
+    return _saveQuestionAnswer(option).then((option) => {
+      dispatch(saveOption(option));
+    });
   };
 }
