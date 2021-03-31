@@ -23,17 +23,14 @@ export default class PollResults extends Component {
     // console.log(document.querySelector(".poll-results h2").innerText);
     document.querySelector(".poll-results h2").innerText =
       "You Would Rather...";
-    let option = poll_option;
-    console.clear();
-    console.log("option: ", option);
 
     let vote = {
       authedUser: this.props.authedUser,
       qid: this.props.result,
-      answer: option,
+      answer: poll_option,
     };
 
-    console.log("vote: ", vote);
+    // console.log("vote: ", vote);
 
     handleSaveOption(vote);
   };
