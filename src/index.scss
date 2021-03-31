@@ -155,7 +155,7 @@ main .create-poll .ui.form {
 
   &.selectedOption {
     background: $success-color;
-    padding-top: 20px;
+    padding: 0 10px 20px;
     // width: 400px;
     transition: width 0.1s ease-in;
     .header {
