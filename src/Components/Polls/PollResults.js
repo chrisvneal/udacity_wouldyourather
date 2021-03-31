@@ -5,7 +5,7 @@ import { handleSaveOption } from "../../actions/options";
 // import { Header } from "semantic-ui-react";
 
 export default class PollResults extends Component {
-  selectOption = (e, poll_option) => {
+  selectOption = (e, poll_option, callback) => {
     // get the current target
     let target = e.currentTarget;
 
@@ -30,9 +30,9 @@ export default class PollResults extends Component {
       answer: poll_option,
     };
 
-    // console.log("vote: ", vote);
+    console.log("vote: ", vote);
 
-    handleSaveOption(vote);
+    callback(vote);
   };
 
   render() {
@@ -60,7 +60,7 @@ export default class PollResults extends Component {
               id={result}
               option={option.name}
               selectOption={(e) => {
-                this.selectOption(e, option.name);
+                this.selectOption(e, option.name, handleSaveOption);
               }}
             />
           ))}
