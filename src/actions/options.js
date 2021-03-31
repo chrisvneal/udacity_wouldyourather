@@ -2,7 +2,7 @@ import { _saveQuestionAnswer } from "../apis/_DATA";
 
 export const SAVE_OPTION = "SAVE_OPTION";
 
-export function saveOption({ authedUser, qid, answer }) {
+function saveOption({ authedUser, qid, answer }) {
   return {
     type: SAVE_OPTION,
     authedUser,
