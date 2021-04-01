@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import PollCard from "./PollCard";
 import { handleSaveOption } from "../../actions/options";
+import { connect } from "react-redux";
 // import { Progress } from "semantic-ui-react";
 // import { Header } from "semantic-ui-react";
 
-export default class PollResults extends Component {
+class PollResults extends Component {
   selectOption = (e, poll_option, callback) => {
+    const { dispatch } = this.props;
     // get the current target
     let target = e.currentTarget;
 
@@ -32,7 +34,7 @@ export default class PollResults extends Component {
 
     console.log("vote: ", vote);
 
-    callback(vote);
+    dispatch(callback(vote));
   };
 
   render() {
@@ -82,3 +84,13 @@ export default class PollResults extends Component {
     );
   }
 }
+
+function mapStateToProps({ users, authedUser, questions }) {
+  return {
+    users,
+    username: authedUser.id,
+    questions,
+  };
+}
+
+export default connect(mapStateToProps)(PollResults);

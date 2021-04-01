@@ -13,9 +13,10 @@ function saveOption({ authedUser, qid, answer }) {
 
 export function handleSaveOption(option) {
   return (dispatch) => {
-    // dispatch(saveOption(option));
-    return _saveQuestionAnswer(option).then((option) => {
-      dispatch(saveOption(option));
+    dispatch(saveOption(option));
+
+    return _saveQuestionAnswer(option).catch((e) => {
+      console.warn("Error in handleSaveOption: ", e);
     });
   };
 }
