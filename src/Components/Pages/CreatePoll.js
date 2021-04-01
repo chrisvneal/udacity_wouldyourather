@@ -6,27 +6,40 @@ import { _saveQuestion } from "../../apis/_DATA";
 import { connect } from "react-redux";
 
 class CreatePoll extends Component {
-  render() {
-    const handleSaveQuestion = (e) => {
-      e.preventDefault();
-      console.log("question handled");
-      // this.props.saveQuestion(question);
+  handleChange = (e) => {
+    return {
+      optionOneText: e.target.optionOneText.value,
+      optionTwoText: e.target.optionTwoText.value,
+      author: this.props.authedUser,
     };
+  };
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    console.clear();
+
+    // get and use state
+    let question = this.handleChange(e);
+
+    this.props.saveQuestion(question);
+  };
+
+  render() {
     return (
       <SiteWrapper>
         <div className="create-poll">
           <Header as="h2" content="Create A Poll" />
           <p>Create two options for your poll, make it fun!</p>
           <Header as="h3" content="Would You Rather...?" />
-          <Form onSubmit={handleSaveQuestion}>
+          <Form onSubmit={this.handleSubmit}>
             <Form.Field>
               <label>Option 1</label>
-              <input placeholder="...be a superhero" />
+              <input placeholder="...be a superhero" id="optionOneText" />
             </Form.Field>
             <span className="or">or</span>
             <Form.Field>
               <label>Option 2</label>
-              <input placeholder="...be a super villian" />
+              <input placeholder="...be a super villian" id="optionTwoText" />
             </Form.Field>
             <Button type="submit">Create Poll</Button>
           </Form>
@@ -47,4 +60,10 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(null, mapDispatchToProps)(CreatePoll);
+const mapStateToProps = ({ authedUser }) => {
+  return {
+    authedUser: authedUser.id,
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(CreatePoll);
