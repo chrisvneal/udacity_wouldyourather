@@ -176,9 +176,7 @@ main .create-poll .ui.form {
   }
 
   &.answered {
-    background: $success-color;
-    padding: 0 10px 20px;
-    // width: 400px;
+    background: inherit;
     transition: width 0.1s ease-in;
     .header {
       display: none;
