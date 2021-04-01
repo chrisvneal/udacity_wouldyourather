@@ -28,6 +28,7 @@ export default function questions(state = {}, action) {
         ...state,
         [newQuestionUID]: {
           id: newQuestionUID,
+          author: action.question.author,
           timestamp: Date.now(),
           optionOne: {
             votes: [],
