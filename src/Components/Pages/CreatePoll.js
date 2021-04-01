@@ -21,6 +21,9 @@ class CreatePoll extends Component {
     // get and use state
     let question = this.handleChange(e);
 
+    e.target.optionOneText.value = "";
+    e.target.optionTwoText.value = "";
+
     this.props.saveQuestion(question);
   };
 
