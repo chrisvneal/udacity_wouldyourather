@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import PollCard from "./PollCard";
-import { handleSaveOption } from "../../actions/options";
+import { saveOption } from "../../actions/options";
+import { _saveQuestionAnswer } from "../../apis/_DATA";
+
 import { connect } from "react-redux";
 // import { Progress } from "semantic-ui-react";
 // import { Header } from "semantic-ui-react";
 
 class PollResults extends Component {
   selectOption = (e, poll_option, callback) => {
-    const { dispatch } = this.props;
     // get the current target
     let target = e.currentTarget;
 
@@ -34,7 +35,7 @@ class PollResults extends Component {
 
     console.log("vote: ", vote);
 
-    dispatch(callback(vote));
+    this.props.handleSaveOption(vote);
   };
 
   render() {
@@ -62,7 +63,7 @@ class PollResults extends Component {
               id={result}
               option={option.name}
               selectOption={(e) => {
-                this.selectOption(e, option.name, handleSaveOption);
+                this.selectOption(e, option.name);
               }}
             />
           ))}
@@ -85,12 +86,16 @@ class PollResults extends Component {
   }
 }
 
-function mapStateToProps({ users, authedUser, questions }) {
+const mapDispatchToProps = (dispatch) => {
   return {
-    users,
-    username: authedUser.id,
-    questions,
-  };
-}
+    handleSaveOption: (option) => {
+      dispatch(saveOption(option));
 
-export default connect(mapStateToProps)(PollResults);
+      return _saveQuestionAnswer(option).catch((e) => {
+        console.warn("Error in handleSaveOption: ", e);
+      });
+    },
+  };
+};
+
+export default connect(null, mapDispatchToProps)(PollResults);
