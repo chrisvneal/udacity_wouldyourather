@@ -8,7 +8,7 @@ import { connect } from "react-redux";
 // import { Header } from "semantic-ui-react";
 
 class PollResults extends Component {
-  selectOption = (e, poll_option, callback) => {
+  selectOption = (e, poll_option, callback, id) => {
     // get the current target
     let target = e.currentTarget;
 
@@ -33,9 +33,20 @@ class PollResults extends Component {
       answer: poll_option,
     };
 
-    console.log("vote: ", vote);
+    // console.log("vote: ", vote);
 
-    this.props.handleSaveOption(vote);
+    // console.log("user answered", this.props.userAnswered);
+
+    // console.log();
+
+    //     if (result ===  ) {
+    // return;
+    //     } else {
+    //       this.props.handleSaveOption(vote);
+    //     }
+
+    !this.props.userAnswered.includes(this.props.result) &&
+      this.props.handleSaveOption(vote);
   };
 
   render() {
@@ -63,7 +74,7 @@ class PollResults extends Component {
               id={result}
               option={option.name}
               selectOption={(e) => {
-                this.selectOption(e, option.name);
+                this.selectOption(e, option.name, result);
               }}
             />
           ))}
@@ -98,4 +109,10 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(null, mapDispatchToProps)(PollResults);
+const mapStateToProps = ({ authedUser, users }) => {
+  return {
+    userAnswered: Object.keys(users[authedUser.id].answers),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(PollResults);
