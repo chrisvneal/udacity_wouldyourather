@@ -7,7 +7,7 @@ export default function SiteFooter() {
       <Container>
         {/* <Header as="h2" content="Footer" /> */}
         <p>
-          project developed for
+          project developed for{" "}
           <a href="http://www.udacity.com" target="_blank" rel="noreferrer">
             <b>Udacity React Nanodegree</b>
           </a>{" "}
