@@ -175,6 +175,28 @@ main .create-poll .ui.form {
     }
   }
 
+  &.answered {
+    background: $success-color;
+    padding: 0 10px 20px;
+    // width: 400px;
+    transition: width 0.1s ease-in;
+    .header {
+      display: none;
+    }
+
+    .content.option {
+      font-size: 1.8rem;
+
+      &:after {
+        content: "!";
+      }
+    }
+
+    a:hover .content.option {
+      color: black;
+    }
+  }
+
   & > :first-child {
     border-radius: 0 !important;
   }
