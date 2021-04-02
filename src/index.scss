@@ -156,11 +156,7 @@ main .create-poll .ui.form {
   &.selectedOption {
     background: $success-color;
     padding: 0 10px 20px;
-    // width: 400px;
     transition: width 0.1s ease-in;
-    .header {
-      display: none;
-    }
 
     .content.option {
       font-size: 1.8rem;
@@ -168,6 +164,17 @@ main .create-poll .ui.form {
       &:after {
         content: "!";
       }
+    }
+  }
+
+  &.selectedOption,
+  &.answered {
+    .content.option {
+      padding-top: 30px;
+    }
+
+    .header {
+      display: none;
     }
 
     a:hover .content.option {
@@ -177,21 +184,16 @@ main .create-poll .ui.form {
 
   &.answered {
     background: $pattern-answered;
-    transition: width 0.1s ease-in;
-    .header {
-      display: none;
-    }
 
     .content.option {
-      font-size: 1.8rem;
-
-      &:after {
-        content: "!";
-      }
+      font-size: 1.3rem;
+    }
+    .poll-card-author {
+      color: lighten(black, 25%);
     }
 
-    a:hover .content.option {
-      color: black;
+    .content p.poll-card-likes {
+      color: lighten(red, 10%);
     }
   }
 
