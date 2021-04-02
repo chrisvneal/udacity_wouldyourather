@@ -11,7 +11,7 @@ function PollCard({ id, userAnswered, question, author, likes, selectOption }) {
     // <Card onClick={props.selectOption}>
     <Card
       as={"div"}
-      onClick={selectOption}
+      onClick={userAnswered.includes(id) ? null : selectOption}
       className={userAnswered.includes(id) ? "answered" : null}>
       <Link
         to={{

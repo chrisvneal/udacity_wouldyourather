@@ -171,6 +171,9 @@ main .create-poll .ui.form {
   &.answered {
     .content.option {
       padding-top: 30px;
+      &:after {
+        content: "!";
+      }
     }
 
     .header {
