@@ -46,6 +46,7 @@ class App extends Component {
                   <Route path="/leaderboard" component={LeaderBoard} />
                   <Route path="/user_profile" component={UserProfile} />
                   <Route path="/:id" component={PollDetails} />
+                  {/* <Route path={"/Error_404"} component={Error_404} /> */}
                 </Switch>
                 {/* <Route path="/poll_id" component={CreatePoll} /> */}
               </Grid.Column>

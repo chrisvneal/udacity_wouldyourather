@@ -1,26 +1,18 @@
 import React from "react";
 import { Table } from "semantic-ui-react";
 import HighSelectionEntry from "./HighSelectionEntry";
+import { generateKey } from "../../apis/helpers";
 
 export default function HighestSelectionRank(props) {
-  console.clear();
-  console.log("highest Selection Rank props: ", props.questions);
-  // console.log('')
-
   let votesOpts = [];
 
   props.questions.forEach((question) => {
     let opt1 = [question.options[0].votes.length, question.options[0].text];
     let opt2 = [question.options[1].votes.length, question.options[1].text];
-    // let gatheredOptions = [];
 
     votesOpts.push(opt1);
     votesOpts.push(opt2);
-
-    // return gatheredOptions;
   });
-
-  console.log("votesOpts", votesOpts);
 
   return (
     <React.Fragment>
@@ -40,7 +32,7 @@ export default function HighestSelectionRank(props) {
             .map((question) => (
               <React.Fragment>
                 <HighSelectionEntry
-                  key={question[1]}
+                  key={generateKey(8)}
                   votes={question[0]}
                   text={question[1]}
                 />
