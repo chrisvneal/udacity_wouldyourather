@@ -20,10 +20,6 @@ class PollResults extends Component {
       target.previousElementSibling.style.display = "none";
     }
 
-    // add selectedOption class to chosen component
-    target.classList.add("selectedOption");
-
-    // console.log(document.querySelector(".poll-results h2").innerText);
     document.querySelector(".poll-results h2").innerText =
       "You Would Rather...";
 
@@ -33,26 +29,11 @@ class PollResults extends Component {
       answer: poll_option,
     };
 
-    // console.log("vote: ", vote);
-
-    // console.log("user answered", this.props.userAnswered);
-
-    // console.log();
-
-    //     if (result ===  ) {
-    // return;
-    //     } else {
-    //       this.props.handleSaveOption(vote);
-    //     }
-
     !this.props.userAnswered.includes(this.props.result) &&
       this.props.handleSaveOption(vote);
   };
 
   render() {
-    // console.log("questions: ", this.props.questions);
-    // console.log("id: ", this.props.result);
-
     const { questions, result } = this.props;
     const optionOne = {
       name: "optionOne",

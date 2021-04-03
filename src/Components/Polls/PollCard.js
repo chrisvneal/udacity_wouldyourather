@@ -3,16 +3,39 @@ import { Card } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
-function PollCard({ id, userAnswered, question, author, likes, selectOption }) {
+function PollCard({
+  id,
+  userAnswered,
+  question,
+  questions,
+  author,
+  likes,
+  users,
+  selectOption,
+  option,
+  authedUser,
+}) {
   // if id of this card is in the list of users answers, this card should have the style of .asnwered
   // console.log("card id: ", id);
 
+  const classy = (id, option) => {
+    if (option) {
+      if (questions[id][option].votes.includes(authedUser)) {
+        return "selectedOption";
+      }
+    }
+
+    if (userAnswered.includes(id)) {
+      console.log("in this bitch");
+      return "answered";
+    }
+  };
+
   return (
-    // <Card onClick={props.selectOption}>
     <Card
       as={"div"}
       onClick={userAnswered.includes(id) ? null : selectOption}
-      className={userAnswered.includes(id) ? "answered" : null}>
+      className={classy(id, option)}>
       <Link
         to={{
           pathname: `${id}`,
@@ -28,9 +51,11 @@ function PollCard({ id, userAnswered, question, author, likes, selectOption }) {
   );
 }
 
-const mapStateToProps = ({ users, authedUser }) => {
+const mapStateToProps = ({ users, authedUser, questions }) => {
   return {
     userAnswered: Object.keys(users[authedUser.id].answers),
+    questions,
+    authedUser: authedUser.id,
   };
 };
 
