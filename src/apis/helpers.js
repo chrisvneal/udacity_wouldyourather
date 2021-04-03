@@ -76,7 +76,7 @@ export function mapVotesToPoll(pollIds, questions, type) {
   return pollsWithLikes;
 }
 
-export function generateKey(length) {
+export function generateKey(length = 7) {
   var result = "";
   var characters =
     "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";

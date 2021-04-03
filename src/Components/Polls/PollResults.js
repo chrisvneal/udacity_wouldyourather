@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PollCard from "./PollCard";
 import { saveOption } from "../../actions/options";
 import { _saveQuestionAnswer } from "../../apis/_DATA";
+import { generateKey } from "../../apis/helpers";
 
 import { connect } from "react-redux";
 // import { Progress } from "semantic-ui-react";
@@ -50,7 +51,7 @@ class PollResults extends Component {
         <div className="poll-results-cards">
           {options.map((option) => (
             <PollCard
-              key={option.text}
+              key={generateKey(7)}
               question={option.text}
               id={result}
               option={option.name}

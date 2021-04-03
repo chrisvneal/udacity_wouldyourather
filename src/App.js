@@ -5,7 +5,7 @@ import LeaderBoard from "./Components/Pages/LeaderBoard";
 import CreatePoll from "./Components/Pages/CreatePoll";
 import UserProfile from "./Components/Pages/UserProfile";
 import Polls from "./Components/Pages/Polls";
-import Error_404 from "./Components/Pages/Error_404";
+// import Error_404 from "./Components/Pages/Error_404";
 import Login from "./Components/Pages/Login";
 import PollDetails from "./Components/Pages/PollDetails";
 import { Grid } from "semantic-ui-react";

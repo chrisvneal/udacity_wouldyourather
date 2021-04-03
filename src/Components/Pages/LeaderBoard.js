@@ -9,7 +9,6 @@ import SiteWrapper from "../Site/SiteWrapper";
 class LeaderBoard extends Component {
   render() {
     const { rankedUsers, rankedQuestions } = this.props;
-    console.log("Ranked quests: ", rankedQuestions);
 
     return (
       <SiteWrapper>
@@ -28,10 +27,8 @@ class LeaderBoard extends Component {
 }
 
 function mapStateToProps({ users, questions }) {
-  console.log("mapped", questions);
   let rankedQuestions = [];
   for (let question in questions) {
-    // console.log("question:", questions[question]);
     let rankedQuestion = {
       id: questions[question].id,
       author: questions[question].author,
