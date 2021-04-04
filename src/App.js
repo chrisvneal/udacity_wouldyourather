@@ -18,6 +18,16 @@ class App extends Component {
     this.props.dispatch(handleInitialData());
   }
 
+  handleLogout = () => {
+    if (this.props.authedUser) {
+      return <Polls />;
+    } else {
+      // console.clear();
+      // console.log(this.props.authedUser);
+      return <Login />;
+    }
+  };
+
   render() {
     return (
       <Router>
@@ -29,19 +39,7 @@ class App extends Component {
             <Grid.Row>
               <Grid.Column width={16}>
                 <Switch>
-                  <Route
-                    path="/"
-                    exact
-                    component={() => {
-                      if (this.props.authedUser) {
-                        return <Polls />;
-                      } else {
-                        console.clear();
-                        console.log(this.props.authedUser);
-                        return <Login />;
-                      }
-                    }}
-                  />
+                  <Route path="/" exact render={this.handleLogout} />
                   <Route path="/add" component={CreatePoll} />
                   <Route path="/leaderboard" component={LeaderBoard} />
                   <Route path="/user_profile" component={UserProfile} />
