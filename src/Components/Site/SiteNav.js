@@ -16,7 +16,9 @@ export default function SiteNav() {
           <Link to="/leaderboard">
             <li>Leader Board</li>
           </Link>
-          <li>Sign In/Out</li>
+          <Link>
+            <li>Sign In/Out</li>
+          </Link>
           {/* Make sign in/out dynamic based on whether signed in */}
         </ul>
       </Container>
