@@ -18,7 +18,7 @@ function PollCard({
   // if id of this card is in the list of users answers, this card should have the style of .asnwered
   // console.log("card id: ", id);
 
-  const classy = (id, option) => {
+  const generateCardClass = (id, option) => {
     if (option) {
       if (questions[id][option].votes.includes(authedUser)) {
         return "selectedOption";
@@ -34,7 +34,7 @@ function PollCard({
     <Card
       as={"div"}
       onClick={userAnswered.includes(id) ? null : selectOption}
-      className={classy(id, option)}>
+      className={generateCardClass(id, option)}>
       <Link
         to={{
           pathname: `${id}`,
