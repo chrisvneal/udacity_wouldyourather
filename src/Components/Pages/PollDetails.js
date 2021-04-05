@@ -14,7 +14,6 @@ class PollDetails extends Component {
     const questionsCreated = users[poll_author].questions.length;
     const questionsAnswered = Object.keys(users[poll_author].answers).length;
 
-    // console.clear();
     return (
       <SiteWrapper>
         <div className="poll-details">

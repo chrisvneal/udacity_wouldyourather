@@ -21,8 +21,6 @@ class Polls extends Component {
       (a, b) => questions[b].timestamp - questions[a].timestamp
     );
 
-    console.clear();
-
     const sortedPolls = splitQuestions(questIds_sorted, userAnswers_sorted);
 
     let { all, answered, unanswered } = sortedPolls;
