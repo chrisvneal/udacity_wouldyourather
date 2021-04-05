@@ -22,7 +22,9 @@ function SiteNav(props) {
             <li>Leader Board</li>
           </Link>
 
-          <li onClick={logout}>Sign In/Out</li>
+          <li onClick={logout} className="asLink blue">
+            Sign In/Out
+          </li>
 
           {/* Make sign in/out dynamic based on whether signed in */}
         </ul>

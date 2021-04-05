@@ -6,6 +6,7 @@ $leaderboard-header--color: #0078d7;
 $link-hover--color: #3498db;
 $small-text--color: darken(#eee, 25%);
 $success-color: #8dff8d;
+$link--color: #4183c4;
 
 @mixin high-rank-bg {
   background: rgb(241, 214, 0);
@@ -15,6 +16,14 @@ $success-color: #8dff8d;
     rgba(245, 236, 168, 1) 68%,
     rgba(255, 255, 255, 1) 99%
   );
+}
+
+.asLink {
+  cursor: pointer;
+
+  &.blue {
+    color: #4183c4;
+  }
 }
 
 a:not(nav a),
