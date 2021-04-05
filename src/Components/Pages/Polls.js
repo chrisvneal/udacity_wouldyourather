@@ -8,7 +8,6 @@ import SiteWrapper from "../Site/SiteWrapper";
 
 class Polls extends Component {
   render() {
-    // console.log(this.props);
     const { questions, authedUser, users } = this.props;
 
     // retrieve and sort [ ids ] for all questions
@@ -21,8 +20,6 @@ class Polls extends Component {
     const userAnswers_sorted = Object.keys(userAnswers).sort(
       (a, b) => questions[b].timestamp - questions[a].timestamp
     );
-
-    console.clear();
 
     const sortedPolls = splitQuestions(questIds_sorted, userAnswers_sorted);
 

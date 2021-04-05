@@ -16,7 +16,6 @@ class CreatePoll extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    console.clear();
 
     // get and use state
     let question = this.handleChange(e);

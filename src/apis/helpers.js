@@ -58,7 +58,6 @@ export const users = [
 
 export function mapVotesToPoll(pollIds, questions, type) {
   let pollsWithLikes = pollIds.map((poll) => {
-    // console.log("questions", questions[poll].optionOne.text);
     return {
       id: poll,
       text: questions[poll].optionOne.text,
