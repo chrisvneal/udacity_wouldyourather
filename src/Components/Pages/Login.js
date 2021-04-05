@@ -31,7 +31,6 @@ class Login extends Component {
   };
 
   render() {
-    // console.log("users: ", this.props.users["sarahedo"]);
     return (
       <div className="login">
         <Header as="h2" content="Login" />

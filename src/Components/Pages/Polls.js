@@ -8,7 +8,6 @@ import SiteWrapper from "../Site/SiteWrapper";
 
 class Polls extends Component {
   render() {
-    // console.log(this.props);
     const { questions, authedUser, users } = this.props;
 
     // retrieve and sort [ ids ] for all questions

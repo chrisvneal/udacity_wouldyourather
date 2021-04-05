@@ -16,7 +16,6 @@ function PollCard({
   authedUser,
 }) {
   // if id of this card is in the list of users answers, this card should have the style of .asnwered
-  // console.log("card id: ", id);
 
   const generateCardClass = (id, option) => {
     if (option) {
