@@ -1,8 +1,13 @@
 import React from "react";
+import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { Container } from "semantic-ui-react";
+import { logOutAuthedUser } from "../../actions/authedUser";
 
-export default function SiteNav() {
+function SiteNav(props) {
+  const logout = () => {
+    props.dispatch(logOutAuthedUser());
+  };
   return (
     <nav className="site-nav">
       <Container>
@@ -16,12 +21,20 @@ export default function SiteNav() {
           <Link to="/leaderboard">
             <li>Leader Board</li>
           </Link>
-          <Link to="/">
-            <li>Sign In/Out</li>
-          </Link>
+
+          <li onClick={logout}>Sign In/Out</li>
+
           {/* Make sign in/out dynamic based on whether signed in */}
         </ul>
       </Container>
     </nav>
   );
 }
+
+// const mapStateToProps = ({ authedUser }) => {
+//   return {
+//     authedUser: authedUser.id,
+//   };
+// };
+
+export default connect()(SiteNav);

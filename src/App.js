@@ -22,8 +22,6 @@ class App extends Component {
     if (this.props.authedUser) {
       return <Polls />;
     } else {
-      // console.clear();
-      // console.log(this.props.authedUser);
       return <Login />;
     }
   };
