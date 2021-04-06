@@ -30,16 +30,12 @@ export default function HighestSelectionRank(props) {
               return b[0] - a[0];
             })
             .map((question) => (
-              <React.Fragment>
-                <HighSelectionEntry
-                  key={generateKey(8)}
-                  votes={question[0]}
-                  text={question[1]}
-                />
-              </React.Fragment>
+              <HighSelectionEntry
+                key={generateKey(8)}
+                votes={question[0]}
+                text={question[1]}
+              />
             ))}
-
-          {/* <HighSelectionEntry votes={2} text="Good job" /> */}
         </Table.Body>
       </Table>
     </React.Fragment>

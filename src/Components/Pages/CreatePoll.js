@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Header, Form, Button } from "semantic-ui-react";
+import { Header, Form, Button, Divider } from "semantic-ui-react";
 import SiteWrapper from "../Site/SiteWrapper";
 import { saveQuestion } from "../../actions/questions";
 import { _saveQuestion } from "../../apis/_DATA";
@@ -38,7 +38,9 @@ class CreatePoll extends Component {
               <label>Option 1</label>
               <input placeholder="...be a superhero" id="optionOneText" />
             </Form.Field>
-            <span className="or">or</span>
+            <Divider horizontal>
+              <span className="or">or</span>
+            </Divider>
             <Form.Field>
               <label>Option 2</label>
               <input placeholder="...be a super villian" id="optionTwoText" />

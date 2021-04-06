@@ -6,6 +6,7 @@ $leaderboard-header--color: #0078d7;
 $link-hover--color: #3498db;
 $small-text--color: darken(#eee, 25%);
 $success-color: #8dff8d;
+$link--color: #4183c4;
 
 @mixin high-rank-bg {
   background: rgb(241, 214, 0);
@@ -102,14 +103,27 @@ main {
 /* Create Poll styles */
 main .create-poll .ui.form {
   width: 60%;
-  margin-top: 30px;
+  min-width: 260px;
+  margin: 50px auto 0;
+
+  .or {
+    display: inline-block;
+    margin: 2rem 0 3rem;
+    font-weight: bolder;
+    font-size: 1.5rem;
+  }
+
+  .ui.button {
+    margin: 40px 0 20px;
+  }
 
   input[placeholder] {
     font-style: italic;
   }
 
   div.field {
-    margin-bottom: 40px;
+    // margin-bottom: 40px;
+    margin: 0;
     label {
       margin-bottom: 10px;
     }
@@ -240,6 +254,10 @@ main .create-poll .ui.form {
     font-style: italic;
     width: 100%;
   }
+}
+
+.users-who-voted .users {
+  font-style: italic;
 }
 
 .ui.secondary.pointing.menu .active.item,

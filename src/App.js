@@ -5,7 +5,7 @@ import LeaderBoard from "./Components/Pages/LeaderBoard";
 import CreatePoll from "./Components/Pages/CreatePoll";
 import UserProfile from "./Components/Pages/UserProfile";
 import Polls from "./Components/Pages/Polls";
-// import Error_404 from "./Components/Pages/Error_404";
+import ErrorPage from "./Components/Pages/ErrorPage";
 import Login from "./Components/Pages/Login";
 import PollDetails from "./Components/Pages/PollDetails";
 import { Grid } from "semantic-ui-react";
@@ -18,11 +18,19 @@ class App extends Component {
     this.props.dispatch(handleInitialData());
   }
 
-  handleLogout = () => {
+  // handleLogout = () => {
+  //   if (this.props.authedUser) {
+  //     return <Polls />;
+  //   } else {
+  //     return <Login />;
+  //   }
+  // };
+
+  checkAuth = (component, otherPage = ErrorPage) => {
     if (this.props.authedUser) {
-      return <Polls />;
+      return component;
     } else {
-      return <Login />;
+      return otherPage;
     }
   };
 
@@ -37,12 +45,22 @@ class App extends Component {
             <Grid.Row>
               <Grid.Column width={16}>
                 <Switch>
-                  <Route path="/" exact render={this.handleLogout} />
-                  <Route path="/add" component={CreatePoll} />
-                  <Route path="/leaderboard" component={LeaderBoard} />
-                  <Route path="/user_profile" component={UserProfile} />
-                  <Route path="/:id" component={PollDetails} />
-                  {/* <Route path={"/Error_404"} component={Error_404} /> */}
+                  <Route
+                    path="/"
+                    exact
+                    component={this.checkAuth(Polls, Login)}
+                  />
+                  <Route path="/add" component={this.checkAuth(CreatePoll)} />
+                  <Route
+                    path="/leaderboard"
+                    component={this.checkAuth(LeaderBoard)}
+                  />
+                  <Route
+                    path="/user_profile"
+                    component={this.checkAuth(UserProfile)}
+                  />
+                  <Route path="/:id" component={this.checkAuth(PollDetails)} />
+                  {/* <Route path={"/ErrorPage"} component={ErrorPage} /> */}
                 </Switch>
                 {/* <Route path="/poll_id" component={CreatePoll} /> */}
               </Grid.Column>

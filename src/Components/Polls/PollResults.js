@@ -72,7 +72,7 @@ class PollResults extends Component {
         </Progress> */}
         <div className="users-who-voted">
           <span className="heading">users who voted:</span>
-          <span className="users">chrisvneal, caese_for_prez</span>
+          <span className="users">{this.props.usersWhoVoted}</span>
         </div>
       </div>
     );
