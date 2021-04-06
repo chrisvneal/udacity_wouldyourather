@@ -5,7 +5,7 @@ import LeaderBoard from "./Components/Pages/LeaderBoard";
 import CreatePoll from "./Components/Pages/CreatePoll";
 import UserProfile from "./Components/Pages/UserProfile";
 import Polls from "./Components/Pages/Polls";
-// import Error_404 from "./Components/Pages/Error_404";
+// import ErrorPage from "./Components/Pages/ErrorPage";
 import Login from "./Components/Pages/Login";
 import PollDetails from "./Components/Pages/PollDetails";
 import { Grid } from "semantic-ui-react";
@@ -42,7 +42,7 @@ class App extends Component {
                   <Route path="/leaderboard" component={LeaderBoard} />
                   <Route path="/user_profile" component={UserProfile} />
                   <Route path="/:id" component={PollDetails} />
-                  {/* <Route path={"/Error_404"} component={Error_404} /> */}
+                  {/* <Route path={"/ErrorPage"} component={ErrorPage} /> */}
                 </Switch>
                 {/* <Route path="/poll_id" component={CreatePoll} /> */}
               </Grid.Column>
