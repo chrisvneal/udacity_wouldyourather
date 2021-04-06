@@ -256,6 +256,10 @@ main .create-poll .ui.form {
   }
 }
 
+.users-who-voted .users {
+  font-style: italic;
+}
+
 .ui.secondary.pointing.menu .active.item,
 .ui.secondary.pointing.menu .active.item:hover {
   color: $tab-color;

@@ -13,6 +13,9 @@ class PollDetails extends Component {
     const poll_author = questions[id].author;
     const questionsCreated = users[poll_author].questions.length;
     const questionsAnswered = Object.keys(users[poll_author].answers).length;
+    let usersWhoVoted = questions[id].optionOne.votes.concat(
+      questions[id].optionTwo.votes
+    );
 
     return (
       <SiteWrapper>
@@ -33,6 +36,7 @@ class PollDetails extends Component {
                   result={id}
                   questions={questions}
                   authedUser={authedUser}
+                  usersWhoVoted={usersWhoVoted.join(", ")}
                 />
               </Grid.Column>
             </Grid.Row>
