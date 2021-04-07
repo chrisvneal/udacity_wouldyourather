@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Header, Form, Button, Dropdown } from "semantic-ui-react";
+import { Form, Button, Dropdown } from "semantic-ui-react";
 import { setAuthedUser } from "../../actions/authedUser";
 import { users } from "../../apis/helpers";
 
@@ -33,7 +33,9 @@ class Login extends Component {
   render() {
     return (
       <div className="login">
-        <Header as="h2" content="Login" />
+        <h2>
+          Login to <span>Would You Rather?</span>
+        </h2>
         <Form onSubmit={this.setUser}>
           <Form.Field>
             <Dropdown
@@ -44,9 +46,6 @@ class Login extends Component {
               options={users}
             />
           </Form.Field>
-          {/* <Form.Field>
-            <Checkbox label="Remember me" />
-          </Form.Field> */}
           <Button type="submit">Login</Button>
         </Form>
       </div>
