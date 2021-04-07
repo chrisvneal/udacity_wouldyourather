@@ -5,8 +5,9 @@ $high-rank-gold: rgba(241, 214, 0, 1);
 $leaderboard-header--color: #0078d7;
 $link-hover--color: #3498db;
 $small-text--color: darken(#eee, 25%);
-$success-color: #8dff8d;
+$success-color: #25d366;
 $link--color: #4183c4;
+$brand-color: $success-color;
 
 @mixin high-rank-bg {
   background: rgb(241, 214, 0);
@@ -68,6 +69,8 @@ main {
       display: inline-block;
       margin: 0;
       font-size: 1.3rem;
+      color: $brand-color;
+      font-family: cursive;
     }
 
     // profile icon
@@ -355,9 +358,21 @@ main .create-poll .ui.form {
 }
 
 .login {
-  width: 35%;
+  // width: 35%;
   min-width: 255px;
-  margin: 0 auto;
+  // margin: 0 auto;
+  margin: 100px auto 0;
+  width: 400px;
+
+  h2 {
+    margin-bottom: 30px;
+    span {
+      color: $brand-color;
+      font-weight: bold;
+      font-family: cursive;
+      font-size: 1.8rem;
+    }
+  }
 
   .ui.form {
     width: 100%;
