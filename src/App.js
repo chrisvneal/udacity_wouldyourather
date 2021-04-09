@@ -74,7 +74,7 @@ class App extends Component {
 
 function mapStateToProps({ authedUser }) {
   return {
-    authedUser,
+    authedUser
   };
 }
 
