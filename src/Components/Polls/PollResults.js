@@ -5,7 +5,7 @@ import { _saveQuestionAnswer } from "../../apis/_DATA";
 import { generateKey } from "../../apis/helpers";
 
 import { connect } from "react-redux";
-// import { Progress } from "semantic-ui-react";
+import { Progress } from "semantic-ui-react";
 // import { Header } from "semantic-ui-react";
 
 class PollResults extends Component {
@@ -63,13 +63,13 @@ class PollResults extends Component {
 
           {/* <PollCard /> */}
         </div>
-        {/* <Progress
+        <Progress
           value="2"
           total="4"
           progress="percent"
           className="poll-progress">
           2 out of 4 people voted
-        </Progress> */}
+        </Progress>
         <div className="users-who-voted">
           <span className="heading">users who voted:</span>
           <span className="users">{this.props.usersWhoVoted}</span>
