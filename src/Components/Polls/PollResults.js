@@ -24,6 +24,8 @@ class PollResults extends Component {
     document.querySelector(".poll-results h2").innerText =
       "You Would Rather...";
 
+    document.querySelector(".poll-progress.hidden").classList.remove("hidden");
+
     let vote = {
       authedUser: this.props.authedUser,
       qid: this.props.result,
@@ -67,7 +69,7 @@ class PollResults extends Component {
           value="2"
           total="4"
           progress="percent"
-          className="poll-progress">
+          className="poll-progress hidden">
           2 out of 4 people voted
         </Progress>
         <div className="users-who-voted">
