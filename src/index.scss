@@ -351,9 +351,9 @@ main .create-poll .ui.form {
   .ui.progress.poll-progress {
     margin-bottom: 5rem;
 
-    &.hidden {
-      visibility: hidden;
-    }
+    // &.hidden {
+    //   visibility: hidden;
+    // }
 
     .label {
       top: 170%;

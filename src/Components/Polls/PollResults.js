@@ -10,6 +10,7 @@ import { Progress } from "semantic-ui-react";
 
 class PollResults extends Component {
   selectOption = (e, poll_option, callback, id) => {
+    this.chosenOption(poll_option);
     // get the current target
     let target = e.currentTarget;
 
@@ -36,8 +37,19 @@ class PollResults extends Component {
       this.props.handleSaveOption(vote);
   };
 
+  getTotalOptionVotes = (questions, result, option) => {
+    // console.log(questions, result);
+    let optionVotes = questions[result][option].votes.length;
+
+    return optionVotes;
+  };
+
+  chosenOption = (option) => {
+    return option;
+  };
+
   render() {
-    const { questions, result } = this.props;
+    const { questions, result, usersWhoVoted } = this.props;
     const optionOne = {
       name: "optionOne",
       text: questions[result].optionOne.text,
@@ -65,16 +77,21 @@ class PollResults extends Component {
 
           {/* <PollCard /> */}
         </div>
-        <Progress
-          value="2"
-          total="4"
+        {/* <Progress
+          value={this.getTotalOptionVotes(
+            questions,
+            result,
+            this.chosenOption()
+          )}
+          total={usersWhoVoted.length}
           progress="percent"
-          className="poll-progress hidden">
-          2 out of 4 people voted
-        </Progress>
+          className="poll-progress">
+          {`2 out of ${usersWhoVoted.length} people voted`}
+        </Progress> */}
+
         <div className="users-who-voted">
           <span className="heading">users who voted:</span>
-          <span className="users">{this.props.usersWhoVoted}</span>
+          <span className="users">{this.props.usersWhoVoted.join(", ")}</span>
         </div>
       </div>
     );
@@ -93,9 +110,11 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-const mapStateToProps = ({ authedUser, users }) => {
+const mapStateToProps = ({ authedUser, users, questions }) => {
   return {
     userAnswered: Object.keys(users[authedUser.id].answers),
+    questions,
+    authedUser: authedUser.id,
   };
 };
 
