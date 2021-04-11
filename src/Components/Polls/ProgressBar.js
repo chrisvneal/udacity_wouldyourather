@@ -9,14 +9,13 @@ export default function ProgressBar(props) {
   //       this.chosenOption()
   //     )}
   //     total={props.usersWhoVoted.length}
-  //     progress="percent"
-  //     className="poll-progress">
+  //     progress="percent">
   //     {`2 out of ${props.usersWhoVoted.length} people voted`}
   //   </Progress>
 
   return (
-    <Progress percent={50} progress>
-      <p> 2 out of 4 people voted</p>
+    <Progress className="poll-progress" percent={50} progress>
+      <p> 2 out of {`${props.usersWhoVoted.length}`} people voted</p>
     </Progress>
   );
 }
