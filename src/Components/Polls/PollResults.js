@@ -23,11 +23,6 @@ class PollResults extends Component {
   /* if the poll result has been answered show the progress bar with the new details */
 
   selectOption = (e, poll_option) => {
-    // console.clear();
-    // console.info("option selected");
-    // console.log("Poll option: ", poll_option);
-    // this.selectedOptionOption(poll_option);
-    // get the current target
     let target = e.currentTarget;
 
     // if it has a next sibling, remove it
@@ -59,7 +54,6 @@ class PollResults extends Component {
   };
 
   getOptionVotes = (questions, result, selectedOption) => {
-    // console.log(questions, result);
     let optionVotes = questions[result][selectedOption].votes.length;
 
     return optionVotes;
@@ -67,7 +61,6 @@ class PollResults extends Component {
   };
 
   getSelectedOption = () => {
-    // console.log("chosen option: ", this.state.selectedOption);
     return this.state.selectedOption;
   };
 
@@ -81,10 +74,6 @@ class PollResults extends Component {
     
     show its corresponding ProgressBar 
     */
-
-    // console.clear();
-    // console.log("Poll answered: ", this.state);
-    // console.log("Poll answered: ", this.state.answered ? "yes" : "no");
     const { questions, result, usersWhoVoted } = this.props;
     const optionOne = {
       name: "optionOne",
