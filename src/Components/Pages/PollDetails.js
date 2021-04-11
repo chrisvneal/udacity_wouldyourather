@@ -36,7 +36,7 @@ class PollDetails extends Component {
                   result={id}
                   questions={questions}
                   authedUser={authedUser}
-                  usersWhoVoted={usersWhoVoted.join(", ")}
+                  usersWhoVoted={usersWhoVoted}
                 />
               </Grid.Column>
             </Grid.Row>

@@ -9,7 +9,22 @@ import { Progress } from "semantic-ui-react";
 // import { Header } from "semantic-ui-react";
 
 class PollResults extends Component {
-  selectOption = (e, poll_option, callback, id) => {
+  /* if the poll result has been answered show the progress bar with the new details */
+
+  //  if (this.state.poll.answered) {
+
+  // }
+  state = {
+    answered: false,
+    chosen: "",
+  };
+
+  /* if the poll result has been answered show the progress bar with the new details */
+
+  selectOption = (e, poll_option) => {
+    console.clear();
+    console.info("option selected");
+    // this.chosenOption(poll_option);
     // get the current target
     let target = e.currentTarget;
 
@@ -24,6 +39,13 @@ class PollResults extends Component {
     document.querySelector(".poll-results h2").innerText =
       "You Would Rather...";
 
+    // document.querySelector(".poll-progress.hidden").classList.remove("hidden");
+
+    this.setState({
+      answered: true,
+      chosen: poll_option,
+    });
+
     let vote = {
       authedUser: this.props.authedUser,
       qid: this.props.result,
@@ -34,8 +56,23 @@ class PollResults extends Component {
       this.props.handleSaveOption(vote);
   };
 
+  getTotalOptionVotes = (questions, result, option) => {
+    // console.log(questions, result);
+    let optionVotes = questions[result][option].votes.length;
+
+    return optionVotes;
+  };
+
+  chosenOption = (option) => {
+    console.log("chosen option: ", option);
+    return option;
+  };
+
   render() {
-    const { questions, result } = this.props;
+    // console.clear();
+    console.log("Poll answered: ", this.state);
+    // console.log("Poll answered: ", this.state.answered ? "yes" : "no");
+    const { questions, result, usersWhoVoted } = this.props;
     const optionOne = {
       name: "optionOne",
       text: questions[result].optionOne.text,
@@ -63,16 +100,42 @@ class PollResults extends Component {
 
           {/* <PollCard /> */}
         </div>
-        <Progress
-          value="2"
-          total="4"
-          progress="percent"
-          className="poll-progress">
-          2 out of 4 people voted
-        </Progress>
+
+        {/* {this.state.answered && (
+          <Progress
+            value={this.getTotalOptionVotes(
+              questions,
+              result,
+              this.chosenOption()
+            )}
+            total={usersWhoVoted.length}
+            progress="percent"
+            className="poll-progress">
+            {`2 out of ${usersWhoVoted.length} people voted`}
+          </Progress>
+        )} */}
+
+        {this.state.answered ? (
+          <Progress
+            value={this.getTotalOptionVotes(
+              questions,
+              result,
+              this.chosenOption(this.state.chosen)
+            )}
+            total={usersWhoVoted.length}
+            progress="percent"
+            className="poll-progress">
+            {`${questions[result][this.state.chosen].votes.length} out of ${
+              usersWhoVoted.length
+            } people voted`}
+          </Progress>
+        ) : null}
+
+        {/* /* if the poll result has been answered show the progress bar with the new details */}
+
         <div className="users-who-voted">
           <span className="heading">users who voted:</span>
-          <span className="users">{this.props.usersWhoVoted}</span>
+          <span className="users">{this.props.usersWhoVoted.join(", ")}</span>
         </div>
       </div>
     );
@@ -91,9 +154,11 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-const mapStateToProps = ({ authedUser, users }) => {
+const mapStateToProps = ({ authedUser, users, questions }) => {
   return {
     userAnswered: Object.keys(users[authedUser.id].answers),
+    questions,
+    authedUser: authedUser.id,
   };
 };
 
