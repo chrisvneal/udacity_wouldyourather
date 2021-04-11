@@ -16,6 +16,10 @@ class PollResults extends Component {
     selectedOption: "",
   };
 
+  getState = () => {
+    return this.state;
+  };
+
   /* if the poll result has been answered show the progress bar with the new details */
 
   selectOption = (e, poll_option) => {
@@ -68,6 +72,16 @@ class PollResults extends Component {
   };
 
   render() {
+    console.clear();
+    console.log("current state: ", this.getState());
+    /* 
+    look through the list of questions, 
+    
+    if it has been answered then update state to reflect that this poll has been answered,
+    
+    show its corresponding ProgressBar 
+    */
+
     // console.clear();
     // console.log("Poll answered: ", this.state);
     // console.log("Poll answered: ", this.state.answered ? "yes" : "no");
