@@ -22,6 +22,13 @@ class PollResults extends Component {
 
   /* if the poll result has been answered show the progress bar with the new details */
 
+  updateState = (answered, selectedOption) => {
+    this.setState({
+      answered,
+      selectedOption,
+    });
+  };
+
   selectOption = (e, poll_option) => {
     let target = e.currentTarget;
 
@@ -38,10 +45,12 @@ class PollResults extends Component {
 
     // document.querySelector(".poll-progress.hidden").classList.remove("hidden");
 
-    this.setState({
-      answered: true,
-      selectedOption: poll_option,
-    });
+    // this.setState({
+    //   answered: true,
+    //   selectedOption: poll_option,
+    // });
+
+    this.updateState(true, poll_option);
 
     let vote = {
       authedUser: this.props.authedUser,
