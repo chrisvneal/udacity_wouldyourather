@@ -15,7 +15,13 @@ export default function ProgressBar(props) {
 
   return (
     <Progress className="poll-progress" percent={50} progress>
-      <p> 2 out of {`${props.usersWhoVoted.length}`} people voted</p>
+      <p>
+        {" "}
+        <span className="user-info-number">{`${props.optionVoteCount}`}</span>{" "}
+        option votes out of{" "}
+        <span className="user-info-number">{`${props.usersWhoVoted.length}`}</span>{" "}
+        poll votes
+      </p>
     </Progress>
   );
 }
