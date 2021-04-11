@@ -16,14 +16,13 @@ class PollResults extends Component {
     selectedOption: "",
   };
 
+  getState = () => {
+    return this.state;
+  };
+
   /* if the poll result has been answered show the progress bar with the new details */
 
   selectOption = (e, poll_option) => {
-    // console.clear();
-    // console.info("option selected");
-    // console.log("Poll option: ", poll_option);
-    // this.selectedOptionOption(poll_option);
-    // get the current target
     let target = e.currentTarget;
 
     // if it has a next sibling, remove it
@@ -55,7 +54,6 @@ class PollResults extends Component {
   };
 
   getOptionVotes = (questions, result, selectedOption) => {
-    // console.log(questions, result);
     let optionVotes = questions[result][selectedOption].votes.length;
 
     return optionVotes;
@@ -63,14 +61,19 @@ class PollResults extends Component {
   };
 
   getSelectedOption = () => {
-    // console.log("chosen option: ", this.state.selectedOption);
     return this.state.selectedOption;
   };
 
   render() {
-    // console.clear();
-    // console.log("Poll answered: ", this.state);
-    // console.log("Poll answered: ", this.state.answered ? "yes" : "no");
+    console.clear();
+    console.log("current state: ", this.getState());
+    /* 
+    look through the list of questions, 
+    
+    if it has been answered then update state to reflect that this poll has been answered,
+    
+    show its corresponding ProgressBar 
+    */
     const { questions, result, usersWhoVoted } = this.props;
     const optionOne = {
       name: "optionOne",

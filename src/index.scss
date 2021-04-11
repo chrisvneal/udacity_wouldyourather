@@ -341,7 +341,9 @@ main .create-poll .ui.form {
 
   .users-who-voted .heading {
     margin-right: 4px;
+    font-size: 0.9rem;
     font-weight: bold;
+    text-transform: uppercase;
   }
 
   .ui.progress.poll-progress {
