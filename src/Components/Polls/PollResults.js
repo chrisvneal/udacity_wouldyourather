@@ -3,29 +3,26 @@ import PollCard from "./PollCard";
 import { saveOption } from "../../actions/options";
 import { _saveQuestionAnswer } from "../../apis/_DATA";
 import { generateKey } from "../../apis/helpers";
+import ProgressBar from "./ProgressBar";
 
 import { connect } from "react-redux";
-import { Progress } from "semantic-ui-react";
 // import { Header } from "semantic-ui-react";
 
 class PollResults extends Component {
   /* if the poll result has been answered show the progress bar with the new details */
 
-  //  if (this.state.poll.answered) {
-
-  // }
   state = {
     answered: false,
-    chosen: "",
+    selectedOption: "",
+  };
+
+  getState = () => {
+    return this.state;
   };
 
   /* if the poll result has been answered show the progress bar with the new details */
 
   selectOption = (e, poll_option) => {
-    console.clear();
-    console.info("option selected");
-    // this.chosenOption(poll_option);
-    // get the current target
     let target = e.currentTarget;
 
     // if it has a next sibling, remove it
@@ -43,7 +40,7 @@ class PollResults extends Component {
 
     this.setState({
       answered: true,
-      chosen: poll_option,
+      selectedOption: poll_option,
     });
 
     let vote = {
@@ -56,22 +53,27 @@ class PollResults extends Component {
       this.props.handleSaveOption(vote);
   };
 
-  getTotalOptionVotes = (questions, result, option) => {
-    // console.log(questions, result);
-    let optionVotes = questions[result][option].votes.length;
+  getOptionVotes = (questions, result, selectedOption) => {
+    let optionVotes = questions[result][selectedOption].votes.length;
 
     return optionVotes;
+    // return 7;
   };
 
-  chosenOption = (option) => {
-    console.log("chosen option: ", option);
-    return option;
+  getSelectedOption = () => {
+    return this.state.selectedOption;
   };
 
   render() {
-    // console.clear();
-    console.log("Poll answered: ", this.state);
-    // console.log("Poll answered: ", this.state.answered ? "yes" : "no");
+    console.clear();
+    console.log("current state: ", this.getState());
+    /* 
+    look through the list of questions, 
+    
+    if it has been answered then update state to reflect that this poll has been answered,
+    
+    show its corresponding ProgressBar 
+    */
     const { questions, result, usersWhoVoted } = this.props;
     const optionOne = {
       name: "optionOne",
@@ -97,44 +99,23 @@ class PollResults extends Component {
               }}
             />
           ))}
-
-          {/* <PollCard /> */}
         </div>
 
-        {/* {this.state.answered && (
-          <Progress
-            value={this.getTotalOptionVotes(
-              questions,
-              result,
-              this.chosenOption()
-            )}
-            total={usersWhoVoted.length}
-            progress="percent"
-            className="poll-progress">
-            {`2 out of ${usersWhoVoted.length} people voted`}
-          </Progress>
-        )} */}
+        {/* if the poll result has been answered show the progress bar with the new details  */}
 
         {this.state.answered ? (
-          <Progress
-            value={this.getTotalOptionVotes(
+          <ProgressBar
+            pollVoteCount={usersWhoVoted.length}
+            optionVoteCount={this.getOptionVotes(
               questions,
               result,
-              this.chosenOption(this.state.chosen)
+              this.getSelectedOption()
             )}
-            total={usersWhoVoted.length}
-            progress="percent"
-            className="poll-progress">
-            {`${questions[result][this.state.chosen].votes.length} out of ${
-              usersWhoVoted.length
-            } people voted`}
-          </Progress>
+          />
         ) : null}
 
-        {/* /* if the poll result has been answered show the progress bar with the new details */}
-
         <div className="users-who-voted">
-          <span className="heading">users who voted:</span>
+          <span className="heading">Poll votes:</span>
           <span className="users">{this.props.usersWhoVoted.join(", ")}</span>
         </div>
       </div>
