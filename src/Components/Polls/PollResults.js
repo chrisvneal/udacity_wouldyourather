@@ -3,17 +3,14 @@ import PollCard from "./PollCard";
 import { saveOption } from "../../actions/options";
 import { _saveQuestionAnswer } from "../../apis/_DATA";
 import { generateKey } from "../../apis/helpers";
+import ProgressBar from "./ProgressBar";
 
 import { connect } from "react-redux";
-import { Progress } from "semantic-ui-react";
 // import { Header } from "semantic-ui-react";
 
 class PollResults extends Component {
   /* if the poll result has been answered show the progress bar with the new details */
 
-  //  if (this.state.poll.answered) {
-
-  // }
   state = {
     answered: false,
     chosen: "",
@@ -97,41 +94,13 @@ class PollResults extends Component {
               }}
             />
           ))}
-
-          {/* <PollCard /> */}
         </div>
 
-        {/* {this.state.answered && (
-          <Progress
-            value={this.getTotalOptionVotes(
-              questions,
-              result,
-              this.chosenOption()
-            )}
-            total={usersWhoVoted.length}
-            progress="percent"
-            className="poll-progress">
-            {`2 out of ${usersWhoVoted.length} people voted`}
-          </Progress>
-        )} */}
+        {/* if the poll result has been answered show the progress bar with the new details  */}
 
         {this.state.answered ? (
-          <Progress
-            value={this.getTotalOptionVotes(
-              questions,
-              result,
-              this.chosenOption(this.state.chosen)
-            )}
-            total={usersWhoVoted.length}
-            progress="percent"
-            className="poll-progress">
-            {`${questions[result][this.state.chosen].votes.length} out of ${
-              usersWhoVoted.length
-            } people voted`}
-          </Progress>
+          <ProgressBar usersWhoVoted={usersWhoVoted} />
         ) : null}
-
-        {/* /* if the poll result has been answered show the progress bar with the new details */}
 
         <div className="users-who-voted">
           <span className="heading">users who voted:</span>
