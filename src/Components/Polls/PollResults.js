@@ -13,15 +13,16 @@ class PollResults extends Component {
 
   state = {
     answered: false,
-    chosen: "",
+    selectedOption: "",
   };
 
   /* if the poll result has been answered show the progress bar with the new details */
 
   selectOption = (e, poll_option) => {
-    console.clear();
-    console.info("option selected");
-    // this.chosenOption(poll_option);
+    // console.clear();
+    // console.info("option selected");
+    // console.log("Poll option: ", poll_option);
+    // this.selectedOptionOption(poll_option);
     // get the current target
     let target = e.currentTarget;
 
@@ -40,7 +41,7 @@ class PollResults extends Component {
 
     this.setState({
       answered: true,
-      chosen: poll_option,
+      selectedOption: poll_option,
     });
 
     let vote = {
@@ -53,21 +54,22 @@ class PollResults extends Component {
       this.props.handleSaveOption(vote);
   };
 
-  getTotalOptionVotes = (questions, result, option) => {
+  getOptionVotes = (questions, result, selectedOption) => {
     // console.log(questions, result);
-    let optionVotes = questions[result][option].votes.length;
+    let optionVotes = questions[result][selectedOption].votes.length;
 
     return optionVotes;
+    // return 7;
   };
 
-  chosenOption = (option) => {
-    console.log("chosen option: ", option);
-    return option;
+  getSelectedOption = () => {
+    // console.log("chosen option: ", this.state.selectedOption);
+    return this.state.selectedOption;
   };
 
   render() {
     // console.clear();
-    console.log("Poll answered: ", this.state);
+    // console.log("Poll answered: ", this.state);
     // console.log("Poll answered: ", this.state.answered ? "yes" : "no");
     const { questions, result, usersWhoVoted } = this.props;
     const optionOne = {
@@ -101,7 +103,11 @@ class PollResults extends Component {
         {this.state.answered ? (
           <ProgressBar
             pollVoteCount={usersWhoVoted.length}
-            optionVoteCount="6"
+            optionVoteCount={this.getOptionVotes(
+              questions,
+              result,
+              this.getSelectedOption()
+            )}
           />
         ) : null}
 
