@@ -99,7 +99,10 @@ class PollResults extends Component {
         {/* if the poll result has been answered show the progress bar with the new details  */}
 
         {this.state.answered ? (
-          <ProgressBar usersWhoVoted={usersWhoVoted} optionVoteCount="6" />
+          <ProgressBar
+            pollVoteCount={usersWhoVoted.length}
+            optionVoteCount="6"
+          />
         ) : null}
 
         <div className="users-who-voted">
