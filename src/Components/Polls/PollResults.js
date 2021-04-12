@@ -77,7 +77,12 @@ class PollResults extends Component {
     console.clear();
     console.log("current state: ", this.getState());
 
-    console.log(this.props.users);
+    console.log(
+      this.props.userAnswered.includes(this.props.result)
+        ? "This poll has been answered"
+        : "This poll has NOT been answered"
+    );
+
     /* 
     look through the list of questions, 
     
