@@ -43,13 +43,6 @@ class PollResults extends Component {
     document.querySelector(".poll-results h2").innerText =
       "You Would Rather...";
 
-    // document.querySelector(".poll-progress.hidden").classList.remove("hidden");
-
-    // this.setState({
-    //   answered: true,
-    //   selectedOption: poll_option,
-    // });
-
     this.updateState(true, poll_option);
 
     let vote = {
@@ -73,16 +66,17 @@ class PollResults extends Component {
     return this.state.selectedOption;
   };
 
+  componentDidMount = () => {
+    // when component mounts, check to see if the answer has answered the poll. If she has, update the component's state to include the option that was selected
+    if (this.props.userAnswered.includes(this.props.result)) {
+      this.updateState(
+        true,
+        this.props.users[this.props.authedUser].answers[this.props.result]
+      );
+    }
+  };
+
   render() {
-    console.clear();
-    console.log("current state: ", this.getState());
-
-    console.log(
-      this.props.userAnswered.includes(this.props.result)
-        ? "This poll has been answered"
-        : "This poll has NOT been answered"
-    );
-
     /* 
     look through the list of questions, 
     
