@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PollCard from "./PollCard";
 import { saveOption } from "../../actions/options";
-import { _saveQuestionAnswer } from "../../apis/_DATA";
+// import { _saveQuestionAnswer } from "../../apis/_DATA";
 import { generateKey } from "../../apis/helpers";
 import ProgressBar from "./ProgressBar";
 
@@ -13,11 +13,15 @@ class PollResults extends Component {
 
   state = {
     answered: false,
-    selectedOption: "",
+    selectedOption: ""
   };
 
   getState = () => {
     return this.state;
+  };
+
+  handleIt = () => {
+    console.log("good job, Chris");
   };
 
   /* if the poll result has been answered show the progress bar with the new details */
@@ -25,7 +29,7 @@ class PollResults extends Component {
   updateState = (answered, selectedOption) => {
     this.setState({
       answered,
-      selectedOption,
+      selectedOption
     });
   };
 
@@ -48,7 +52,7 @@ class PollResults extends Component {
     let vote = {
       authedUser: this.props.authedUser,
       qid: this.props.result,
-      answer: poll_option,
+      answer: poll_option
     };
 
     !this.props.userAnswered.includes(this.props.result) &&
@@ -87,11 +91,11 @@ class PollResults extends Component {
     const { questions, result, usersWhoVoted } = this.props;
     const optionOne = {
       name: "optionOne",
-      text: questions[result].optionOne.text,
+      text: questions[result].optionOne.text
     };
     const optionTwo = {
       name: "optionTwo",
-      text: questions[result].optionTwo.text,
+      text: questions[result].optionTwo.text
     };
     const options = [optionOne, optionTwo];
     return (
@@ -137,11 +141,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     handleSaveOption: (option) => {
       dispatch(saveOption(option));
-
-      return _saveQuestionAnswer(option).catch((e) => {
-        console.warn("Error in handleSaveOption: ", e);
-      });
-    },
+    }
   };
 };
 
@@ -150,7 +150,7 @@ const mapStateToProps = ({ authedUser, users, questions }) => {
     userAnswered: Object.keys(users[authedUser.id].answers),
     questions,
     authedUser: authedUser.id,
-    users,
+    users
   };
 };
 

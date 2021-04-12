@@ -10,7 +10,7 @@ class CreatePoll extends Component {
     return {
       optionOneText: e.target.optionOneText.value,
       optionTwoText: e.target.optionTwoText.value,
-      author: this.props.authedUser,
+      author: this.props.authedUser
     };
   };
 
@@ -24,9 +24,12 @@ class CreatePoll extends Component {
     e.target.optionTwoText.value = "";
 
     this.props.saveQuestion(question);
+    this.props.history.push("/");
   };
 
   render() {
+    console.clear();
+    console.log("PollCard props: ", this.props);
     return (
       <SiteWrapper>
         <div className="create-poll">
@@ -60,13 +63,13 @@ const mapDispatchToProps = (dispatch) => {
       return _saveQuestion(question).catch((e) => {
         console.warning("There is an error with saveQuestion function: ", e);
       });
-    },
+    }
   };
 };
 
 const mapStateToProps = ({ authedUser }) => {
   return {
-    authedUser: authedUser.id,
+    authedUser: authedUser.id
   };
 };
 
