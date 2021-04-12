@@ -59,7 +59,10 @@ class App extends Component {
                     path="/user_profile"
                     component={this.checkAuth(UserProfile)}
                   />
-                  <Route path="/:id" component={this.checkAuth(PollDetails)} />
+                  <Route
+                    path="/questions/:id"
+                    component={this.checkAuth(PollDetails)}
+                  />
                   {/* <Route path={"/ErrorPage"} component={ErrorPage} /> */}
                 </Switch>
                 {/* <Route path="/poll_id" component={CreatePoll} /> */}
@@ -74,7 +77,7 @@ class App extends Component {
 
 function mapStateToProps({ authedUser }) {
   return {
-    authedUser,
+    authedUser
   };
 }
 
