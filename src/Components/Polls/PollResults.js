@@ -76,6 +76,8 @@ class PollResults extends Component {
   render() {
     console.clear();
     console.log("current state: ", this.getState());
+
+    console.log(this.props.users);
     /* 
     look through the list of questions, 
     
@@ -149,6 +151,7 @@ const mapStateToProps = ({ authedUser, users, questions }) => {
     userAnswered: Object.keys(users[authedUser.id].answers),
     questions,
     authedUser: authedUser.id,
+    users,
   };
 };
 
