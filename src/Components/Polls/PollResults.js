@@ -22,6 +22,13 @@ class PollResults extends Component {
 
   /* if the poll result has been answered show the progress bar with the new details */
 
+  updateState = (answered, selectedOption) => {
+    this.setState({
+      answered,
+      selectedOption,
+    });
+  };
+
   selectOption = (e, poll_option) => {
     let target = e.currentTarget;
 
@@ -36,12 +43,7 @@ class PollResults extends Component {
     document.querySelector(".poll-results h2").innerText =
       "You Would Rather...";
 
-    // document.querySelector(".poll-progress.hidden").classList.remove("hidden");
-
-    this.setState({
-      answered: true,
-      selectedOption: poll_option,
-    });
+    this.updateState(true, poll_option);
 
     let vote = {
       authedUser: this.props.authedUser,
@@ -64,9 +66,17 @@ class PollResults extends Component {
     return this.state.selectedOption;
   };
 
+  componentDidMount = () => {
+    // when component mounts, check to see if the answer has answered the poll. If she has, update the component's state to include the option that was selected
+    if (this.props.userAnswered.includes(this.props.result)) {
+      this.updateState(
+        true,
+        this.props.users[this.props.authedUser].answers[this.props.result]
+      );
+    }
+  };
+
   render() {
-    console.clear();
-    console.log("current state: ", this.getState());
     /* 
     look through the list of questions, 
     
@@ -140,6 +150,7 @@ const mapStateToProps = ({ authedUser, users, questions }) => {
     userAnswered: Object.keys(users[authedUser.id].answers),
     questions,
     authedUser: authedUser.id,
+    users,
   };
 };
 
