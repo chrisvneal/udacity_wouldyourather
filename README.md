@@ -1,100 +1,46 @@
-# Would You Rather Project
+# Would You Rather?
 
-This is the starter code for the final assessment project for Udacity's React & Redux course.
+## Project details
 
-The `_DATA.js` file represents a fake database and methods that let you access the data. The only thing you need to edit in the ` _DATA.js` file is the value of `avatarURL`. Each user should have an avatar, so you’ll need to add the path to each user’s avatar.
+I built this project while learning _React and React Native_ at [Udacity](https://www.udacity.com/course/react-nanodegree--nd019). What an amazing opportunity! _Would You Rather?_ was one of our first projects and I learned a lot from building it pretty much from the ground up. A database and API were provided for accessing the data.
 
-Using the provided starter code, you'll build a React/Redux front end for the application. We recommend using the [Create React App](https://github.com/facebook/create-react-app) to bootstrap the project.
+_Would You Rather?_ allows the user to answer polls, each poll having two options. The user is also able to create his own poll and answer other polls.
 
-## Data
+See how creative you can be - create a poll and compare your answers with friends!
 
-There are two types of objects stored in our database:
+- choose between 3 views: Unanswered, Answered, All
+- **Create** your own poll!
+- Check the **Leader Board** for up-to-date user stats
 
-* Users
-* Questions
+### Tools used
 
-### Users
+The meat of this project was built using the **React** library; however, I expanded the ecosystem using tools like
 
-Users include:
+- Redux - _for managing application state_
+- react-redux - _for simplifying React and Redux state bindings_
+- React Router - _helps manage page navigations_
+- [Semantic UI CSS library](https://react.semantic-ui.com/) - _to help build out UI components_
 
-| Attribute    | Type             | Description           |
-|-----------------|------------------|-------------------         |
-| id                 | String           | The user’s unique identifier |
-| name          | String           | The user’s first name  and last name     |
-| avatarURL  | String           | The path to the image file |
-| questions | Array | A list of ids of the polling questions this user created|
-| answers      | Object         |  The object's keys are the ids of each question this user answered. The value of each key is the answer the user selected. It can be either `'optionOne'` or `'optionTwo'` since each question has two options.
+---
 
-### Questions
+## Installing and launching the project
 
-Questions include:
+### npm install
 
-| Attribute | Type | Description |
-|-----------------|------------------|-------------------|
-| id                  | String | The question’s unique identifier |
-| author        | String | The author’s unique identifier |
-| timestamp | String | The time when the question was created|
-| optionOne | Object | The first voting option|
-| optionTwo | Object | The second voting option|
+After downloading the project, type `npm install` in the terminal to install all required dependencies.
 
-### Voting Options
+### npm start
 
-Voting options are attached to questions. They include:
+Next, type `npm start` to start the application in your default browser.
 
-| Attribute | Type | Description |
-|-----------------|------------------|-------------------|
-| votes             | Array | A list that contains the id of each user who voted for that option|
-| text                | String | The text of the option |
+---
 
-Your code will talk to the database via 4 methods:
+## Experience
 
-* `_getUsers()`
-* `_getQuestions()`
-* `_saveQuestion(question)`
-* `_saveQuestionAnswer(object)`
+The project got really intense for me when dealing with state updates and understanding **React Router**. I found myself researching quite a bit of material that wasn't directly taught in the course. There was a lot of _ES6_ I needed to brush up on was all.
 
-1) `_getUsers()` Method
+Overall, it was an enjoyable learning experience and I know a lot more about the React ecosystem than when I started. I'm confident enough to start building my own React projects now!
 
-*Description*: Get all of the existing users from the database.  
-*Return Value*: Object where the key is the user’s id and the value is the user object.
+## Feedback
 
-2) `_getQuestions()` Method
-
-*Description*: Get all of the existing questions from the database.  
-*Return Value*: Object where the key is the question’s id and the value is the question object.
-
-3) `_saveQuestion(question)` Method
-
-*Description*: Save the polling question in the database.  
-*Parameters*:  Object that includes the following properties: `author`, `optionOneText`, and `optionTwoText`. More details about these properties:
-
-| Attribute | Type | Description |
-|-----------------|------------------|-------------------|
-| author | String | The id of the user who posted the question|
-| optionOneText| String | The text of the first option |
-| optionTwoText | String | The text of the second option |
-
-*Return Value*:  An object that has the following properties: `id`, `author`, `optionOne`, `optionTwo`, `timestamp`. More details about these properties:
-
-| Attribute | Type | Description |
-|-----------------|------------------|-------------------|
-| id | String | The id of the question that was posted|
-| author | String | The id of the user who posted the question|
-| optionOne | Object | The object has a text property and a votes property, which stores an array of the ids of the users who voted for that option|
-| optionTwo | Object | The object has a text property and a votes property, which stores an array of the ids of the users who voted for that option|
-|timestamp|String | The time when the question was created|
-
-4) `_saveQuestionAnswer(object)` Method
-
-*Description*: Save the answer to a particular polling question in the database.
-*Parameters*: Object that contains the following properties: `authedUser`, `qid`, and `answer`. More details about these properties:
-
-| Attribute | Type | Description |
-|-----------------|------------------|-------------------|
-| authedUser | String | The id of the user who answered the question|
-| qid | String | The id of the question that was answered|
-| answer | String | The option the user selected. The value should be either `"optionOne"` or `"optionTwo"`|
-
-## Contributing
-
-This repository is the starter code for *all* Udacity students. Therefore, we most likely will not accept pull requests. For details, check out [CONTRIBUTING.md](https://github.com/udacity/reactnd-project-would-you-rather-starter/blob/master/CONTRIBUTING.md).
+If you'd like to leave feedback, make a pull request and I'll get back to you!
