@@ -13,10 +13,9 @@ function PollCard({
   users,
   selectOption,
   option,
-  authedUser
+  authedUser,
 }) {
-  // if id of this card is in the list of users answers, this card should have the style of .asnwered
-
+  // if id of this card is in the list of users answers, this card should have the style of .answered
   const generateCardClass = (id, option) => {
     if (option) {
       if (questions[id][option].votes.includes(authedUser)) {
@@ -33,13 +32,11 @@ function PollCard({
     <Card
       as={"div"}
       onClick={userAnswered.includes(id) ? null : selectOption}
-      className={generateCardClass(id, option)}
-    >
+      className={generateCardClass(id, option)}>
       <Link
         to={{
-          pathname: `/questions/${id}`
-        }}
-      >
+          pathname: `/questions/${id}`,
+        }}>
         <Card.Content className="header">Would You Rather...?</Card.Content>
         <Card.Content className="option">{question}</Card.Content>
         <Card.Content className="footer">
@@ -55,7 +52,7 @@ const mapStateToProps = ({ users, authedUser, questions }) => {
   return {
     userAnswered: Object.keys(users[authedUser.id].answers),
     questions,
-    authedUser: authedUser.id
+    authedUser: authedUser.id,
   };
 };
 

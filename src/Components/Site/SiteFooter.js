@@ -5,7 +5,6 @@ export default function SiteFooter() {
   return (
     <footer className="center">
       <Container>
-        {/* <Header as="h2" content="Footer" /> */}
         <p>
           project developed for{" "}
           <a href="http://www.udacity.com" target="_blank" rel="noreferrer">

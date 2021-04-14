@@ -2,14 +2,6 @@ import React from "react";
 import { Progress } from "semantic-ui-react";
 
 export default function ProgressBar({ optionVoteCount, pollVoteCount }) {
-  //     return <Progress
-  //     value={this.getTotalOptionVotes(
-  //       questions,
-  //       result,
-  //       this.chosenOption()
-  //     )}
-  //     />
-
   const calculateVotePercentage = (options, votes) => {
     let calculation = (options / votes) * 100;
 
