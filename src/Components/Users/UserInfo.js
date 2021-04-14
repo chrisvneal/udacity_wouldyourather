@@ -1,12 +1,13 @@
 import React from "react";
-import { Icon } from "semantic-ui-react";
+// import { Icon } from "semantic-ui-react";
 
 export default function UserInfo(props) {
   return (
     <div className="user-info">
       <div className="user-info-header">
         <p>
-          <Icon name="user circle" size="huge" />
+          {/* <Icon name="user circle" size="huge" /> */}
+          <img src={props.avatar} alt="user avatar" />
           <span className="user-info-author">{props.author}</span>
         </p>
       </div>

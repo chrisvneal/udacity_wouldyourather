@@ -15,6 +15,9 @@ class PollDetails extends Component {
     let usersWhoVoted = questions[id].optionOne.votes.concat(
       questions[id].optionTwo.votes
     );
+    const userAvatar = users[poll_author].avatarURL;
+    console.clear();
+    console.log(userAvatar);
 
     return (
       <SiteWrapper>
@@ -28,6 +31,7 @@ class PollDetails extends Component {
                   author={poll_author}
                   created={questionsCreated}
                   answered={questionsAnswered}
+                  avatar={userAvatar}
                 />
               </Grid.Column>
               <Grid.Column width={11}>
