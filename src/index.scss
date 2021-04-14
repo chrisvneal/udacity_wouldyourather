@@ -381,6 +381,45 @@ main .create-poll .ui.form {
   }
 }
 
+.ui.secondary.pointing.menu {
+  // background: blue;
+  // display: none !important;
+  // outline: 1px solid red;
+  width: 98%;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  // align-items: center;
+  margin: 0;
+
+  & .item {
+    align-self: flex-start;
+    padding: 0;
+  }
+
+  a.active.item {
+    background: lighten($link-hover--color, 40%);
+  }
+
+  a.item,
+  a.active.item {
+    // background: red;
+    width: 100%;
+    // margin-bottom: 20px;
+    padding: 30px 0;
+    padding-left: 10px;
+    // border: 1px solid blue;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom: none;
+
+    &:after {
+      transform: none;
+    }
+  }
+}
+
 .error-page {
   .error {
     // outline: 1px dashed orange;
