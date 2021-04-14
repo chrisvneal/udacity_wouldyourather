@@ -330,6 +330,10 @@ main .create-poll .ui.form {
   font-weight: 700;
 }
 
+.ui.grid > .row {
+  flex-flow: column wrap;
+}
+
 .poll-results {
   .poll-results-cards {
     display: flex;
