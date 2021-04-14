@@ -1,24 +1,7 @@
 @import "./scss/partials/variables.scss";
 @import "./scss/partials/global_styles.scss";
 
-$high-rank-gold: rgba(241, 214, 0, 1);
-$leaderboard-header--color: #0078d7;
-$link-hover--color: #3498db;
-$small-text--color: darken(#eee, 25%);
-$success-color: #25d366;
-$link--color: #4183c4;
-$brand-color: $success-color;
-
-@mixin high-rank-bg {
-  background: rgb(241, 214, 0);
-  background: linear-gradient(
-    90deg,
-    rgba(241, 214, 0, 1) 0%,
-    rgba(245, 236, 168, 1) 68%,
-    rgba(255, 255, 255, 1) 99%
-  );
-}
-
+/* Navigation & links */
 a:not(nav a),
 a:hover {
   color: inherit;
@@ -28,7 +11,17 @@ a:hover .content.option {
   color: $link-hover--color;
 }
 
-/* Util classes */
+.site-nav {
+  margin-bottom: 30px;
+
+  ul {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+  }
+}
+
+/* util classes */
 .center {
   text-align: center;
 }
@@ -43,18 +36,34 @@ main {
   }
 }
 
-.site-nav {
-  margin-bottom: 30px;
+/* Login styles */
 
-  ul {
-    display: flex;
-    justify-content: space-between;
-    list-style: none;
+.login {
+  margin: 25vh auto 0;
+  max-width: 380px;
+
+  h2 {
+    margin-bottom: 30px;
+    // font-size: 1rem;
+    span {
+      color: $brand-color;
+      font-weight: bold;
+      font-family: cursive;
+      font-size: 1.8rem;
+    }
+  }
+
+  .ui.form {
+    width: 100%;
+    min-width: 255px;
+
+    .field {
+      margin-bottom: 50px;
+    }
   }
 }
 
 /* SiteHeader styles */
-
 .site-header {
   background: darken($success-color, 6%);
   padding: 10px 0;
@@ -107,65 +116,7 @@ main {
   box-shadow: none;
 }
 
-/* Create Poll styles */
-main .create-poll .ui.form {
-  width: 60%;
-  min-width: 260px;
-  margin: 50px auto 0;
-
-  .or {
-    display: inline-block;
-    margin: 2rem 0 3rem;
-    font-weight: bolder;
-    font-size: 1.5rem;
-  }
-
-  .ui.button {
-    margin: 40px 0 20px;
-  }
-
-  input[placeholder] {
-    font-style: italic;
-  }
-
-  div.field {
-    // margin-bottom: 40px;
-    margin: 0;
-    label {
-      margin-bottom: 10px;
-    }
-  }
-}
-
-/* Leaderboard styles */
-.leaderboard {
-  h3 {
-    font-size: 1.2rem;
-    color: $leaderboard-header--color;
-  }
-
-  .user-rank-table tbody tr:first-child {
-    @include high-rank-bg;
-
-    td {
-      font-weight: bold;
-      font-size: 1rem;
-    }
-  }
-
-  .ui.table {
-    margin-bottom: 40px;
-    width: 100%;
-  }
-
-  .user-rank-table td,
-  .user-rank-table th {
-    text-align: center !important;
-  }
-}
-
-/* Poll/Card styles */
-
+/* Poll Card styles */
 .poll-grid .ui.card,
 .poll-results .ui.card {
   width: 300px;
@@ -263,15 +214,26 @@ main .create-poll .ui.form {
   }
 }
 
+.ui.card > .content:after,
+.ui.cards > .card > .content:after {
+  content: none;
+}
+
+// poll results styles
+
 .users-who-voted .users {
   font-style: italic;
 }
+
+// poll grid tabs
 
 .ui.secondary.pointing.menu .active.item,
 .ui.secondary.pointing.menu .active.item:hover {
   color: $tab-color;
   border-bottom-color: $tab-color;
 }
+
+/*************** Polls page styles ***************/
 
 .polls {
   .item > .ui.label {
@@ -295,12 +257,40 @@ main .create-poll .ui.form {
   }
 }
 
-.ui.card > .content:after,
-.ui.cards > .card > .content:after {
-  content: none;
+// poll grid tabs
+.ui.secondary.pointing.menu {
+  width: 98%;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: 0;
+
+  & .item {
+    align-self: flex-start;
+    padding: 0;
+  }
+
+  a.active.item {
+    background: lighten($link-hover--color, 40%);
+  }
+
+  a.item,
+  a.active.item {
+    width: 100%;
+    padding: 30px 0;
+    padding-left: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom: none;
+
+    &:after {
+      transform: none;
+    }
+  }
 }
 
-/* Poll Details & Results styles */
+/********** Poll Details & Results styles **********/
 .poll-details {
   .user-info-author {
     font-weight: bold;
@@ -310,10 +300,7 @@ main .create-poll .ui.form {
   }
 
   .user-info {
-    // outline: 1px solid #d4d4d5;
     padding: 7px;
-    // min-width: 220px;
-    // width: 200px;
     width: 100%;
     margin-bottom: 40px;
   }
@@ -327,17 +314,6 @@ main .create-poll .ui.form {
     font-size: 0.9rem;
     display: flex;
   }
-}
-
-.user-info-number {
-  display: inline-block;
-  font-size: 1.3rem;
-  width: 20px;
-  font-weight: 700;
-}
-
-.ui.grid > .row {
-  flex-flow: column wrap;
 }
 
 .poll-results {
@@ -359,16 +335,24 @@ main .create-poll .ui.form {
   .ui.progress.poll-progress {
     margin-bottom: 5rem;
 
-    // &.hidden {
-    //   visibility: hidden;
-    // }
-
     .label {
       top: 170%;
     }
   }
 }
 
+.user-info-number {
+  display: inline-block;
+  font-size: 1.3rem;
+  width: 20px;
+  font-weight: 700;
+}
+
+// poll details ui grid styles
+
+.ui.grid > .row {
+  flex-flow: column wrap;
+}
 .ui.column.grid > [class*="five wide"].column,
 .ui.grid > .column.row > [class*="five wide"].column,
 .ui.grid > .row > [class*="five wide"].column,
@@ -381,78 +365,65 @@ main .create-poll .ui.form {
 .ui.grid > .row > [class*="eleven wide"].column,
 .ui.grid > [class*="eleven wide"].column {
   width: 100% !important;
-  // margin-top: 20px;
 }
 
-.login {
-  margin: 25vh auto 0;
+/************ Create Poll styles ************/
+main .create-poll .ui.form {
+  width: 60%;
+  min-width: 260px;
+  margin: 50px auto 0;
 
-  // width: 70%;
-  max-width: 380px;
-  // min-width: 255px;
+  .or {
+    display: inline-block;
+    margin: 2rem 0 3rem;
+    font-weight: bolder;
+    font-size: 1.5rem;
+  }
 
-  // width: 255px;
+  .ui.button {
+    margin: 40px 0 20px;
+  }
 
-  h2 {
-    margin-bottom: 30px;
-    // font-size: 1rem;
-    span {
-      color: $brand-color;
+  input[placeholder] {
+    font-style: italic;
+  }
+
+  div.field {
+    // margin-bottom: 40px;
+    margin: 0;
+    label {
+      margin-bottom: 10px;
+    }
+  }
+}
+/************ LeaderBoard styles ************/
+.leaderboard {
+  h3 {
+    font-size: 1.2rem;
+    color: $leaderboard-header--color;
+  }
+
+  .user-rank-table tbody tr:first-child {
+    @include high-rank-bg;
+
+    td {
       font-weight: bold;
-      font-family: cursive;
-      font-size: 1.8rem;
+      font-size: 1rem;
     }
   }
 
-  .ui.form {
+  .ui.table {
+    margin-bottom: 40px;
     width: 100%;
-    min-width: 255px;
+  }
 
-    .field {
-      margin-bottom: 50px;
-    }
+  .user-rank-table td,
+  .user-rank-table th {
+    text-align: center !important;
   }
 }
 
-.ui.secondary.pointing.menu {
-  // background: blue;
-  // display: none !important;
-  // outline: 1px solid red;
-  width: 98%;
-  border: none;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  // align-items: center;
-  margin: 0;
-
-  & .item {
-    align-self: flex-start;
-    padding: 0;
-  }
-
-  a.active.item {
-    background: lighten($link-hover--color, 40%);
-  }
-
-  a.item,
-  a.active.item {
-    // background: red;
-    width: 100%;
-    // margin-bottom: 20px;
-    padding: 30px 0;
-    padding-left: 10px;
-    // border: 1px solid blue;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    border-bottom: none;
-
-    &:after {
-      transform: none;
-    }
-  }
-}
-
+/********** 404 Error page styles **********/
 .error-page {
   .error {
     // outline: 1px dashed orange;
@@ -487,7 +458,7 @@ main .create-poll .ui.form {
   }
 }
 
-/* Footer styles */
+/************** Footer styles **************/
 footer {
   position: fixed;
   bottom: 0;
@@ -500,11 +471,9 @@ footer {
   }
 }
 
-@media screen and (min-width: 460px) {
-  // body {
-  //   // background: lighten(yellow, 43%);
-  // }
+/************* Media styles *************/
 
+@media screen and (min-width: 460px) {
   .polls .poll-grid {
     flex-flow: row wrap;
   }
@@ -514,22 +483,16 @@ footer {
     border: none;
     display: flex;
     flex-direction: row;
-    // flex-flow: row;
     justify-content: space-between;
-    // align-items: center;
     margin: 0;
 
     & .item {
-      // align-self: flex-start;
       padding: 0;
-      // width: 20%;
       display: block;
-      // text-align: right;
     }
 
     a.active.item {
       background: none;
-      // border-bottom: 2px solid black;
       border-bottom: 2px solid $tab-color;
     }
 
@@ -553,7 +516,6 @@ footer {
   .ui.grid > .row > [class*="eleven wide"].column,
   .ui.grid > [class*="eleven wide"].column {
     width: 70% !important;
-    // margin-top: 20px;
   }
 
   .ui.grid > .row {
