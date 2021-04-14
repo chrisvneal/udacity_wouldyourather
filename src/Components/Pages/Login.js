@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Form, Button, Dropdown } from "semantic-ui-react";
+import { Form, Button, Dropdown, Container } from "semantic-ui-react";
 import { setAuthedUser } from "../../actions/authedUser";
 import { users } from "../../apis/helpers";
 
@@ -32,23 +32,25 @@ class Login extends Component {
 
   render() {
     return (
-      <div className="login">
-        <h2>
-          Login to <span>Would You Rather?</span>
-        </h2>
-        <Form onSubmit={this.setUser}>
-          <Form.Field>
-            <Dropdown
-              id="user_select"
-              placeholder="Select user"
-              fluid
-              selection
-              options={users}
-            />
-          </Form.Field>
-          <Button type="submit">Login</Button>
-        </Form>
-      </div>
+      <Container>
+        <div className="login">
+          <h2>
+            Login to <span>Would You Rather?</span>
+          </h2>
+          <Form onSubmit={this.setUser}>
+            <Form.Field>
+              <Dropdown
+                id="user_select"
+                placeholder="Select user"
+                fluid
+                selection
+                options={users}
+              />
+            </Form.Field>
+            <Button type="submit">Login</Button>
+          </Form>
+        </div>
+      </Container>
     );
   }
 }

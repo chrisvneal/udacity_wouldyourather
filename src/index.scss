@@ -360,14 +360,13 @@ main .create-poll .ui.form {
 }
 
 .login {
-  // width: 35%;
   min-width: 255px;
-  // margin: 0 auto;
+  margin: 0 auto;
   margin: 100px auto 0;
-  width: 400px;
 
   h2 {
     margin-bottom: 30px;
+    // font-size: 1rem;
     span {
       color: $brand-color;
       font-weight: bold;
@@ -426,5 +425,11 @@ footer {
   background: #fff;
   p {
     color: #a6a6a6;
+  }
+}
+
+@media screen and (max-width: 319px) {
+  body {
+    background: lighten(red, 10%);
   }
 }
