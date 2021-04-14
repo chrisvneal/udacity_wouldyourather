@@ -3,7 +3,6 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import LeaderBoard from "./Components/Pages/LeaderBoard";
 import CreatePoll from "./Components/Pages/CreatePoll";
-import UserProfile from "./Components/Pages/UserProfile";
 import Polls from "./Components/Pages/Polls";
 import ErrorPage from "./Components/Pages/ErrorPage";
 import Login from "./Components/Pages/Login";
@@ -46,10 +45,6 @@ class App extends Component {
                   <Route
                     path="/leaderboard"
                     component={this.checkAuth(LeaderBoard)}
-                  />
-                  <Route
-                    path="/user_profile"
-                    component={this.checkAuth(UserProfile)}
                   />
                   <Route
                     path="/questions/:id"
