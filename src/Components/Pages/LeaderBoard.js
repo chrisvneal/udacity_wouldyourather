@@ -46,6 +46,7 @@ function mapStateToProps({ users, questions }) {
     // ... and create new objects from those objects.
     let rankedUser = {
       id: user,
+      avatar: users[user].avatarURL,
       questionsCreated: users[user].questions.length,
       questionsAnswered: Object.entries(users[user].answers).length,
       totalScore:

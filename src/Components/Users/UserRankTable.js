@@ -26,6 +26,7 @@ export default class UserRankTable extends Component {
                   numQuestions={user.questionsCreated}
                   numAnswers={user.questionsAnswered}
                   totalScore={user.totalScore}
+                  userAvatar={user.avatar}
                 />
               );
             })}
