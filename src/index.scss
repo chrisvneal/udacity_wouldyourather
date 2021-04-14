@@ -56,7 +56,7 @@ main {
 /* SiteHeader styles */
 
 .site-header {
-  background: $success-color;
+  background: darken($success-color, 6%);
   padding: 10px 0;
   margin-bottom: 15px;
 
