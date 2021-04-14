@@ -34,3 +34,44 @@ img {
   max-width: 100%;
   height: auto;
 }
+
+/* Navigation & links */
+a:not(nav a),
+a:hover {
+  color: inherit;
+}
+
+a:hover .content.option {
+  color: $link-hover--color;
+}
+
+.site-nav {
+  margin-bottom: 30px;
+
+  ul {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+  }
+}
+
+/* util classes */
+.center {
+  text-align: center;
+}
+
+main {
+  &.ui.container {
+    margin-bottom: 100px;
+  }
+
+  h2.ui.header:first-child {
+    margin-bottom: 2rem;
+  }
+}
+
+// remove semantic styling from ui segments
+.polls .ui.segment {
+  border: none;
+  box-shadow: none;
+}

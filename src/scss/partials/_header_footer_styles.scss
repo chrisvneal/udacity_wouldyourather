@@ -1,0 +1,57 @@
+.site-header {
+  background: darken($success-color, 6%);
+  padding: 10px 0;
+  margin-bottom: 15px;
+
+  // brand & navigation
+
+  .header-brand {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    // margin-bottom: 20px;
+
+    h1.ui {
+      display: inline-block;
+      margin: 0;
+      font-size: 1.6rem;
+      // color: $brand-color;
+      color: white;
+      font-family: cursive;
+    }
+
+    // profile icon
+    .profile-header {
+      text-align: center;
+
+      .header-avatar {
+        width: 60px;
+
+        display: inline-block;
+
+        img {
+          height: 60px;
+        }
+      }
+
+      .username {
+        font-weight: bold;
+        font-size: 0.8rem;
+        text-transform: lowercase;
+        margin-top: 5px;
+      }
+    }
+  }
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  padding-top: 50px;
+  background: #fff;
+  p {
+    color: #a6a6a6;
+  }
+}

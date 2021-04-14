@@ -1,0 +1,61 @@
+.polls {
+  .item > .ui.label {
+    background: #cfcfcf;
+    font-size: 0.8rem;
+  }
+
+  .active.item > .ui.label {
+    background-color: $tab-color;
+  }
+
+  .poll-grid {
+    display: flex;
+    flex-flow: column wrap;
+    width: 100%;
+    margin: 0 auto;
+
+    .ui.card {
+      margin-right: 40px;
+    }
+  }
+}
+
+// poll grid tabs
+.ui.secondary.pointing.menu {
+  width: 98%;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: 0;
+
+  & .item {
+    align-self: flex-start;
+    padding: 0;
+  }
+
+  a.active.item {
+    background: lighten($link-hover--color, 40%);
+  }
+
+  a.item,
+  a.active.item {
+    width: 100%;
+    padding: 30px 0;
+    padding-left: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom: none;
+
+    &:after {
+      transform: none;
+    }
+  }
+}
+
+// poll grid tabs
+.ui.secondary.pointing.menu .active.item,
+.ui.secondary.pointing.menu .active.item:hover {
+  color: $tab-color;
+  border-bottom-color: $tab-color;
+}

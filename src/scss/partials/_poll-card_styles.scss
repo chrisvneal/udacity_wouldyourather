@@ -1,0 +1,101 @@
+.poll-grid .ui.card,
+.poll-results .ui.card {
+  width: 300px;
+  margin: 0;
+  cursor: pointer;
+  border-radius: 2px;
+  margin-bottom: 90px;
+
+  &.selectedOption {
+    background: $success-color;
+    padding: 0 10px 20px;
+    transition: width 0.1s ease-in;
+
+    .content.option {
+      font-size: 1.8rem;
+
+      &:after {
+        content: "!";
+      }
+    }
+  }
+
+  &.selectedOption,
+  &.answered {
+    .content.option {
+      padding-top: 30px;
+      &:after {
+        content: "!";
+      }
+    }
+
+    .header {
+      display: none;
+    }
+
+    a:hover .content.option {
+      color: black;
+    }
+  }
+
+  &.answered {
+    background: $pattern-answered;
+
+    .content.option {
+      font-size: 1.3rem;
+    }
+    .poll-card-author {
+      color: lighten(black, 25%);
+    }
+
+    .content p.poll-card-likes {
+      color: lighten(red, 10%);
+    }
+  }
+
+  & > :first-child {
+    border-radius: 0 !important;
+  }
+
+  .content {
+    padding: 5px;
+    text-align: center;
+    p {
+      color: $small-text--color;
+
+      &.poll-card-likes {
+        color: #ffb900;
+        font-weight: bold;
+      }
+    }
+  }
+
+  .header {
+    background: $pattern-unanswered;
+    padding: 10px 0;
+  }
+
+  .option {
+    height: 80px;
+    padding-top: 20px;
+    font-weight: 600;
+    font-size: 1.3rem;
+    font-style: italic;
+    line-height: 1.3;
+  }
+
+  .footer {
+    text-align: left;
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 0.8rem;
+    font-style: italic;
+    width: 100%;
+  }
+}
+
+.ui.card > .content:after,
+.ui.cards > .card > .content:after {
+  content: none;
+}
