@@ -488,8 +488,8 @@ footer {
   }
 }
 
-@media screen and (max-width: 319px) {
+@media screen and (min-width: 660px) {
   body {
-    background: lighten(red, 10%);
+    background: lighten(yellow, 43%);
   }
 }
