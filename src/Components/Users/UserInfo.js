@@ -7,7 +7,11 @@ export default function UserInfo(props) {
       <div className="user-info-header">
         <p>
           {/* <Icon name="user circle" size="huge" /> */}
-          <img src={props.avatar} alt="user avatar" />
+          <img
+            src={props.avatar}
+            alt="user avatar"
+            className="poll-creator-avatar"
+          />
           <span className="user-info-author">{props.author}</span>
         </p>
       </div>

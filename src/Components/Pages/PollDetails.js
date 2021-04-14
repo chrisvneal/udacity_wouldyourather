@@ -16,8 +16,6 @@ class PollDetails extends Component {
       questions[id].optionTwo.votes
     );
     const userAvatar = users[poll_author].avatarURL;
-    console.clear();
-    console.log(userAvatar);
 
     return (
       <SiteWrapper>
