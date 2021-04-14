@@ -306,10 +306,12 @@ main .create-poll .ui.form {
   }
 
   .user-info {
-    outline: 1px solid #d4d4d5;
+    // outline: 1px solid #d4d4d5;
     padding: 7px;
     // min-width: 220px;
-    width: 200px;
+    // width: 200px;
+    width: 100%;
+    margin-bottom: 40px;
   }
 
   .user-info-header {
@@ -361,6 +363,21 @@ main .create-poll .ui.form {
       top: 170%;
     }
   }
+}
+
+.ui.column.grid > [class*="five wide"].column,
+.ui.grid > .column.row > [class*="five wide"].column,
+.ui.grid > .row > [class*="five wide"].column,
+.ui.grid > [class*="five wide"].column {
+  width: 100% !important;
+}
+
+.ui.column.grid > [class*="eleven wide"].column,
+.ui.grid > .column.row > [class*="eleven wide"].column,
+.ui.grid > .row > [class*="eleven wide"].column,
+.ui.grid > [class*="eleven wide"].column {
+  width: 100% !important;
+  // margin-top: 20px;
 }
 
 .login {
