@@ -1,0 +1,49 @@
+@media screen and (min-width: 460px) {
+  .polls .poll-grid {
+    flex-flow: row wrap;
+  }
+
+  .ui.secondary.pointing.menu {
+    width: 30%;
+    border: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0;
+
+    & .item {
+      padding: 0;
+      display: block;
+    }
+
+    a.active.item {
+      background: none;
+      border-bottom: 2px solid $tab-color;
+    }
+
+    a.item,
+    a.active.item {
+      width: 100%;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    }
+  }
+
+  .ui.column.grid > [class*="five wide"].column,
+  .ui.grid > .column.row > [class*="five wide"].column,
+  .ui.grid > .row > [class*="five wide"].column,
+  .ui.grid > [class*="five wide"].column {
+    width: 30% !important;
+  }
+
+  .ui.column.grid > [class*="eleven wide"].column,
+  .ui.grid > .column.row > [class*="eleven wide"].column,
+  .ui.grid > .row > [class*="eleven wide"].column,
+  .ui.grid > [class*="eleven wide"].column {
+    width: 70% !important;
+  }
+
+  .ui.grid > .row {
+    flex-flow: row wrap;
+  }
+}

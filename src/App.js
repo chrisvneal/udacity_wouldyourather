@@ -18,14 +18,6 @@ class App extends Component {
     this.props.dispatch(handleInitialData());
   }
 
-  // handleLogout = () => {
-  //   if (this.props.authedUser) {
-  //     return <Polls />;
-  //   } else {
-  //     return <Login />;
-  //   }
-  // };
-
   checkAuth = (component, otherPage = ErrorPage) => {
     if (this.props.authedUser) {
       return component;
@@ -63,9 +55,7 @@ class App extends Component {
                     path="/questions/:id"
                     component={this.checkAuth(PollDetails)}
                   />
-                  {/* <Route path={"/ErrorPage"} component={ErrorPage} /> */}
                 </Switch>
-                {/* <Route path="/poll_id" component={CreatePoll} /> */}
               </Grid.Column>
             </Grid.Row>
           </Grid>
@@ -77,7 +67,7 @@ class App extends Component {
 
 function mapStateToProps({ authedUser }) {
   return {
-    authedUser
+    authedUser,
   };
 }
 

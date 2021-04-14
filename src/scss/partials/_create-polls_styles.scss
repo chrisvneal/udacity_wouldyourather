@@ -1,0 +1,27 @@
+main .create-poll .ui.form {
+  width: 60%;
+  min-width: 260px;
+  margin: 50px auto 0;
+
+  .or {
+    display: inline-block;
+    margin: 2rem 0 3rem;
+    font-weight: bolder;
+    font-size: 1.5rem;
+  }
+
+  .ui.button {
+    margin: 40px 0 20px;
+  }
+
+  input[placeholder] {
+    font-style: italic;
+  }
+
+  div.field {
+    margin: 0;
+    label {
+      margin-bottom: 10px;
+    }
+  }
+}

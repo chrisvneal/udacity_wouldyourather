@@ -1,0 +1,80 @@
+.poll-details {
+  .user-info-author {
+    font-weight: bold;
+    font-size: 1rem;
+    display: inline-block;
+    margin-top: 10px;
+  }
+
+  .user-info {
+    padding: 7px;
+    width: 100%;
+    margin-bottom: 40px;
+  }
+
+  .user-info-header {
+    margin-bottom: 25px;
+  }
+
+  .user-info-body p {
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+    display: flex;
+  }
+}
+
+.poll-results {
+  .poll-results-cards {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    width: 100%;
+    margin: 50px auto 0;
+  }
+
+  .users-who-voted .heading {
+    margin-right: 4px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  .ui.progress.poll-progress {
+    margin-bottom: 5rem;
+
+    .label {
+      top: 170%;
+    }
+  }
+}
+
+.user-info-number {
+  display: inline-block;
+  font-size: 1.3rem;
+  width: 20px;
+  font-weight: 700;
+}
+
+// poll details ui grid styles
+
+.ui.grid > .row {
+  flex-flow: column wrap;
+}
+.ui.column.grid > [class*="five wide"].column,
+.ui.grid > .column.row > [class*="five wide"].column,
+.ui.grid > .row > [class*="five wide"].column,
+.ui.grid > [class*="five wide"].column {
+  width: 100% !important;
+}
+
+.ui.column.grid > [class*="eleven wide"].column,
+.ui.grid > .column.row > [class*="eleven wide"].column,
+.ui.grid > .row > [class*="eleven wide"].column,
+.ui.grid > [class*="eleven wide"].column {
+  width: 100% !important;
+}
+
+// poll results styles
+.users-who-voted .users {
+  font-style: italic;
+}

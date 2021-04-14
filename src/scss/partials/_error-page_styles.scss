@@ -1,0 +1,31 @@
+.error-page {
+  .error {
+    margin: 100px auto 0;
+    width: 400px;
+    background: lighten(black, 10%);
+    border-radius: 60%;
+    padding: 50px;
+
+    &-message {
+      text-align: center;
+      > h1 {
+        color: red;
+        font-size: 10rem;
+        font-weight: bolder;
+      }
+
+      > p {
+        position: relative;
+        top: -100px;
+        color: blue;
+        background: white;
+      }
+    }
+  }
+
+  nav {
+    text-align: center;
+    font-size: 2rem;
+    margin-top: 60px;
+  }
+}

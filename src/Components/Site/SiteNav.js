@@ -27,18 +27,10 @@ function SiteNav(props) {
               Sign Out
             </li>
           </Link>
-
-          {/* Make sign in/out dynamic based on whether signed in */}
         </ul>
       </Container>
     </nav>
   );
 }
-
-// const mapStateToProps = ({ authedUser }) => {
-//   return {
-//     authedUser: authedUser.id,
-//   };
-// };
 
 export default connect()(SiteNav);

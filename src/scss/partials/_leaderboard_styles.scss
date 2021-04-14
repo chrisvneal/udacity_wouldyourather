@@ -1,0 +1,25 @@
+.leaderboard {
+  h3 {
+    font-size: 1.2rem;
+    color: $leaderboard-header--color;
+  }
+
+  .user-rank-table tbody tr:first-child {
+    @include high-rank-bg;
+
+    td {
+      font-weight: bold;
+      font-size: 1rem;
+    }
+  }
+
+  .ui.table {
+    margin-bottom: 40px;
+    width: 100%;
+  }
+
+  .user-rank-table td,
+  .user-rank-table th {
+    text-align: center !important;
+  }
+}

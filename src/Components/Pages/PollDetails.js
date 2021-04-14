@@ -4,7 +4,6 @@ import PollResults from "../Polls/PollResults";
 import UserInfo from "../Users/UserInfo";
 import SiteWrapper from "../Site/SiteWrapper";
 import { connect } from "react-redux";
-// import { useParams } from "react-router-dom";
 
 class PollDetails extends Component {
   render() {
