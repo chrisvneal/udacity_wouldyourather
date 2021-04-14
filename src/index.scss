@@ -384,9 +384,10 @@ main .create-poll .ui.form {
   margin: 25vh auto 0;
 
   // width: 70%;
-  // max-width: 300px;
+  max-width: 380px;
   // min-width: 255px;
-  width: 255px;
+
+  // width: 255px;
 
   h2 {
     margin-bottom: 30px;
@@ -495,10 +496,14 @@ footer {
   }
 }
 
-@media screen and (min-width: 350px) {
+@media screen and (min-width: 460px) {
   // body {
   //   // background: lighten(yellow, 43%);
   // }
+
+  .polls .poll-grid {
+    flex-flow: row wrap;
+  }
 
   .ui.secondary.pointing.menu {
     width: 30%;
@@ -530,5 +535,24 @@ footer {
       border-top-left-radius: 10px;
       border-top-right-radius: 10px;
     }
+  }
+
+  .ui.column.grid > [class*="five wide"].column,
+  .ui.grid > .column.row > [class*="five wide"].column,
+  .ui.grid > .row > [class*="five wide"].column,
+  .ui.grid > [class*="five wide"].column {
+    width: 30% !important;
+  }
+
+  .ui.column.grid > [class*="eleven wide"].column,
+  .ui.grid > .column.row > [class*="eleven wide"].column,
+  .ui.grid > .row > [class*="eleven wide"].column,
+  .ui.grid > [class*="eleven wide"].column {
+    width: 70% !important;
+    // margin-top: 20px;
+  }
+
+  .ui.grid > .row {
+    flex-flow: row wrap;
   }
 }
