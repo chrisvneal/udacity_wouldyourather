@@ -54,8 +54,11 @@ main {
 }
 
 /* SiteHeader styles */
+
 .site-header {
-  padding-top: 8px;
+  background: $success-color;
+  padding: 10px 0;
+  margin-bottom: 15px;
 
   // brand & navigation
 
@@ -63,13 +66,14 @@ main {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
+    // margin-bottom: 20px;
 
     h1.ui {
       display: inline-block;
       margin: 0;
-      font-size: 1.3rem;
-      color: $brand-color;
+      font-size: 1.6rem;
+      // color: $brand-color;
+      color: white;
       font-family: cursive;
     }
 
