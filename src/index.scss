@@ -381,9 +381,12 @@ main .create-poll .ui.form {
 }
 
 .login {
-  min-width: 255px;
-  margin: 0 auto;
-  margin: 100px auto 0;
+  margin: 25vh auto 0;
+
+  // width: 70%;
+  // max-width: 300px;
+  // min-width: 255px;
+  width: 255px;
 
   h2 {
     margin-bottom: 30px;
@@ -399,6 +402,10 @@ main .create-poll .ui.form {
   .ui.form {
     width: 100%;
     min-width: 255px;
+
+    .field {
+      margin-bottom: 50px;
+    }
   }
 }
 
@@ -488,8 +495,40 @@ footer {
   }
 }
 
-@media screen and (min-width: 660px) {
-  body {
-    background: lighten(yellow, 43%);
+@media screen and (min-width: 350px) {
+  // body {
+  //   // background: lighten(yellow, 43%);
+  // }
+
+  .ui.secondary.pointing.menu {
+    width: 30%;
+    border: none;
+    display: flex;
+    flex-direction: row;
+    // flex-flow: row;
+    justify-content: space-between;
+    // align-items: center;
+    margin: 0;
+
+    & .item {
+      // align-self: flex-start;
+      padding: 0;
+      // width: 20%;
+      display: block;
+      // text-align: right;
+    }
+
+    a.active.item {
+      background: none;
+      // border-bottom: 2px solid black;
+      border-bottom: 2px solid $tab-color;
+    }
+
+    a.item,
+    a.active.item {
+      width: 100%;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    }
   }
 }
