@@ -4,8 +4,10 @@ import john_doe from "../images/john_doe.png";
 export function splitQuestions(allQuestions, userAnswers) {
   // copy all questions into an array
   let originalQuestions = [...allQuestions];
+
   // initialize index of question to be compared to...
   let questionIndex;
+
   // ... so when comparing user answered questions...
   for (let answer of userAnswers) {
     for (let question of allQuestions) {
@@ -16,6 +18,7 @@ export function splitQuestions(allQuestions, userAnswers) {
       }
     }
   }
+
   // return object of all, answered, and unanswered questions
   return {
     answered: userAnswers,

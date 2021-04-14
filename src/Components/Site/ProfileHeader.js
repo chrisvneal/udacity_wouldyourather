@@ -5,8 +5,6 @@ import { connect } from "react-redux";
 function ProfileHeader(props) {
   return (
     <div className="profile-header">
-      {/* <img src="https://via.placeholder.com/50x50" alt="logo" /> */}
-      {/* <Icon name="user circle" size={"big"} /> */}
       <div className="header-avatar">
         <img src={props.avatar} alt="user avatar" />
       </div>

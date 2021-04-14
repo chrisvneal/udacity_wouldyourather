@@ -6,7 +6,6 @@ export default function UserInfo(props) {
     <div className="user-info">
       <div className="user-info-header">
         <p>
-          {/* <Icon name="user circle" size="huge" /> */}
           <img
             src={props.avatar}
             alt="user avatar"
