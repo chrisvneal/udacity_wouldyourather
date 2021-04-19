@@ -8,8 +8,9 @@ import {
 } from "react-router-dom";
 import LeaderBoard from "./Components/Pages/LeaderBoard";
 import CreatePoll from "./Components/Pages/CreatePoll";
-import Polls from "./Components/Pages/Polls";
 import ErrorPage from "./Components/Pages/ErrorPage";
+
+import Polls from "./Components/Pages/Polls";
 import Login from "./Components/Pages/Login";
 import PollDetails from "./Components/Pages/PollDetails";
 import { Grid } from "semantic-ui-react";
@@ -64,6 +65,7 @@ class App extends Component {
                   <PrivateRoute path="/leaderboard" component={LeaderBoard} />
                   <PrivateRoute path="/questions/:id" component={PollDetails} />
                   <Route to="/login" component={Login} />
+                  <Route to="/error" component={ErrorPage} />
                 </Switch>
               </Grid.Column>
             </Grid.Row>

@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { Header, Grid } from "semantic-ui-react";
 import PollResults from "../Polls/PollResults";
+import ErrorPage from "./ErrorPage";
+// import { Redirect } from "react-router-dom";
+
 import UserInfo from "../Users/UserInfo";
 import SiteWrapper from "../Site/SiteWrapper";
 import { connect } from "react-redux";
@@ -8,7 +11,16 @@ import { connect } from "react-redux";
 class PollDetails extends Component {
   render() {
     const { id } = this.props.match.params;
+    console.log("ID: ", id);
     const { questions, users, authedUser } = this.props;
+
+    console.log(Object.keys(questions));
+
+    if (!Object.keys(questions).includes(id)) {
+      console.clear();
+      console.log("that id cannot be found");
+      return <ErrorPage />;
+    }
     const poll_author = questions[id].author;
     const questionsCreated = users[poll_author].questions.length;
     const questionsAnswered = Object.keys(users[poll_author].answers).length;

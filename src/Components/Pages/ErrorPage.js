@@ -11,7 +11,7 @@ export default function ErrorPage() {
         </div>
       </div>
       <nav>
-        <Link to="/">Return to Login</Link>
+        <Link to="/">Return Home</Link>
       </nav>
     </div>
   );
