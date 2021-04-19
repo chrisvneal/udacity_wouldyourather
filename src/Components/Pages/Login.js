@@ -42,6 +42,7 @@ class Login extends Component {
     // const from = "/";
 
     if (redirect) {
+      console.log(this.state);
       return <Redirect to={from} />;
     }
     return (
@@ -65,7 +66,7 @@ class Login extends Component {
               onClick={(e) => {
                 this.setUser(e, () => {
                   this.setState({
-                    redirect: false
+                    redirect: true
                   });
 
                   console.log(this.state);
