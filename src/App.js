@@ -18,7 +18,7 @@ import { handleInitialData } from "./actions/shared";
 import LoadingBar from "react-redux-loading";
 
 let fakeAuth = {
-  authenticated: true,
+  authenticated: false,
 };
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
@@ -57,23 +57,11 @@ class App extends Component {
             <Grid.Row>
               <Grid.Column width={16}>
                 <Switch>
-                  <PrivateRoute
-                    path="/"
-                    exact
-                    component={this.checkAuth(Polls, Login)}
-                  />
-                  <PrivateRoute
-                    path="/add"
-                    component={this.checkAuth(CreatePoll)}
-                  />
-                  <PrivateRoute
-                    path="/leaderboard"
-                    component={this.checkAuth(LeaderBoard)}
-                  />
-                  <PrivateRoute
-                    path="/questions/:id"
-                    component={this.checkAuth(PollDetails)}
-                  />
+                  <PrivateRoute path="/" exact component={Polls} />
+                  <PrivateRoute path="/add" component={CreatePoll} />
+                  <PrivateRoute path="/leaderboard" component={LeaderBoard} />
+                  <PrivateRoute path="/questions/:id" component={PollDetails} />
+                  <Route to="/login" component={Login} />
                 </Switch>
               </Grid.Column>
             </Grid.Row>
