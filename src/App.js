@@ -38,14 +38,6 @@ class App extends Component {
     this.props.dispatch(handleInitialData());
   }
 
-  checkAuth = (component, otherPage = ErrorPage) => {
-    if (this.props.authedUser) {
-      return component;
-    } else {
-      return otherPage;
-    }
-  };
-
   render() {
     return (
       <Router>
