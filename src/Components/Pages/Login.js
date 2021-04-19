@@ -3,9 +3,13 @@ import { connect } from "react-redux";
 import { Form, Button, Dropdown, Container } from "semantic-ui-react";
 import { setAuthedUser } from "../../actions/authedUser";
 import { users } from "../../apis/helpers";
+import { Redirect } from "react-router-dom";
 
 class Login extends Component {
-  setUser = (e) => {
+  state = {
+    redirect: false
+  };
+  setUser = (e, cb) => {
     e.preventDefault();
     const user_select = document.querySelector(".login .divider.text");
     let user = user_select.innerText;
@@ -28,9 +32,18 @@ class Login extends Component {
     }
 
     this.props.dispatch(setAuthedUser(user));
+
+    cb();
   };
 
   render() {
+    const { redirect } = this.state;
+    const { from } = this.props.location.state || { from: { pathname: "/" } };
+    // const from = "/";
+
+    if (redirect) {
+      return <Redirect to={from} />;
+    }
     return (
       <Container>
         <div className="login">
@@ -47,7 +60,22 @@ class Login extends Component {
                 options={users}
               />
             </Form.Field>
-            <Button type="submit">Login</Button>
+            <Button
+              type="submit"
+              onClick={(e) => {
+                this.setUser(e, () => {
+                  this.setState({
+                    redirect: false
+                  });
+
+                  console.log(this.state);
+
+                  console.log("Redirect after state change: ", this.state);
+                });
+              }}
+            >
+              Login
+            </Button>
           </Form>
         </div>
       </Container>
@@ -55,9 +83,10 @@ class Login extends Component {
   }
 }
 
-function mapStateToProps({ users }) {
+function mapStateToProps({ users, authedUser }) {
   return {
     users,
+    authedUser
   };
 }
 

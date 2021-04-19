@@ -4,12 +4,12 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Redirect,
+  Redirect
 } from "react-router-dom";
 import LeaderBoard from "./Components/Pages/LeaderBoard";
 import CreatePoll from "./Components/Pages/CreatePoll";
 import Polls from "./Components/Pages/Polls";
-import ErrorPage from "./Components/Pages/ErrorPage";
+// import ErrorPage from "./Components/Pages/ErrorPage";
 import Login from "./Components/Pages/Login";
 import PollDetails from "./Components/Pages/PollDetails";
 import { Grid } from "semantic-ui-react";
@@ -17,17 +17,21 @@ import { connect } from "react-redux";
 import { handleInitialData } from "./actions/shared";
 import LoadingBar from "react-redux-loading";
 
-let fakeAuth = {
-  authenticated: true,
-};
+let userLogged = false;
+
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
     {...rest}
     render={(props) =>
-      fakeAuth.authenticated === true ? (
+      userLogged ? (
         <Component {...props} />
       ) : (
-        <Redirect to="/login" />
+        <Redirect
+          to={{
+            pathname: "/login",
+            state: { from: props.location }
+          }}
+        />
       )
     }
   />
@@ -36,15 +40,8 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
 class App extends Component {
   componentDidMount() {
     this.props.dispatch(handleInitialData());
+    userLogged = true;
   }
-
-  checkAuth = (component, otherPage = ErrorPage) => {
-    if (this.props.authedUser) {
-      return component;
-    } else {
-      return otherPage;
-    }
-  };
 
   render() {
     return (
@@ -57,23 +54,11 @@ class App extends Component {
             <Grid.Row>
               <Grid.Column width={16}>
                 <Switch>
-                  <PrivateRoute
-                    path="/"
-                    exact
-                    component={this.checkAuth(Polls, Login)}
-                  />
-                  <PrivateRoute
-                    path="/add"
-                    component={this.checkAuth(CreatePoll)}
-                  />
-                  <PrivateRoute
-                    path="/leaderboard"
-                    component={this.checkAuth(LeaderBoard)}
-                  />
-                  <PrivateRoute
-                    path="/questions/:id"
-                    component={this.checkAuth(PollDetails)}
-                  />
+                  <PrivateRoute path="/" exact component={Polls} />
+                  <PrivateRoute path="/add" component={CreatePoll} />
+                  <PrivateRoute path="/leaderboard" component={LeaderBoard} />
+                  <PrivateRoute path="/questions/:id" component={PollDetails} />
+                  <Route path="/login" component={Login} />
                 </Switch>
               </Grid.Column>
             </Grid.Row>
@@ -86,7 +71,7 @@ class App extends Component {
 
 function mapStateToProps({ authedUser }) {
   return {
-    authedUser,
+    authedUser
   };
 }
 

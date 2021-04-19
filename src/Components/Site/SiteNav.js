@@ -22,7 +22,7 @@ function SiteNav(props) {
             <li>Leader Board</li>
           </Link>
 
-          <Link to="/">
+          <Link to="/login">
             <li onClick={logout} className="asLink blue">
               Sign Out
             </li>
