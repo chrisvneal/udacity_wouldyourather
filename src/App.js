@@ -17,17 +17,23 @@ import { connect } from "react-redux";
 import { handleInitialData } from "./actions/shared";
 import LoadingBar from "react-redux-loading";
 
-let fakeAuth = {
+let appAuth = {
   authenticated: false,
 };
+
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
     {...rest}
     render={(props) =>
-      fakeAuth.authenticated === true ? (
+      appAuth.authenticated === true ? (
         <Component {...props} />
       ) : (
-        <Redirect to="/login" />
+        <Redirect
+          to={{
+            pathname: "/login",
+            state: { from: props.location },
+          }}
+        />
       )
     }
   />
@@ -39,6 +45,10 @@ class App extends Component {
   }
 
   render() {
+    if (this.props.authedUser) {
+      appAuth.authenticated = true;
+    }
+
     return (
       <Router>
         <div className="App">

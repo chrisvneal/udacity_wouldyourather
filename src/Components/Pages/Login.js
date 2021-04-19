@@ -3,8 +3,13 @@ import { connect } from "react-redux";
 import { Form, Button, Dropdown, Container } from "semantic-ui-react";
 import { setAuthedUser } from "../../actions/authedUser";
 import { users } from "../../apis/helpers";
+import { Redirect } from "react-router-dom";
 
 class Login extends Component {
+  state = {
+    redirecting: false,
+  };
+
   setUser = (e) => {
     e.preventDefault();
     const user_select = document.querySelector(".login .divider.text");
@@ -28,9 +33,18 @@ class Login extends Component {
     }
 
     this.props.dispatch(setAuthedUser(user));
+    this.setState({
+      redirecting: true,
+    });
   };
 
   render() {
+    const { redirecting } = this.state;
+    const { from } = this.props.location.state || { from: { pathname: "/" } };
+
+    if (redirecting) {
+      return <Redirect to={from} />;
+    }
     return (
       <Container>
         <div className="login">
