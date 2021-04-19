@@ -11,14 +11,9 @@ import { connect } from "react-redux";
 class PollDetails extends Component {
   render() {
     const { id } = this.props.match.params;
-    console.log("ID: ", id);
     const { questions, users, authedUser } = this.props;
 
-    console.log(Object.keys(questions));
-
     if (!Object.keys(questions).includes(id)) {
-      console.clear();
-      console.log("that id cannot be found");
       return <ErrorPage />;
     }
     const poll_author = questions[id].author;
